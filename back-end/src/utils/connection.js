@@ -1,4 +1,4 @@
-// required ,odules
+// required modules
 var mongoose = require("mongoose");
 
 // Build the connection string
