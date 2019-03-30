@@ -25,7 +25,7 @@ export class AuthenticationService {
             this.router.navigate(["/admin-dashboard"]);
           }
         },
-        err => alert("Error occured.. Contact Administrations!")
+        err => alert("Error occured.. Contact Administrations")
       );
   }
 }
