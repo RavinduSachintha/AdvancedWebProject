@@ -19,7 +19,7 @@ router.post("/", function(req, res, next) {
         return next(err);
       } else {
         req.session.userId = user._id;
-        res.redirect("/profile");
+        res.json(user);
       }
     });
   } else {
