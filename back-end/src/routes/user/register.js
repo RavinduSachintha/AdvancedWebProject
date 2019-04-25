@@ -1,8 +1,8 @@
 // required modules
 const express = require("express");
 const router = express.Router();
-const AuthController = require("../controllers/authController");
-const ResponseObject = require("../models/response");
+const AuthController = require("../../controllers/authController");
+const ResponseObject = require("../../models/response");
 
 const authController = new AuthController();
 
@@ -18,15 +18,15 @@ router.post("/", function(req, res, next) {
     // register the user in system
     authController.registerUser(userData, (err, user) => {
       if (err) {
-        return next(err);
+        return res.json(new ResponseObject("unsuccess", null, err.errmsg));
       } else {
-        res.json(new ResponseObject("sucess", user._id, null));
+        return res.json(new ResponseObject("success", user._id, null));
       }
     });
   } else {
-    var err = new Error("All fields have to be filled out");
-    err.status = 400;
-    return next(err);
+    return res.json(
+      new ResponseObject("unsuccess", null, "All fields have to be filled out")
+    );
   }
 });
 

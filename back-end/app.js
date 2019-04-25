@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
 });
 
 // required routers
-const registerRouter = require("./src/routes/register");
+const registerRouter = require("./src/routes/user/register");
 // const loginRouter = require("./src/routes/login");
 // const logoutRouter = require("./src/routes/logout");
 // const profileRouter = require("./src/routes/profile");
