@@ -7,7 +7,7 @@ const ResponseObject = require("../../models/response");
 const authController = new AuthController();
 
 // POST route for logging
-router.post("/", function(req, res, next) {
+router.post("/", function(req, res) {
   if (req.body.email && req.body.password) {
     var userData = {
       email: req.body.email,

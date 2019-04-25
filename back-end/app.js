@@ -4,7 +4,9 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const mongoose = require("mongoose");
+const JWT_Middleware = require("./src/utils/jwt-middleware");
+
+const jwt_middleware = new JWT_Middleware();
 
 // express app initialization
 const app = express();
@@ -44,18 +46,16 @@ app.use(function(req, res, next) {
 // required routers
 const registerRouter = require("./src/routes/user/register");
 const loginRouter = require("./src/routes/user/login");
-// const logoutRouter = require("./src/routes/logout");
-// const profileRouter = require("./src/routes/profile");
+const profileRouter = require("./src/routes/user/profile");
 
 // application routings
 app.use("/user/register", registerRouter);
 app.use("/user/login", loginRouter);
-// app.use("/user/logout", logoutRouter);
-// app.use("/user/profile", profileRouter);
+app.use("/user/profile", jwt_middleware.validateUser, profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  let err = new Error("File Not Found");
+  let err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
