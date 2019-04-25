@@ -6,21 +6,20 @@ const ResponseObject = require("../../models/response");
 
 const authController = new AuthController();
 
-// POST route for inserting data
-router.post("/", function(req, res) {
-  if (req.body.email && req.body.username && req.body.password) {
-    let userData = {
+// POST route for logging
+router.post("/", function(req, res, next) {
+  if (req.body.email && req.body.password) {
+    var userData = {
       email: req.body.email,
-      username: req.body.username,
       password: req.body.password
     };
 
-    // register the user in system
-    authController.registerUser(userData, (err, user) => {
+    // login the user
+    authController.loginUser(userData, (err, data) => {
       if (err) {
         res.json(new ResponseObject("unsuccess", null, err.errmsg));
       } else {
-        res.json(new ResponseObject("success", user._id, null));
+        res.json(new ResponseObject("success", data, null));
       }
     });
   } else {

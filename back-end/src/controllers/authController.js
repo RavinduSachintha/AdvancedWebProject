@@ -1,9 +1,12 @@
+// required modules
 const userModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const config = require("../utils/config");
 
 class AuthController {
   constructor() {}
+
   // insert user data to DB
   registerUser(userData, callback) {
     userModel
@@ -11,15 +14,23 @@ class AuthController {
       .then(user => callback(null, user))
       .catch(err => callback(err));
   }
+
   // login authentication for user
   loginUser(userData, callback) {
-    userModel.authenticate(userData.email, userData.password, (err, user) => {
-      if (err || !user) {
-        var err = new Error("Wrong email or password.");
-        err.status = 401;
+    userModel.findOne({ email: userData.email }, (err, user) => {
+      if (err) {
         callback(err);
+      } else if(!user) {
+        callback({ errmsg: "No user exist" });
       } else {
-        callback(null, user);
+        if (bcrypt.compareSync(userData.password, user.password)) {
+          const token = jwt.sign({ id: user._id }, config.secret, {
+            expiresIn: "1h"
+          });
+          callback(null, { user: user, token: token });
+        } else {
+          callback({ errmsg: "Invalid email/password" });
+        }
       }
     });
   }

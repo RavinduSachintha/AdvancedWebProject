@@ -43,13 +43,13 @@ app.use(function(req, res, next) {
 
 // required routers
 const registerRouter = require("./src/routes/user/register");
-// const loginRouter = require("./src/routes/login");
+const loginRouter = require("./src/routes/user/login");
 // const logoutRouter = require("./src/routes/logout");
 // const profileRouter = require("./src/routes/profile");
 
 // application routings
 app.use("/user/register", registerRouter);
-// app.use("/user/login", loginRouter);
+app.use("/user/login", loginRouter);
 // app.use("/user/logout", logoutRouter);
 // app.use("/user/profile", profileRouter);
 
