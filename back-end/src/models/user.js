@@ -1,7 +1,10 @@
-var mongoose = require("mongoose");
-var bcrypt = require("bcrypt");
+// User model
 
-var UserSchema = new mongoose.Schema({
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
+
+const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
@@ -43,7 +46,7 @@ UserSchema.statics.authenticate = function(email, password, callback) {
 // hashing a password before saving it to the database
 UserSchema.pre("save", function(next) {
   var user = this;
-  bcrypt.hash(user.password, 10, (err, hash) => {
+  bcrypt.hash(user.password, saltRounds, (err, hash) => {
     if (err) {
       return next(err);
     }
@@ -52,5 +55,4 @@ UserSchema.pre("save", function(next) {
   });
 });
 
-var User = mongoose.model("User", UserSchema);
-module.exports = User;
+module.exports = mongoose.model("User", UserSchema);

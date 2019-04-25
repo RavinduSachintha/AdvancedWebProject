@@ -6,7 +6,10 @@ var dbURI =
   "mongodb+srv://sachintha:sachintha22@cluster0-uwov5.mongodb.net/test?retryWrites=true";
 
 // Create the database connection
-mongoose.connect(dbURI);
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
 
 // CONNECTION EVENTS
 // When successfully connected
@@ -33,6 +36,3 @@ process.on("SIGINT", function() {
     process.exit(0);
   });
 });
-
-// // BRING IN YOUR SCHEMAS & MODELS // For example
-// require('./../model/team');

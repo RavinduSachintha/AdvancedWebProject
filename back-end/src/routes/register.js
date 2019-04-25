@@ -1,14 +1,15 @@
 // required modules
-var express = require("express");
-var router = express.Router();
-var AuthController = require("../controllers/authController");
+const express = require("express");
+const router = express.Router();
+const AuthController = require("../controllers/authController");
+const ResponseObject = require("../models/response");
 
-var authController = new AuthController();
+const authController = new AuthController();
 
 // POST route for inserting data
 router.post("/", function(req, res, next) {
   if (req.body.email && req.body.username && req.body.password) {
-    var userData = {
+    let userData = {
       email: req.body.email,
       username: req.body.username,
       password: req.body.password
@@ -19,8 +20,7 @@ router.post("/", function(req, res, next) {
       if (err) {
         return next(err);
       } else {
-        req.session.userId = user._id;
-        res.redirect("/profile");
+        res.json(new ResponseObject("sucess", user._id, null));
       }
     });
   } else {
