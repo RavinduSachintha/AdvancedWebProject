@@ -15,17 +15,29 @@ export class AuthenticationService {
 
   loginUser(authUser: AuthUser) {
     this.httpBackendRequest
-      .realizarHttpPost(HttpEnum.LOGIN, authUser)
+      .realizarHttpPost(HttpEnum.USER_LOGIN, authUser)
       .subscribe(
-        result => {
-          if (result === null) {
-            alert("Login credentials are not correct.");
-          } else {
-            console.log("Login credentials ok");
+        (result: any) => {
+          if (result.status === "success") {
+            if (result.data.user && result.data.token) {
+              localStorage.setItem(
+                "currentUser",
+                JSON.stringify({
+                  id: result.data.user._id,
+                  token: result.data.token
+                })
+              );
+            }
             this.router.navigate(["/admin-dashboard"]);
+          } else {
+            alert(result.error);
           }
         },
         err => alert("Error occured.. Contact Administrations")
       );
+  }
+
+  logoutUser() {
+    localStorage.removeItem("currentUser");
   }
 }
