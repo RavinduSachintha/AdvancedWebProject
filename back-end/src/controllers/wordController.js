@@ -11,6 +11,14 @@ class WordController {
       .then(word => callback(null, word))
       .catch(err => callback(err));
   }
+
+  // delete word by ID from DB
+  deleteWordById(wordId, callback) {
+    wordModel
+      .findByIdAndDelete(wordId)
+      .then(word => callback(null, word))
+      .catch(err => callback(err));
+  }
 }
 
 module.exports = WordController;
