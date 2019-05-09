@@ -50,8 +50,8 @@
   - request body:
     - userId - required
     - data - required (word in English)
-    - state - required
-    - bestSuggestion - required
+    - state
+    - bestSuggestion
     - startDate
     - endDate
     - activeState
@@ -59,6 +59,25 @@
   - response:
       - status - (success/unsucces)
       - data - (word data)
+      - error - (default null)
+
+- update a word (English)
+  - path: *localhost:3000/word/update*
+  - type: PUT
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+    - userId - required
+    - wordId - required (current word id)
+    - data - required (word in English)
+    - state
+    - bestSuggestion
+    - startDate
+    - endDate
+    - activeState
+    - createdDate
+  - response:
+      - status - (success/unsucces)
+      - data - (old word data)
       - error - (default null)
 
 - delete a word (English)

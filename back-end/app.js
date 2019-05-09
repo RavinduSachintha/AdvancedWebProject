@@ -61,7 +61,7 @@ app.use("/user/profile", jwt_middleware.validateUser, userProfileRouter);
 app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
 app.use("/word/delete", jwt_middleware.validateUser, wordDeleteRouter);
 app.use("/word/retrieve", wordRetrieveRouter);
-// app.use("/word/update", jwt_middleware.validateUser, wordUpdateRouter);
+app.use("/word/update", jwt_middleware.validateUser, wordUpdateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

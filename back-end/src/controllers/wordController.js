@@ -12,6 +12,14 @@ class WordController {
       .catch(err => callback(err));
   }
 
+  // update word data to DB
+  updateWord(wordId, wordData, callback) {
+    wordModel
+      .findByIdAndUpdate(wordId, wordData)
+      .then(word => callback(null, word))
+      .catch(err => callback(err));
+  }
+
   // delete word by ID from DB
   deleteWordById(wordId, callback) {
     wordModel
