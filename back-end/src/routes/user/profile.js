@@ -14,7 +14,7 @@ router.get("/:username", function(req, res) {
     } else {
       res.json(new ResponseObject("success", user, null));
     }
-  })
+  });
 });
 
 module.exports = router;

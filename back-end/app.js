@@ -53,6 +53,11 @@ const wordDeleteRouter = require("./src/routes/word/delete");
 const wordRetrieveRouter = require("./src/routes/word/retrieve");
 const wordUpdateRouter = require("./src/routes/word/update");
 
+const suggestionCreateRouter = require("./src/routes/suggestion/create");
+const suggestionDeleteRouter = require("./src/routes/suggestion/delete");
+const suggestionRetrieveRouter = require("./src/routes/suggestion/retrieve");
+const suggestionUpdateRouter = require("./src/routes/suggestion/update");
+
 // application routings
 app.use("/user/register", userRegisterRouter);
 app.use("/user/login", userLoginRouter);
@@ -62,6 +67,23 @@ app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
 app.use("/word/delete", jwt_middleware.validateUser, wordDeleteRouter);
 app.use("/word/retrieve", wordRetrieveRouter);
 app.use("/word/update", jwt_middleware.validateUser, wordUpdateRouter);
+
+app.use(
+  "/suggestion/create",
+  jwt_middleware.validateUser,
+  suggestionCreateRouter
+);
+app.use(
+  "/suggestion/delete",
+  jwt_middleware.validateUser,
+  suggestionDeleteRouter
+);
+app.use("/suggestion/retrieve", suggestionRetrieveRouter);
+app.use(
+  "/suggestion/update",
+  jwt_middleware.validateUser,
+  suggestionUpdateRouter
+);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

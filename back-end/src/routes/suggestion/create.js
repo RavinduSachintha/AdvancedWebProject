@@ -1,31 +1,29 @@
 // required modules
 const express = require("express");
 const router = express.Router();
-const WordController = require("../../controllers/wordController");
+const SuggestionController = require("../../controllers/suggestionController");
 const ResponseObject = require("../../models/response");
 
-const wordController = new WordController();
+const suggestionController = new SuggestionController();
 
-// PUT route for updating data
-router.put("/", function(req, res) {
+// POST route for inserting data
+router.post("/", function(req, res) {
   if (req.body.userId && req.body.wordId && req.body.data) {
-    let wordData = {
+    let suggestionData = {
       userId: req.body.userId,
+      wordId: req.body.wordId,
       data: req.body.data,
       state: req.body.state,
-      bestSuggestion: req.body.bestSuggestion,
-      startDate: req.body.startDate,
-      endDate: req.body.endDate,
-      activeState: req.body.activeState,
+      votesCount: req.body.votesCount,
       createdDate: req.body.createdDate
     };
 
-    // update the word to system
-    wordController.updateWord(req.body.wordId, wordData, (err, word) => {
+    // insert the suggestion to system
+    suggestionController.insertSuggestion(suggestionData, (err, suggestion) => {
       if (err) {
         res.json(new ResponseObject("unsuccess", null, err.errmsg));
       } else {
-        res.json(new ResponseObject("success", word, null));
+        res.json(new ResponseObject("success", suggestion, null));
       }
     });
   } else {

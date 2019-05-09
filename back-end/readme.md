@@ -1,8 +1,10 @@
 ## Backend Functions
+
 ### User
 
 - register
-  - path: *localhost:3000/user/register*
+
+  - path: _localhost:3000/user/register_
   - type: POST
   - headers: (Content-Type : application/x-www-form-urlencoded)
   - request body:
@@ -15,40 +17,41 @@
     - suggestedWordCount
     - joinedDate
   - response:
-      - status - (success/unsucces)
-      - data - (user id)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - (user id)
+    - error - (default null)
 
 - login
-  - path: *localhost:3000/user/login*
+
+  - path: _localhost:3000/user/login_
   - type: POST
   - headers: (Content-Type : application/x-www-form-urlencoded)
   - request body:
     - email - required
     - password - required
   - response:
-      - status - (success/unsucces)
-      - data - (user data & token)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - (user data & token)
+    - error - (default null)
 
 - get profile data
-  - path: *localhost:3000/user/profile/username*
+  - path: _localhost:3000/user/profile/username_
   - type: GET
   - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
   - request body:
   - response:
-      - status - (success/unsucces)
-      - data - (user data)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - (user data)
+    - error - (default null)
 
 ### Word
 
 - insert a word (English)
-  - path: *localhost:3000/word/create*
+
+  - path: _localhost:3000/word/create_
   - type: POST
   - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
   - request body:
-    - userId - required
     - data - required (word in English)
     - state
     - bestSuggestion
@@ -57,16 +60,16 @@
     - activeState
     - createdDate
   - response:
-      - status - (success/unsucces)
-      - data - (word data)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - (word data)
+    - error - (default null)
 
 - update a word (English)
-  - path: *localhost:3000/word/update*
+
+  - path: _localhost:3000/word/update_
   - type: PUT
   - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
   - request body:
-    - userId - required
     - wordId - required (current word id)
     - data - required (word in English)
     - state
@@ -76,36 +79,105 @@
     - activeState
     - createdDate
   - response:
-      - status - (success/unsucces)
-      - data - (old word data)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - (old word data)
+    - error - (default null)
 
 - delete a word (English)
-  - path: *localhost:3000/word/delete/wordId*
+
+  - path: _localhost:3000/word/delete/wordId_
   - type: DELETE
   - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
   - request body:
   - response:
-      - status - (success/unsucces)
-      - data - (deleted word data)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - (deleted word data)
+    - error - (default null)
 
 - get a word by ID (English)
-  - path: *localhost:3000/word/retrieve/wordId*
+
+  - path: _localhost:3000/word/retrieve/wordId_
   - type: GET
   - headers: (Content-Type : application/x-www-form-urlencoded)
   - request body:
   - response:
-      - status - (success/unsucces)
-      - data - ( word data)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - ( word data)
+    - error - (default null)
 
 - get all words (English)
-  - path: *localhost:3000/word/retrieve/all*
+  - path: _localhost:3000/word/retrieve/all_
   - type: GET
   - headers: (Content-Type : application/x-www-form-urlencoded)
   - request body:
   - response:
-      - status - (success/unsucces)
-      - data - ( words data)
-      - error - (default null)
+    - status - (success/unsucces)
+    - data - ( words data)
+    - error - (default null)
+
+### Suggestion
+
+- insert a suggestion (Sinhala)
+
+  - path: _localhost:3000/suggestion/create_
+  - type: POST
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+    - wordId - required
+    - data - required (word in Sinhala)
+    - state
+    - votesCount
+    - createdDate
+  - response:
+    - status - (success/unsucces)
+    - data - (suggestion data)
+    - error - (default null)
+
+- update a suggestion (Sinhala)
+
+  - path: _localhost:3000/suggestion/update_
+  - type: PUT
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+    - wordId - required
+    - suggestionId - required (current suggestion id)
+    - data - required (word in English)
+    - state
+    - votesCount
+    - createdDate
+  - response:
+    - status - (success/unsucces)
+    - data - (old suggestion data)
+    - error - (default null)
+
+- delete a suggestion (Sinhala)
+
+  - path: _localhost:3000/suggestion/delete/suggestionId_
+  - type: DELETE
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+  - response:
+    - status - (success/unsucces)
+    - data - (deleted suggestion data)
+    - error - (default null)
+
+- get a suggestion by ID (Sinhala)
+
+  - path: _localhost:3000/suggestion/retrieve/suggestionId_
+  - type: GET
+  - headers: (Content-Type : application/x-www-form-urlencoded)
+  - request body:
+  - response:
+    - status - (success/unsucces)
+    - data - ( suggestion data)
+    - error - (default null)
+
+- get all suggestions (Sinhala)
+  - path: _localhost:3000/suggestion/retrieve/all_
+  - type: GET
+  - headers: (Content-Type : application/x-www-form-urlencoded)
+  - request body:
+  - response:
+    - status - (success/unsucces)
+    - data - ( suggestions data)
+    - error - (default null)

@@ -30,7 +30,11 @@ router.post("/", function(req, res) {
     });
   } else {
     res.json(
-      new ResponseObject("unsuccess", null, "Required fields have to be filled out")
+      new ResponseObject(
+        "unsuccess",
+        null,
+        "Required fields have to be filled out"
+      )
     );
   }
 });

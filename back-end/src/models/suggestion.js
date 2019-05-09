@@ -3,6 +3,10 @@
 const mongoose = require("mongoose");
 
 const SuggestionSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true
+  },
   wordId: {
     type: String,
     required: true

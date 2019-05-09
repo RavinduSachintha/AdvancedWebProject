@@ -20,7 +20,7 @@ class AuthController {
     userModel.findOne({ email: userData.email }, (err, user) => {
       if (err) {
         callback(err);
-      } else if(!user) {
+      } else if (!user) {
         callback({ errmsg: "No user exist" });
       } else {
         if (bcrypt.compareSync(userData.password, user.password)) {
