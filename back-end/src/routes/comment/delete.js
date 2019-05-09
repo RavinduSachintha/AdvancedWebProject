@@ -9,7 +9,7 @@ const commentController = new CommentController();
 // DELETE route for deleting data
 router.delete("/:commentId", function(req, res) {
   commentController.deleteCommentById(req.params.commentId, (err, comment) => {
-    if (err) {
+    if (err || comment == null) {
       res.json(new ResponseObject("unsuccess", null, err));
     } else {
       res.json(new ResponseObject("success", comment, null));

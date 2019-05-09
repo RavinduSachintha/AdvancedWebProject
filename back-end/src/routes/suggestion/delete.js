@@ -11,7 +11,7 @@ router.delete("/:suggestionId", function(req, res) {
   suggestionController.deleteSuggestionById(
     req.params.suggestionId,
     (err, suggestion) => {
-      if (err) {
+      if (err || suggestion == null) {
         res.json(new ResponseObject("unsuccess", null, err));
       } else {
         res.json(new ResponseObject("success", suggestion, null));

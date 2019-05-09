@@ -7,7 +7,7 @@ const userModel = require("../../models/user");
 const ResponseObject = require("../../models/response");
 
 // POST route for getting profile details
-router.get("/", function(req, res) {
+router.get("/profile", function(req, res) {
   userModel.findOne({ _id: req.body.userId }, (err, user) => {
     if (err) {
       res.json(new ResponseObject("unsuccess", null, err));
@@ -17,8 +17,8 @@ router.get("/", function(req, res) {
   });
 });
 
-// POST route for getting profile details
-router.get("/:username", function(req, res) {
+// POST route for getting profile details by user name
+router.get("/profile/:username", function(req, res) {
   userModel.findOne({ username: req.params.username }, (err, user) => {
     if (err) {
       res.json(new ResponseObject("unsuccess", null, err));

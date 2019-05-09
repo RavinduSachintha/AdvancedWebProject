@@ -9,7 +9,7 @@ const wordController = new WordController();
 // DELETE route for deleting data
 router.delete("/:wordId", function(req, res) {
   wordController.deleteWordById(req.params.wordId, (err, word) => {
-    if (err) {
+    if (err || word == null) {
       res.json(new ResponseObject("unsuccess", null, err));
     } else {
       res.json(new ResponseObject("success", word, null));

@@ -46,7 +46,7 @@ app.use(function(req, res, next) {
 // required routers
 const userRegisterRouter = require("./src/routes/user/register");
 const userLoginRouter = require("./src/routes/user/login");
-const userProfileRouter = require("./src/routes/user/profile");
+const userRetrieveRouter = require("./src/routes/user/retrieve");
 
 const wordCreateRouter = require("./src/routes/word/create");
 const wordDeleteRouter = require("./src/routes/word/delete");
@@ -66,10 +66,10 @@ const commentUpdateRouter = require("./src/routes/comment/update");
 // application routings
 app.use("/user/register", userRegisterRouter);
 app.use("/user/login", userLoginRouter);
-app.use("/user/profile", jwt_middleware.validateUser, userProfileRouter);
+app.use("/user/retrieve", jwt_middleware.validateUser, userRetrieveRouter);
 
 app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
-app.use("/word/delete", jwt_middleware.validateUser, wordDeleteRouter);
+app.use("/word/delete", jwt_middleware.validateAdminUser, wordDeleteRouter);
 app.use("/word/retrieve", wordRetrieveRouter);
 app.use("/word/update", jwt_middleware.validateUser, wordUpdateRouter);
 
@@ -80,7 +80,7 @@ app.use(
 );
 app.use(
   "/suggestion/delete",
-  jwt_middleware.validateUser,
+  jwt_middleware.validateAdminUser,
   suggestionDeleteRouter
 );
 app.use("/suggestion/retrieve", suggestionRetrieveRouter);

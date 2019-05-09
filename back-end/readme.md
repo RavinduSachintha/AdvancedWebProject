@@ -34,8 +34,18 @@
     - data - (user data & token)
     - error - (default null)
 
-- get profile data
-  - path: _localhost:3000/user/profile/username_
+- get own profile data
+  - path: _localhost:3000/user/retrieve/profile_
+  - type: GET
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+  - response:
+    - status - (success/unsucces)
+    - data - (user data)
+    - error - (default null)
+
+- get profile data by user name
+  - path: _localhost:3000/user/retrieve/profile/username_
   - type: GET
   - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
   - request body:
