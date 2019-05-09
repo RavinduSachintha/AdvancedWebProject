@@ -24,6 +24,19 @@ const UserSchema = new mongoose.Schema({
   usertype: {
     type: Number,
     required: true
+  },
+  userLevel: {
+    type: Number,
+    required: true
+  },
+  votedWordCount: {
+    type: Number
+  },
+  suggestedWordCount: {
+    type: Number
+  },
+  joinedDate: {
+    type: Date
   }
 });
 
