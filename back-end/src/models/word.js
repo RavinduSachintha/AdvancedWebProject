@@ -1,4 +1,4 @@
-// User model
+// Word model
 
 const mongoose = require("mongoose");
 

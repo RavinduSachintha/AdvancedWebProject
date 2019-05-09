@@ -1,4 +1,4 @@
-// User model
+// Suggestion model
 
 const mongoose = require("mongoose");
 

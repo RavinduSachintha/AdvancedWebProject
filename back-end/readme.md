@@ -181,3 +181,70 @@
     - status - (success/unsucces)
     - data - ( suggestions data)
     - error - (default null)
+
+### Comment
+
+- insert a comment
+
+  - path: _localhost:3000/comment/create_
+  - type: POST
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+    - wordId - required
+    - suggestionId
+    - data - required
+    - likesCount
+    - createdDate
+  - response:
+    - status - (success/unsucces)
+    - data - (comment data)
+    - error - (default null)
+
+- update a comment
+
+  - path: _localhost:3000/comment/update_
+  - type: PUT
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+    - wordId - required
+    - suggestionId
+    - commentId - required (current comment id)
+    - data - required
+    - likesCount
+    - createdDate
+  - response:
+    - status - (success/unsucces)
+    - data - (old comment data)
+    - error - (default null)
+
+- delete a comment
+
+  - path: _localhost:3000/comment/delete/commentId_
+  - type: DELETE
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+  - response:
+    - status - (success/unsucces)
+    - data - (deleted comment data)
+    - error - (default null)
+
+- get a comment by ID
+
+  - path: _localhost:3000/comment/retrieve/commentId_
+  - type: GET
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+  - response:
+    - status - (success/unsucces)
+    - data - ( comment data)
+    - error - (default null)
+
+- get all comments
+  - path: _localhost:3000/comment/retrieve/all_
+  - type: GET
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+  - response:
+    - status - (success/unsucces)
+    - data - ( comments data)
+    - error - (default null)

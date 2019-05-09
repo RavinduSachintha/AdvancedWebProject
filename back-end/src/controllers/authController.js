@@ -25,7 +25,7 @@ class AuthController {
       } else {
         if (bcrypt.compareSync(userData.password, user.password)) {
           const token = jwt.sign({ id: user._id }, config.secret, {
-            expiresIn: "1h"
+            expiresIn: "3h"
           });
           callback(null, { user: user, token: token });
         } else {
