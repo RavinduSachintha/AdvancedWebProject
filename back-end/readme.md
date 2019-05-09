@@ -60,3 +60,33 @@
       - status - (success/unsucces)
       - data - (word data)
       - error - (default null)
+
+- delete a word (English)
+  - path: *localhost:3000/word/delete/wordId*
+  - type: DELETE
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+  - response:
+      - status - (success/unsucces)
+      - data - (deleted word data)
+      - error - (default null)
+
+- get a word by ID (English)
+  - path: *localhost:3000/word/retrieve/wordId*
+  - type: GET
+  - headers: (Content-Type : application/x-www-form-urlencoded)
+  - request body:
+  - response:
+      - status - (success/unsucces)
+      - data - ( word data)
+      - error - (default null)
+
+- get all words (English)
+  - path: *localhost:3000/word/retrieve/all*
+  - type: GET
+  - headers: (Content-Type : application/x-www-form-urlencoded)
+  - request body:
+  - response:
+      - status - (success/unsucces)
+      - data - ( words data)
+      - error - (default null)

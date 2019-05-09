@@ -19,6 +19,22 @@ class WordController {
       .then(word => callback(null, word))
       .catch(err => callback(err));
   }
+
+  // get word by ID from DB
+  getWordById(wordId, callback) {
+    wordModel
+      .findById(wordId)
+      .then(word => callback(null, word))
+      .catch(err => callback(err));
+  }
+
+  // get all words from DB
+  getAllWords(callback) {
+    wordModel
+      .find({})
+      .then(word => callback(null, word))
+      .catch(err => callback(err));
+  }
 }
 
 module.exports = WordController;
