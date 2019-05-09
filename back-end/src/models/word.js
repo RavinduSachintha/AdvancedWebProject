@@ -3,6 +3,10 @@
 const mongoose = require("mongoose");
 
 const WordSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true
+  },
   data: {
     type: String,
     unique: true,
@@ -21,8 +25,7 @@ const WordSchema = new mongoose.Schema({
     type: Date
   },
   activeState: {
-    type: String,
-    required: true
+    type: String
   },
   createdDate: {
     type: Date

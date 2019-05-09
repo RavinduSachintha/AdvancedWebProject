@@ -40,3 +40,23 @@
       - status - (success/unsucces)
       - data - (user data)
       - error - (default null)
+
+### Word
+
+- insert a word (English)
+  - path: *localhost:3000/word/create*
+  - type: POST
+  - headers: (Content-Type : application/x-www-form-urlencoded, x-access-token: **user token**)
+  - request body:
+    - userId - required
+    - data - required (word in English)
+    - state - required
+    - bestSuggestion - required
+    - startDate
+    - endDate
+    - activeState
+    - createdDate
+  - response:
+      - status - (success/unsucces)
+      - data - (word data)
+      - error - (default null)

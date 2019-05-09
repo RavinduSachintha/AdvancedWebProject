@@ -44,14 +44,18 @@ app.use(function(req, res, next) {
 });
 
 // required routers
-const registerRouter = require("./src/routes/user/register");
-const loginRouter = require("./src/routes/user/login");
-const profileRouter = require("./src/routes/user/profile");
+const userRegisterRouter = require("./src/routes/user/register");
+const userLoginRouter = require("./src/routes/user/login");
+const userProfileRouter = require("./src/routes/user/profile");
+
+const wordCreateRouter = require("./src/routes/word/create");
 
 // application routings
-app.use("/user/register", registerRouter);
-app.use("/user/login", loginRouter);
-app.use("/user/profile", jwt_middleware.validateUser, profileRouter);
+app.use("/user/register", userRegisterRouter);
+app.use("/user/login", userLoginRouter);
+app.use("/user/profile", jwt_middleware.validateUser, userProfileRouter);
+
+app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
