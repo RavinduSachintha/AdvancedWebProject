@@ -1,19 +1,20 @@
 // This is a sample file which used for development. Should be changed as necessary.
 
 // required modules
-var express = require("express");
-var router = express.Router();
-var User = require("../../models/user");
+const express = require("express");
+const router = express.Router();
+const userModel = require("../../models/user");
+const ResponseObject = require("../../models/response");
 
 // POST route for logging
-router.get("/:username", function(req, res, next) {
-  User.findOne({ username: req.params.username }).exec(function(error, user) {
-    if (error) {
-      return next(error);
+router.get("/:username", function(req, res) {
+  userModel.findOne({ username: req.params.username }, (err, user) => {
+    if (err) {
+      res.json(new ResponseObject("unsuccess", null, err));
     } else {
-      res.json(user);
+      res.json(new ResponseObject("success", user, null));
     }
-  });
+  })
 });
 
 module.exports = router;

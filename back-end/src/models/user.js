@@ -22,12 +22,11 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   usertype: {
-    type: Number,
+    type: String,
     required: true
   },
   userLevel: {
-    type: Number,
-    required: true
+    type: Number
   },
   votedWordCount: {
     type: Number

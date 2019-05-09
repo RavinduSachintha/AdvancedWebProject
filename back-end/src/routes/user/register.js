@@ -13,7 +13,11 @@ router.post("/", function(req, res) {
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
-      usertype: req.body.usertype
+      usertype: req.body.usertype,
+      userLevel: req.body.userLevel,
+      votedWordCount: req.body.votedWordCount,
+      suggestedWordCount: req.body.suggestedWordCount,
+      joinedDate: req.body.joinedDate
     };
 
     // register the user in system
@@ -26,7 +30,7 @@ router.post("/", function(req, res) {
     });
   } else {
     res.json(
-      new ResponseObject("unsuccess", null, "All fields have to be filled out")
+      new ResponseObject("unsuccess", null, "Required fields have to be filled out")
     );
   }
 });

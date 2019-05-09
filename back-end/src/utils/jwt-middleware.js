@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const config = require("../utils/config");
+const ResponseObject = require("../models/response");
 
 class JWT_Middleware {
   constructor() {}
@@ -10,7 +11,7 @@ class JWT_Middleware {
       decoded
     ) {
       if (err) {
-        res.json({ status: "error", message: err.message, data: null });
+        res.json(new ResponseObject("unsuccess", null, err.message));
       } else {
         // add user id to request
         req.body.userId = decoded.id;
