@@ -28,4 +28,18 @@ router.get("/profile/:username", function(req, res) {
   });
 });
 
+//Post route for getting all the user profiles
+//Rashmi
+
+router.get("/all", function(req, res) {
+  userModel.find({},(err, user) => {
+    if (err) {
+      res.json(new ResponseObject("unsuccess", null, err));
+    } else {
+      res.json(new ResponseObject("success", user, null));
+    }
+  });
+});
+
+
 module.exports = router;
