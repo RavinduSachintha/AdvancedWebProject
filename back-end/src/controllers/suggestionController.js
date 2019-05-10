@@ -1,5 +1,6 @@
 // required modules
 const suggestionModel = require("../models/suggestion");
+const commentModel=require("../models/comment");
 
 class SuggestionController {
   constructor() {}
@@ -20,12 +21,18 @@ class SuggestionController {
       .catch(err => callback(err));
   }
 
-  // delete suggestion by ID from DB
+  // delete suggestion by ID from DB 
   deleteSuggestionById(suggestionId, callback) {
     suggestionModel
       .findByIdAndDelete(suggestionId)
       .then(suggestion => callback(null, suggestion))
       .catch(err => callback(err));
+
+    commentModel
+      .deleteMany({"suggestionId": suggestionId})
+      .then(comment => callback(null, comment))
+      .catch(err => callback(err));
+
   }
 
   // get suggestion by ID from DB
