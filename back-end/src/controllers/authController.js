@@ -20,12 +20,12 @@ class AuthController {
     userModel.findOne({ email: userData.email }, (err, user) => {
       if (err) {
         callback(err);
-      } else if(!user) {
+      } else if (!user) {
         callback({ errmsg: "No user exist" });
       } else {
         if (bcrypt.compareSync(userData.password, user.password)) {
           const token = jwt.sign({ id: user._id }, config.secret, {
-            expiresIn: "1h"
+            expiresIn: config.expiringDuration
           });
           callback(null, { user: user, token: token });
         } else {

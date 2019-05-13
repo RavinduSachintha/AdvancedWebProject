@@ -44,15 +44,67 @@ app.use(function(req, res, next) {
 });
 
 // required routers
-const registerRouter = require("./src/routes/user/register");
-const loginRouter = require("./src/routes/user/login");
-const profileRouter = require("./src/routes/user/profile");
+const userRegisterRouter = require("./src/routes/user/register");
+const userLoginRouter = require("./src/routes/user/login");
+const userRetrieveRouter = require("./src/routes/user/retrieve");
+
+const wordCreateRouter = require("./src/routes/word/create");
+const wordDeleteRouter = require("./src/routes/word/delete");
+const wordRetrieveRouter = require("./src/routes/word/retrieve");
+const wordUpdateRouter = require("./src/routes/word/update");
+
+const suggestionCreateRouter = require("./src/routes/suggestion/create");
+const suggestionDeleteRouter = require("./src/routes/suggestion/delete");
+const suggestionRetrieveRouter = require("./src/routes/suggestion/retrieve");
+const suggestionUpdateRouter = require("./src/routes/suggestion/update");
+
+const commentCreateRouter = require("./src/routes/comment/create");
+const commentDeleteRouter = require("./src/routes/comment/delete");
+const commentRetrieveRouter = require("./src/routes/comment/retrieve");
+const commentUpdateRouter = require("./src/routes/comment/update");
 
 // application routings
-app.use("/user/register", registerRouter);
-app.use("/user/login", loginRouter);
+
+// app.use("/user/register", registerRouter);
+// app.use("/user/login", loginRouter);
 // app.use("/user/profile", jwt_middleware.validateUser,profileRouter);
 app.use("/user/profile", profileRouter);
+
+app.use("/user/register", userRegisterRouter);
+app.use("/user/login", userLoginRouter);
+app.use("/user/retrieve", jwt_middleware.validateUser, userRetrieveRouter);
+
+app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
+app.use("/word/delete", jwt_middleware.validateAdminUser, wordDeleteRouter);
+app.use("/word/retrieve", wordRetrieveRouter);
+app.use("/word/update", jwt_middleware.validateUser, wordUpdateRouter);
+
+app.use(
+  "/suggestion/create",
+  jwt_middleware.validateUser,
+  suggestionCreateRouter
+);
+app.use(
+  "/suggestion/delete",
+  jwt_middleware.validateAdminUser,
+  suggestionDeleteRouter
+);
+app.use("/suggestion/retrieve", suggestionRetrieveRouter);
+app.use(
+  "/suggestion/update",
+  jwt_middleware.validateUser,
+  suggestionUpdateRouter
+);
+
+app.use("/comment/create", jwt_middleware.validateUser, commentCreateRouter);
+app.use("/comment/delete", jwt_middleware.validateUser, commentDeleteRouter);
+app.use(
+  "/comment/retrieve",
+  jwt_middleware.validateUser,
+  commentRetrieveRouter
+);
+app.use("/comment/update", jwt_middleware.validateUser, commentUpdateRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

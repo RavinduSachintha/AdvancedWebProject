@@ -1,3 +1,5 @@
+// Response Object Model
+
 class ResponseObj {
   constructor(status, data, error) {
     this.status = status;

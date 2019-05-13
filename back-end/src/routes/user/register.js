@@ -8,12 +8,21 @@ const authController = new AuthController();
 
 // POST route for inserting data
 router.post("/", function(req, res) {
-  if (req.body.email && req.body.username && req.body.password && req.body.usertype) {
+  if (
+    req.body.email &&
+    req.body.username &&
+    req.body.password &&
+    req.body.usertype
+  ) {
     let userData = {
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
-      usertype: req.body.usertype
+      usertype: req.body.usertype,
+      userLevel: req.body.userLevel,
+      votedWordCount: req.body.votedWordCount,
+      suggestedWordCount: req.body.suggestedWordCount,
+      joinedDate: req.body.joinedDate
     };
 
     // register the user in system
@@ -26,7 +35,11 @@ router.post("/", function(req, res) {
     });
   } else {
     res.json(
-      new ResponseObject("unsuccess", null, "All fields have to be filled out")
+      new ResponseObject(
+        "unsuccess",
+        null,
+        "Required fields have to be filled out"
+      )
     );
   }
 });
