@@ -1,0 +1,43 @@
+<section>
+  <div class="container">
+    <div class="card-wrappper">
+      <h1 class="heading">My Profilem | <span style="color: rgb(241, 55, 92);">Edit Your Details</span></h1>
+        <div class="card">
+          <img src="assets/images/profile_background.jpg" alt="card background" class="card-img">
+          <img src=" assets/images/my_profile_image.jpg" alt="profile image" class="profile-img">
+          <h2>testuser@gmail.com</h2>
+          <h5 style="color: crimson; font-size: 18px; margin: 12px 0; "><i class="fas fa-star"></i> Rookie</h5>
+
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Name</label>
+              <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="name" required>
+            </div>
+            <div class="form-group">
+              <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Username</label>
+              <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="username" required>
+            </div>
+            <div class="form-group">
+                <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Birth Day</label>
+                <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="date" class="form-control" formControlName="birthday" required>
+            </div>
+            <div class="form-group">
+                <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Profession</label>
+                <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="profession" required>
+            </div>
+            <div *ngIf="!profileForm.valid" style="margin-top: 5px; color: red; font-style: italic;">
+                Fill out all fields
+            </div>
+
+            <div>
+                <button [routerLink]="['..', 'myprofile']" routerLinkActive="router-link-active"  class="btn btn-outline-dark" style="margin: 10px 10px 20px 10px; padding: 4px 10px; border-radius: 1rem;">Back</button>
+                <button class="btn btn-outline-primary" style="margin: 10px 10px 20px 10px; padding: 4px 10px; border-radius: 1rem;" [disabled]="!profileForm.valid">Submit</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+  </div>
+</section>
+

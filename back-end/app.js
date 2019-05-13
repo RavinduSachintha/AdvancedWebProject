@@ -51,7 +51,8 @@ const profileRouter = require("./src/routes/user/profile");
 // application routings
 app.use("/user/register", registerRouter);
 app.use("/user/login", loginRouter);
-app.use("/user/profile", jwt_middleware.validateUser, profileRouter);
+// app.use("/user/profile", jwt_middleware.validateUser,profileRouter);
+app.use("/user/profile", profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
