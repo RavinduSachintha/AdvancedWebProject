@@ -1,39 +1,31 @@
-<app-header></app-header>
-
-<header class="header" fxLayout="column" fxLayoutAlign="left start">
-  <div
-    class="header-container"
-    fxLayout="row"
-    fxLayoutAlign="space-between center"
-  >
-    <a
-      class="header-logo"
-      role="link"
-      aria-label="2muchcoffee website"
-      href="https://2muchcoffee.com"
-      target="_blank"
-      rel="noopener"
-    >
-      <svg class="header-logo__item">
-        <use xlink:href="/assets/img/svg/sprite.min.svg#2mclogo"></use>
-      </svg>
-    </a>
-  </div>
-</header>
-
-<mat-card class="example-card">
-  <img
-    mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Photo of a Shiba Inu"
-  />
-  <mat-card-content>
-    <p>
-      user registrations
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<!--Carousel Wrapper-->
+<mdb-carousel [isControls]="true" [animation]="'slide'">
+  <!--First slide-->
+  <mdb-carousel-item>
+    <img
+      class="d-block w-100"
+      src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
+      alt="First slide"
+    />
+  </mdb-carousel-item>
+  <!--/First slide-->
+  <!--Second slide-->
+  <mdb-carousel-item>
+    <img
+      class="d-block w-100"
+      src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
+      alt="Second slide"
+    />
+  </mdb-carousel-item>
+  <!--/Second slide-->
+  <!--Third slide-->
+  <mdb-carousel-item>
+    <img
+      class="d-block w-100"
+      src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+      alt="Third slide"
+    />
+  </mdb-carousel-item>
+  <!--/Third slide-->
+</mdb-carousel>
+<!--/.Carousel Wrapper-->

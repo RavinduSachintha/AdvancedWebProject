@@ -9,9 +9,30 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 
+import {
+  ButtonsModule,
+  CarouselModule,
+  MDBBootstrapModule,
+  WavesModule
+} from 'angular-bootstrap-md';
+
 @NgModule({
-  declarations: [AppComponent, RegistrationComponent, LoginComponent, HeaderComponent],
-  imports: [BrowserModule, AppRoutingModule, MatCardModule, MatButtonModule],
+  declarations: [
+    AppComponent,
+    RegistrationComponent,
+    LoginComponent,
+    HeaderComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatCardModule,
+    MatButtonModule,
+    CarouselModule,
+    ButtonsModule,
+    MDBBootstrapModule,
+    WavesModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
