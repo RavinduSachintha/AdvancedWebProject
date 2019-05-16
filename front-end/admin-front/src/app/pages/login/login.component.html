@@ -5,13 +5,13 @@
   <div
     class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark"
   >
-    <div class="auth-box bg-dark border-top border-secondary">
+    <div class="auth-box bg-dark border-top border-secondary shade">
       <div id="loginform">
         <div class="text-center p-t-20 p-b-20">
           <span class="db"><img src="assets/images/logo.png" alt="logo"/></span>
         </div>
         <!-- Form -->
-        <form class="form-horizontal m-t-20" id="loginform">
+        <form (ngSubmit)="submitLoginForm()" class="form-horizontal m-t-20" id="loginform" ngNativeValidate>
           <div class="row p-b-30">
             <div class="col-12">
               <div class="input-group mb-3">
@@ -23,12 +23,14 @@
                   ></span>
                 </div>
                 <input
-                  type="text"
+                  [(ngModel)]="email"
+                  name="email"
+                  type="email"
                   class="form-control form-control-lg"
                   placeholder="Email"
                   aria-label="Email"
                   aria-describedby="basic-addon1"
-                  required=""
+                  required
                 />
               </div>
               <div class="input-group mb-3">
@@ -40,12 +42,14 @@
                   ></span>
                 </div>
                 <input
-                  type="text"
+                  [(ngModel)]="password"
+                  name="password"
+                  type="password"
                   class="form-control form-control-lg"
                   placeholder="Password"
                   aria-label="Password"
                   aria-describedby="basic-addon1"
-                  required=""
+                  required
                 />
               </div>
             </div>
@@ -113,39 +117,4 @@
       </div>
     </div>
   </div>
-  <!-- ============================================================== -->
-  <!-- Login box.scss -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Page wrapper scss in scafholding.scss -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Page wrapper scss in scafholding.scss -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Right Sidebar -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Right Sidebar -->
-  <!-- ============================================================== -->
 </div>
-
-<!-- ============================================================== -->
-<!-- This page plugin js -->
-<!-- ============================================================== -->
-<script>
-  $('[data-toggle="tooltip"]').tooltip();
-  $(".preloader").fadeOut();
-  // ==============================================================
-  // Login and Recover Password
-  // ==============================================================
-  $("#to-recover").on("click", function() {
-    console.log("Hello");
-    $("#loginform").slideUp();
-    $("#recoverform").fadeIn();
-  });
-  $("#to-login").click(function() {
-    $("#recoverform").hide();
-    $("#loginform").fadeIn();
-  });
-</script>

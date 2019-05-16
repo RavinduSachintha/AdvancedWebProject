@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpBackendRequestService } from "./http-backend-request.service";
-import { AuthUser } from "../models/auth-user";
+import { AdminUser } from "../models/admin-user";
 import { HttpEnum } from "../utils/http-enum.enum";
 import { Router } from "@angular/router";
 
@@ -13,9 +13,9 @@ export class AuthenticationService {
     private httpBackendRequest: HttpBackendRequestService
   ) {}
 
-  loginUser(authUser: AuthUser) {
+  loginAdmin(adminUser: AdminUser) {
     this.httpBackendRequest
-      .realizarHttpPost(HttpEnum.USER_LOGIN, authUser)
+      .realizarHttpPost(HttpEnum.USER_LOGIN, adminUser)
       .subscribe(
         (result: any) => {
           if (result.status === "success") {
@@ -28,12 +28,12 @@ export class AuthenticationService {
                 })
               );
             }
-            this.router.navigate(["/admin-dashboard"]);
+            this.router.navigate(["/dashboard"]);
           } else {
             alert(result.error);
           }
         },
-        err => alert("Error occured.. Contact Administrations")
+        err => console.log("HTTP request not send. \n" + err)
       );
   }
 
