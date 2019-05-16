@@ -5,16 +5,19 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { StatisticsComponent } from "./pages/statistics/statistics.component";
 import { ViewRegUserComponent } from "./pages/view-reg-user/view-reg-user.component";
 import { ViewWordSuggestionComponent } from "./pages/view-word-suggestion/view-word-suggestion.component";
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileComponent } from "./pages/profile/profile.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "dashboard", pathMatch: "full" },
+  { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "statistics", component: StatisticsComponent },
   { path: "view-registered-user", component: ViewRegUserComponent },
-  { path: "view-words-and-suggestions", component: ViewWordSuggestionComponent },
-  { path: "profile", component: ProfileComponent}
+  {
+    path: "view-words-and-suggestions",
+    component: ViewWordSuggestionComponent
+  },
+  { path: "profile", component: ProfileComponent }
 ];
 
 @NgModule({

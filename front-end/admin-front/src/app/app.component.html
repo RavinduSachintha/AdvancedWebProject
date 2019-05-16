@@ -1,5 +1,7 @@
-<app-nav-bar></app-nav-bar>
+<!-- login page layout -->
+<app-login *ngIf="isLoginRouter()"></app-login>
 
-<app-side-bar></app-side-bar>
-
-<router-outlet></router-outlet>
+<!-- logged user pages layout -->
+<app-nav-bar *ngIf="!isLoginRouter()"></app-nav-bar>
+<app-side-bar *ngIf="!isLoginRouter()"></app-side-bar>
+<router-outlet *ngIf="!isLoginRouter()"></router-outlet>
