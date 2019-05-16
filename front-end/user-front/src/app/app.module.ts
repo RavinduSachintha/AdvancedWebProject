@@ -7,9 +7,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, RegistrationComponent, LoginComponent],
+  declarations: [AppComponent, RegistrationComponent, LoginComponent, DashboardComponent],
   imports: [BrowserModule, AppRoutingModule, MatCardModule, MatButtonModule],
   providers: [],
   bootstrap: [AppComponent]
