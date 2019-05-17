@@ -9,9 +9,22 @@ export class HttpBackendRequestService {
 
   // POST request sending function
   realizarHttpPost(requestType: string, bodyObject: Object) {
-    const headers = new HttpHeaders();
-    headers.append("Content-Type", "application/json");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json"
+    });
     return this.http.post(requestType, bodyObject, {
+      headers: headers
+    });
+  }
+
+  // GET request sending function
+  realizarHttpGetWithToken(requestType: string) {
+    const token = localStorage.getItem("accessToken");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": token
+    });
+    return this.http.get(requestType, {
       headers: headers
     });
   }

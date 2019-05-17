@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import * as $ from "jquery";
+import { UserService } from "src/app/services/user.service";
 
 declare var $: $;
 
@@ -10,13 +11,12 @@ declare var $: $;
   styleUrls: ["./statistics.component.css"]
 })
 export class StatisticsComponent implements OnInit {
-  // pie chart 1 data and options
-  pieChart1_dataSet = [
-    { label: "Words", data: 4119630000, color: "#005CDE" },
-    { label: "Suggetions", data: 590950000, color: "#00A36A" },
-    { label: "Comments", data: 1012960000, color: "#7D0096" }
-  ];
+  // variable declaration
+  num_of_reg_users: number = null;
+  num_of_admins: number = null;
+  num_of_active_users: number = null;
 
+  // pie chart 1 options
   pieChart1_opt = {
     series: {
       pie: {
@@ -45,7 +45,7 @@ export class StatisticsComponent implements OnInit {
     tooltip: true,
     tooltipOpts: {
       cssClass: "flotTip",
-      content: "%p.0%, %s",
+      content: "%y.0, %s",
       shifts: {
         x: 20,
         y: 0
@@ -54,12 +54,7 @@ export class StatisticsComponent implements OnInit {
     }
   };
 
-  // pie chart 2 data and options
-  pieChart2_dataSet = [
-    { label: "Registered Users", data: 4119630000, color: "#44BBDE" },
-    { label: "Administrative Users", data: 590950000, color: "#00556A" }
-  ];
-
+  // pie chart 2 options
   pieChart2_opt = {
     series: {
       pie: {
@@ -88,7 +83,7 @@ export class StatisticsComponent implements OnInit {
     tooltip: true,
     tooltipOpts: {
       cssClass: "flotTip",
-      content: "%p.0%, %s",
+      content: "%y.0, %s",
       shifts: {
         x: 20,
         y: 0
@@ -103,24 +98,75 @@ export class StatisticsComponent implements OnInit {
   //   { title: "Test02", link: "/test02", active: false }
   // ];
 
-  constructor() {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.plotPieChart("pieChart1", this.pieChart1_dataSet, this.pieChart1_opt);
-    this.plotPieChart("pieChart2", this.pieChart2_dataSet, this.pieChart2_opt);
+    this.dataInitializer();
   }
 
+  // plot the pie chart
   plotPieChart(
     id: string,
     data: { label: string; data: number; color: string }[],
     opt: {}
   ) {
     // jquery code
-    $.plot($("#" + id), data, opt);
+    let plot = $.plot($("#" + id), data, opt);
     $(".legend table td.legendLabel").css({
       "font-size": "12px",
       "font-weight": "bold",
       "padding-left": "5px"
     });
+
+    return plot;
+  }
+
+  dataInitializer() {
+    let pieChart1_dataSet = [
+      { label: "Words", data: 4119630000, color: "#005CDE" },
+      { label: "Suggetions", data: 590950000, color: "#00A36A" },
+      { label: "Comments", data: 1012960000, color: "#7D0096" }
+    ];
+
+    let pieChart2_dataSet = [
+      {
+        label: "Registered Users",
+        data: this.num_of_reg_users,
+        color: "#44BBDE"
+      },
+      { label: "Administrative Users", data: 4, color: "#00556A" }
+    ];
+
+    let plot1 = this.plotPieChart(
+      "pieChart1",
+      pieChart1_dataSet,
+      this.pieChart1_opt
+    );
+    let plot2 = this.plotPieChart(
+      "pieChart2",
+      pieChart2_dataSet,
+      this.pieChart2_opt
+    );
+    
+    this.userService.getNumberOfRegUsers().subscribe(
+      (count: any) => {
+        this.num_of_reg_users = count.data;
+
+        let pieChart2new_dataSet = [
+          {
+            label: "Registered Users",
+            data: this.num_of_reg_users,
+            color: "#44BBDE"
+          },
+          { label: "Administrative Users", data: 4, color: "#00556A" }
+        ];
+
+        plot2.setData(pieChart2new_dataSet);
+        plot2.draw();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 }

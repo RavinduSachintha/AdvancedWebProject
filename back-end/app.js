@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
 const userRegisterRouter = require("./src/routes/user/register");
 const userLoginRouter = require("./src/routes/user/login");
 const userRetrieveRouter = require("./src/routes/user/retrieve");
+const userCountRouter = require("./src/routes/user/count");
 
 const wordCreateRouter = require("./src/routes/word/create");
 const wordDeleteRouter = require("./src/routes/word/delete");
@@ -67,6 +68,7 @@ const commentUpdateRouter = require("./src/routes/comment/update");
 app.use("/user/register", userRegisterRouter);
 app.use("/user/login", userLoginRouter);
 app.use("/user/retrieve", jwt_middleware.validateUser, userRetrieveRouter);
+app.use("/user/count", jwt_middleware.validateAdminUser, userCountRouter);
 
 app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
 app.use("/word/delete", jwt_middleware.validateAdminUser, wordDeleteRouter);

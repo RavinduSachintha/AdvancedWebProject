@@ -29,18 +29,19 @@ class JWT_Middleware {
       if (err) {
         res.json(new ResponseObject("unsuccess", null, err.message));
       } else {
-        userModel.findOne(
-          { _id: decoded.id, usertype: "admin" },
-          (err, user) => {
-            if (err || user == null) {
-              res.json(new ResponseObject("unsuccess", null, err));
-            } else {
-              // add user id to request
-              req.body.userId = user._id;
-              next();
-            }
+        userModel.findOne({ _id: decoded.id }, (err, user) => {
+          if (
+            err ||
+            user == null ||
+            (user.usertype != "admin" && user.usertype != "super-admin")
+          ) {
+            res.json(new ResponseObject("unsuccess", null, err));
+          } else {
+            // add user id to request
+            req.body.userId = user._id;
+            next();
           }
-        );
+        });
       }
     });
   }

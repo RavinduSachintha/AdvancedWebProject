@@ -16,6 +16,7 @@ export class AuthenticationService {
     private httpBackendRequest: HttpBackendRequestService
   ) {}
 
+  // login function for admin users
   loginAdmin(adminUser: AdminUser) {
     this.httpBackendRequest
       .realizarHttpPost(HttpEnum.USER_LOGIN, adminUser)
@@ -36,6 +37,7 @@ export class AuthenticationService {
       );
   }
 
+  // logout function for admin users
   logoutAdmin() {
     localStorage.removeItem("userId");
     localStorage.removeItem("userType");
@@ -43,6 +45,7 @@ export class AuthenticationService {
     this.router.navigate(["/login"]);
   }
 
+  // check admin validity
   isAdminAuthenticated() {
     let token = localStorage.getItem("accessToken");
     let type = localStorage.getItem("userType");
