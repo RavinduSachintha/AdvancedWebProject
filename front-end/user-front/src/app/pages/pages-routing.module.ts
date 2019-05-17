@@ -9,32 +9,27 @@ const routes: Routes = [
     path: '',
     component: PagesComponent,
     children: [
+      // {
+      //   path: 'dashboard',
+      //   component: ECommerceComponent,
+      // },
       {
         path: 'landing',
         component: LandingComponent
       },
-      //   {
-      //     path: 'iot-dashboard',
-      //     component: DashboardComponent,
-      //   },
-      //   {
-      //     path: 'scheduler',
-      //     loadChildren: './scheduler/scheduler.module#SchedulerModule',
-      //   },
-      //   {
-      //     path: 'patients',
-      //     loadChildren: './patients/patients.module#PatientsModule',
-      //   },
-
+      // {
+      //   path: 'landing',
+      //   loadChildren: './landining/landing.module#LandingModule'
+      // },
       {
         path: '',
         redirectTo: 'landing',
         pathMatch: 'full'
-      },
-      {
-        path: '**',
-        component: LandingComponent
       }
+      // {
+      //   path: '**',
+      //   component: LandingComponent
+      // }
     ]
   }
 ];
