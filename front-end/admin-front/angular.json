@@ -33,15 +33,7 @@
               "src/assets/extra-libs/sparkline/sparkline.js",
               "src/assets/dist/js/waves.js",
               "src/assets/dist/js/sidebarmenu.js",
-              "src/assets/dist/js/custom.min.js",
-              "src/assets/libs/flot/excanvas.js",
-              "src/assets/libs/flot/jquery.flot.js",
-              "src/assets/libs/flot/jquery.flot.pie.js",
-              "src/assets/libs/flot/jquery.flot.time.js",
-              "src/assets/libs/flot/jquery.flot.stack.js",
-              "src/assets/libs/flot/jquery.flot.crosshair.js",
-              "src/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js",
-              "src/assets/dist/js/pages/chart/chart-page-init.js"
+              "src/assets/dist/js/custom.min.js"
             ],
             "es5BrowserSupport": true
           },
