@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
-import { LandingComponent } from './landing/landing.component';
+import { PagesRoutingModule } from './pages-routing.module';
+import { PagesComponent } from './pages.component';
 
 @NgModule({
-  declarations: [HeaderComponent, LandingComponent],
-  imports: [CommonModule]
+  declarations: [PagesComponent],
+  imports: [CommonModule, PagesRoutingModule]
 })
 export class PagesModule {}
