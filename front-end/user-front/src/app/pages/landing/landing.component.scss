@@ -1,0 +1,193 @@
+@import '../../../styles/adjusment.scss';
+@import '../../../styles/base.scss';
+@import '../../../styles/media.scss';
+@import '../../../styles/normalize.css';
+@import '../../../styles/svg.scss';
+
+.index {
+  width: 100%;
+  min-height: 95vh;
+  padding: rem(10px) 0 rem(19px) 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  @include vertical {
+    padding: rem(50px) 0 rem(19px) 0;
+    min-height: 92vh;
+  }
+  @include tablets {
+    min-height: 95vh;
+    padding: rem(105px) 0 rem(19px) 0;
+  }
+  @include laptops {
+    padding: rem(55px) 0 rem(24px) 0;
+    min-height: 100vh;
+  }
+  @include laptopsMDPI {
+    padding: 3% 0 rem(24px) 0;
+  }
+  @include laptopsHDPI {
+    padding: 2% 0 rem(24px) 0;
+  }
+  @include desktop {
+    padding: 4% 0 rem(24px) 0;
+  }
+  &-container {
+    position: relative;
+    max-width: 100%;
+    min-height: 76vh;
+    margin: 0 auto;
+    @include vertical {
+      min-height: 74vh;
+    }
+    @include tablets {
+      min-height: 80vh;
+      width: rem(704px);
+      max-width: rem(704px);
+      margin: 0 auto;
+    }
+    @include laptops {
+      width: rem(960px);
+      max-width: rem(960px);
+      margin: 0 auto;
+    }
+    @include desktop {
+      min-height: 83vh;
+      width: rem(1140px);
+      max-width: rem(1140px);
+      margin: 0 auto;
+    }
+  }
+  &-description {
+    margin-bottom: rem(5px);
+    @include vertical {
+      margin-bottom: rem(20px);
+    }
+    @include tablets {
+      margin-bottom: rem(20px);
+    }
+    @include laptopsMDPI {
+      margin-bottom: rem(15px);
+    }
+    @include desktop {
+      margin-bottom: rem(25px);
+    }
+  }
+  &-title {
+    padding: 0 5%;
+    margin-bottom: rem(15px);
+    @include vertical {
+      margin-bottom: rem(10px);
+    }
+    @include tablets {
+      padding: 0;
+      margin-bottom: rem(30px);
+    }
+    @include laptops {
+      margin-bottom: rem(19px);
+    }
+    @include laptopsMDPI {
+      margin-bottom: rem(10px);
+    }
+    @include laptopsHDPI {
+      padding: 0 10%;
+      margin-bottom: rem(15px);
+    }
+    @include desktop {
+      padding: 0;
+      margin-bottom: rem(35px);
+    }
+  }
+  &-text {
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    font-size: rem(13px);
+    font-weight: 300;
+    color: #000;
+    text-align: center;
+    opacity: 0.65;
+    padding: 0 7%;
+    @include vertical {
+      padding: 0 6%;
+    }
+    @include tablets {
+      font-size: rem(20px);
+      font-weight: 500;
+      text-align: center;
+      line-height: rem(30px);
+      letter-spacing: 0.2px;
+      padding: 0 9%;
+    }
+    @include laptops {
+      padding: 0 15%;
+      margin-bottom: rem(10px);
+    }
+    @include desktop {
+      font-size: rem(20px);
+      font-weight: 400;
+      line-height: rem(35px);
+      letter-spacing: 0.4px;
+      margin-bottom: 0;
+    }
+  }
+  &-btn {
+    @include vertical {
+      margin-bottom: rem(20px);
+    }
+    @include laptops {
+      margin-bottom: rem(30px);
+    }
+    @include laptopsMDPI {
+      margin-bottom: rem(25px);
+    }
+  }
+  &-img {
+    position: relative;
+    @include vertical {
+      margin-bottom: 5%;
+    }
+    @include tablets {
+      margin-bottom: 0;
+    }
+    @include desktop {
+      margin-bottom: 3%;
+    }
+  }
+
+  &-scroll {
+    visibility: hidden;
+    @include laptopsMDPI {
+      visibility: visible;
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: rem(15px);
+      font-weight: 500;
+      color: rgba(55, 58, 133, 1);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      position: absolute;
+      bottom: -45px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      transition: opacity 0.3s;
+      margin-left: 4px;
+      animation: home-scroll-text 2.5s infinite;
+    }
+    @include desktop {
+      bottom: -30px;
+      margin-left: 8px;
+    }
+  }
+}
+
+@keyframes home-scroll-text {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
