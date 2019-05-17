@@ -1,12 +1,16 @@
 @import './media.scss';
 
 .index-img {
-  position: relative;
+  position: absolute;
+
   @include vertical {
     margin-bottom: 5%;
+    margin-left: -200px;
   }
+
   @include tablets {
     margin-bottom: 0;
+    margin-top: -200;
   }
   @include desktop {
     margin-bottom: 3%;
