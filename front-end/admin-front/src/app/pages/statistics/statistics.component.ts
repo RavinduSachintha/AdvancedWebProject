@@ -10,11 +10,92 @@ declare var $: $;
   styleUrls: ["./statistics.component.css"]
 })
 export class StatisticsComponent implements OnInit {
-  dataSet = [
-    { label: "Asia", data: 4119630000, color: "#005CDE" },
-    { label: "Latin America", data: 590950000, color: "#00A36A" },
-    { label: "Africa", data: 1012960000, color: "#7D0096" }
+  // pie chart 1 data and options
+  pieChart1_dataSet = [
+    { label: "Words", data: 4119630000, color: "#005CDE" },
+    { label: "Suggetions", data: 590950000, color: "#00A36A" },
+    { label: "Comments", data: 1012960000, color: "#7D0096" }
   ];
+
+  pieChart1_opt = {
+    series: {
+      pie: {
+        show: true,
+        radius: 0.9,
+        innerRadius: 1 / 4,
+        label: {
+          show: true,
+          radius: 0.7,
+          formatter: function(label, series) {
+            return (
+              '<h4 class="font-weight-bold text-center text-white">' +
+              Math.round(series.percent) +
+              "%</h4>"
+            );
+          }
+        }
+      }
+    },
+    legend: {
+      show: true
+    },
+    grid: {
+      hoverable: true
+    },
+    tooltip: true,
+    tooltipOpts: {
+      cssClass: "flotTip",
+      content: "%p.0%, %s",
+      shifts: {
+        x: 20,
+        y: 0
+      },
+      defaultTheme: false
+    }
+  };
+
+  // pie chart 2 data and options
+  pieChart2_dataSet = [
+    { label: "Registered Users", data: 4119630000, color: "#44BBDE" },
+    { label: "Administrative Users", data: 590950000, color: "#00556A" }
+  ];
+
+  pieChart2_opt = {
+    series: {
+      pie: {
+        show: true,
+        radius: 0.9,
+        innerRadius: 1 / 4,
+        label: {
+          show: true,
+          radius: 0.7,
+          formatter: function(label, series) {
+            return (
+              '<h4 class="font-weight-bold text-center text-white">' +
+              Math.round(series.percent) +
+              "%</h4>"
+            );
+          }
+        }
+      }
+    },
+    legend: {
+      show: true
+    },
+    grid: {
+      hoverable: true
+    },
+    tooltip: true,
+    tooltipOpts: {
+      cssClass: "flotTip",
+      content: "%p.0%, %s",
+      shifts: {
+        x: 20,
+        y: 0
+      },
+      defaultTheme: false
+    }
+  };
 
   // breadcrumbs = [
   //   { title: "Statistics", link: "/statistics", active: true },
@@ -25,42 +106,21 @@ export class StatisticsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.drawPieChart1();
+    this.plotPieChart("pieChart1", this.pieChart1_dataSet, this.pieChart1_opt);
+    this.plotPieChart("pieChart2", this.pieChart2_dataSet, this.pieChart2_opt);
   }
 
-  drawPieChart1() {
-    // jquery codes
-    $.plot($("#pieChart1"), this.dataSet, {
-      series: {
-        pie: {
-          show: true,
-          radius: 3 / 4,
-          innerRadius: 1 / 4,
-          label: {
-            show: true,
-            radius: 0.8,
-            formatter: function(label, series) {
-              return (
-                '<div style="border:1px solid grey;font-size:8pt;text-align:center;padding:5px;color:white;">' +
-                label +
-                " : " +
-                Math.round(series.percent) +
-                "%</div>"
-              );
-            },
-            background: {
-              opacity: 0.8,
-              color: "#000"
-            }
-          }
-        }
-      },
-      legend: {
-        show: true
-      },
-      grid: {
-        hoverable: true
-      }
+  plotPieChart(
+    id: string,
+    data: { label: string; data: number; color: string }[],
+    opt: {}
+  ) {
+    // jquery code
+    $.plot($("#" + id), data, opt);
+    $(".legend table td.legendLabel").css({
+      "font-size": "12px",
+      "font-weight": "bold",
+      "padding-left": "5px"
     });
   }
 }
