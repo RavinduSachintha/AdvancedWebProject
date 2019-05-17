@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { RegistrationComponent } from './registration/registration.component';
-import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
 
 import {
   ButtonsModule,
@@ -15,16 +12,9 @@ import {
   MDBBootstrapModule,
   WavesModule
 } from 'angular-bootstrap-md';
-import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RegistrationComponent,
-    LoginComponent,
-    HeaderComponent,
-    PagesComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
