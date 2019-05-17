@@ -99,11 +99,11 @@
   }
   &-text {
     font-family: 'Montserrat', Helvetica, sans-serif;
-    font-size: rem(13px);
-    font-weight: 300;
-    color: #000;
+    font-size: 3px;
+    font-weight: 100;
+    color: rgb(0, 0, 0);
     text-align: center;
-    opacity: 0.65;
+    opacity: 100%;
     padding: 0 7%;
     @include vertical {
       padding: 0 6%;
