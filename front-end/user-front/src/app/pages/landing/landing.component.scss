@@ -128,9 +128,10 @@
       margin-bottom: 0;
     }
   }
-  &-btn {
+  &-btn1 {
     @include vertical {
       margin-bottom: rem(20px);
+      color: #fff;
     }
     @include laptops {
       margin-bottom: rem(30px);
@@ -139,6 +140,7 @@
       margin-bottom: rem(25px);
     }
   }
+
   &-img {
     position: relative;
     @include vertical {
@@ -160,7 +162,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: rem(15px);
       font-weight: 500;
-      color: rgba(55, 58, 133, 1);
+      color: rgb(254, 254, 255);
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.3px;
