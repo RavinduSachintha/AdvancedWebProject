@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { DynamicScriptLoaderService } from "src/app/services/dynamic-script-loader.service";
+
+import * as $ from "jquery";
+
+declare var $: $;
 
 @Component({
   selector: "app-statistics",
@@ -7,32 +10,51 @@ import { DynamicScriptLoaderService } from "src/app/services/dynamic-script-load
   styleUrls: ["./statistics.component.css"]
 })
 export class StatisticsComponent implements OnInit {
-  constructor(private dynamicScriptLoader: DynamicScriptLoaderService) {}
+  dataSet = [
+    { label: "Asia", data: 4119630000, color: "#005CDE" },
+    { label: "Latin America", data: 590950000, color: "#00A36A" },
+    { label: "Africa", data: 1012960000, color: "#7D0096" }
+  ];
+
+  constructor() {}
 
   ngOnInit() {
-    this.loadScripts();
+    this.drawPieChart1();
   }
 
-  private loadScripts() {
-    // You can load multiple scripts by just providing the key as argument into load method of the service
-    this.dynamicScriptLoader
-      .load(
-        "matrix-interface",
-        "excanvas",
-        "flot",
-        "flot-pie",
-        "flot-time",
-        "flot-stack",
-        "flot-crosshair",
-        "jquery-peity",
-        "matrix-chart",
-        "flot-tooltip",
-        "turning-series",
-        "chart-page-init"
-      )
-      .then(data => {
-        // Script Loaded Successfully
-      })
-      .catch(error => console.log(error));
+  drawPieChart1() {
+    // jquery codes
+    $.plot($("#pieChart1"), this.dataSet, {
+      series: {
+        pie: {
+          show: true,
+          radius: 3 / 4,
+          innerRadius: 1 / 4,
+          label: {
+            show: true,
+            radius: 0.8,
+            formatter: function(label, series) {
+              return (
+                '<div style="border:1px solid grey;font-size:8pt;text-align:center;padding:5px;color:white;">' +
+                label +
+                " : " +
+                Math.round(series.percent) +
+                "%</div>"
+              );
+            },
+            background: {
+              opacity: 0.8,
+              color: "#000"
+            }
+          }
+        }
+      },
+      legend: {
+        show: true
+      },
+      grid: {
+        hoverable: true
+      }
+    });
   }
 }
