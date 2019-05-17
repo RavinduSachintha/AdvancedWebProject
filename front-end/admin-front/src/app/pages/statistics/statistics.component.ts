@@ -16,6 +16,12 @@ export class StatisticsComponent implements OnInit {
     { label: "Africa", data: 1012960000, color: "#7D0096" }
   ];
 
+  // breadcrumbs = [
+  //   { title: "Statistics", link: "/statistics", active: true },
+  //   { title: "Test01", link: "/test01", active: true },
+  //   { title: "Test02", link: "/test02", active: false }
+  // ];
+
   constructor() {}
 
   ngOnInit() {

@@ -1,0 +1,17 @@
+<div class="page-breadcrumb">
+  <div class="row">
+    <div class="col-12 d-flex no-block align-items-center">
+      <h4 class="page-title">{{ pageTitle }}</h4>
+      <div class="ml-auto text-right">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li *ngFor="let crumb of crumbs" class="breadcrumb-item">
+              <a *ngIf="crumb.active" routerLink="{{ crumb.link }}" class="active">{{ crumb.title }}</a>
+              <a *ngIf="!crumb.active">{{ crumb.title }}</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

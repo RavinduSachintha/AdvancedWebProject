@@ -16,9 +16,10 @@ import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { ViewRegUserComponent } from './pages/view-reg-user/view-reg-user.component';
 import { ViewWordSuggestionComponent } from './pages/view-word-suggestion/view-word-suggestion.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, NavBarComponent, SideBarComponent, StatisticsComponent, ViewRegUserComponent, ViewWordSuggestionComponent, ProfileComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, NavBarComponent, SideBarComponent, StatisticsComponent, ViewRegUserComponent, ViewWordSuggestionComponent, ProfileComponent, BreadcrumbComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [HttpBackendRequestService, AuthenticationService],
   bootstrap: [AppComponent]
