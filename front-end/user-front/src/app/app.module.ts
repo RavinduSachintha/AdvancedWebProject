@@ -15,13 +15,15 @@ import {
   MDBBootstrapModule,
   WavesModule
 } from 'angular-bootstrap-md';
+import { PagesComponent } from './pages/pages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
