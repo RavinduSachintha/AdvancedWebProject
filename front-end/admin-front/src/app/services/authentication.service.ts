@@ -3,6 +3,9 @@ import { HttpBackendRequestService } from "./http-backend-request.service";
 import { AdminUser } from "../models/admin-user";
 import { HttpEnum } from "../utils/http-enum.enum";
 import { Router } from "@angular/router";
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+const helper = new JwtHelperService();
 
 @Injectable({
   providedIn: "root"
@@ -20,14 +23,9 @@ export class AuthenticationService {
         (result: any) => {
           if (result.status === "success") {
             if (result.data.user && result.data.token) {
-              localStorage.setItem(
-                "currentUser",
-                JSON.stringify({
-                  id: result.data.user._id,
-                  token: result.data.token
-                })
-              );
+              localStorage.setItem("accessToken", result.data.token);
             }
+            this.isAdminAuthenticated();
             this.router.navigate(["/dashboard"]);
           } else {
             alert(result.error);
@@ -37,7 +35,14 @@ export class AuthenticationService {
       );
   }
 
-  logoutUser() {
-    localStorage.removeItem("currentUser");
+  logoutAdmin() {
+    localStorage.removeItem("accessToken");
+    this.router.navigate(["/login"]);
+  }
+
+  isAdminAuthenticated() {
+    const token = localStorage.getItem("accessToken");
+    console.log(token);
+    return !helper.isTokenExpired(token);
   }
 }

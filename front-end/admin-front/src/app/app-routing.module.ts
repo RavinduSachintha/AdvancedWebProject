@@ -6,11 +6,12 @@ import { StatisticsComponent } from "./pages/statistics/statistics.component";
 import { ViewRegUserComponent } from "./pages/view-reg-user/view-reg-user.component";
 import { ViewWordSuggestionComponent } from "./pages/view-word-suggestion/view-word-suggestion.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
+import { AuthGuard } from './utils/auth.guard';
 
 const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
-  { path: "dashboard", component: DashboardComponent },
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
   { path: "statistics", component: StatisticsComponent },
   { path: "view-registered-user", component: ViewRegUserComponent },
   {
