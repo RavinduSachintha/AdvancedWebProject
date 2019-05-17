@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DirectivesDirective } from './directives/directives.directive';
-import { SvgParallaxDirective } from './directives/svg-parallax.directive';
+
+import { APP_DIRECTIVES } from './directives/index';
 
 @NgModule({
-  declarations: [APP_DIRECTIVES, DirectivesDirective, SvgParallaxDirective],
+  declarations: [APP_DIRECTIVES],
   imports: [CommonModule],
   exports: [
     CommonModule,
