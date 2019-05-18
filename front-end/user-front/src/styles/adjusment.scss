@@ -85,6 +85,77 @@ svg {
   }
 }
 
+// ////////////////////////
+.paragraph1 {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  //font-size: rem(21px);
+  font-weight: 600;
+  margin-left: -150px;
+  margin-top: 30px;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.2px;
+
+  @include phones {
+    font-size: rem(32px);
+  }
+  @include tablets {
+    font-size: rem(40px);
+    font-weight: 600;
+    letter-spacing: 2.5px;
+  }
+  @include laptops {
+    font-size: rem(36px);
+  }
+  @include laptopsMDPI {
+    font-weight: 700;
+  }
+  @include laptopsHDPI {
+    font-size: rem(48px);
+    font-weight: 700;
+  }
+  @include desktop {
+    font-size: rem(42px);
+  }
+}
+
+// ////////////////////////
+.paragraph2 {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  //font-size: rem(21px);
+  font-weight: 600;
+  margin-left: 150px;
+  margin-top: 30px;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.2px;
+
+  @include phones {
+    font-size: rem(32px);
+  }
+  @include tablets {
+    font-size: rem(40px);
+    font-weight: 600;
+    letter-spacing: 2.5px;
+  }
+  @include laptops {
+    font-size: rem(36px);
+  }
+  @include laptopsMDPI {
+    font-weight: 700;
+  }
+  @include laptopsHDPI {
+    font-size: rem(48px);
+    font-weight: 700;
+  }
+  @include desktop {
+    font-size: rem(42px);
+  }
+}
+////////////////////
+
 .block-title {
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-size: rem(21px);
