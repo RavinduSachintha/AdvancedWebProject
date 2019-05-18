@@ -53,16 +53,19 @@ const wordCreateRouter = require("./src/routes/word/create");
 const wordDeleteRouter = require("./src/routes/word/delete");
 const wordRetrieveRouter = require("./src/routes/word/retrieve");
 const wordUpdateRouter = require("./src/routes/word/update");
+const wordCountRouter = require("./src/routes/word/count");
 
 const suggestionCreateRouter = require("./src/routes/suggestion/create");
 const suggestionDeleteRouter = require("./src/routes/suggestion/delete");
 const suggestionRetrieveRouter = require("./src/routes/suggestion/retrieve");
 const suggestionUpdateRouter = require("./src/routes/suggestion/update");
+const suggestionCountRouter = require("./src/routes/suggestion/count");
 
 const commentCreateRouter = require("./src/routes/comment/create");
 const commentDeleteRouter = require("./src/routes/comment/delete");
 const commentRetrieveRouter = require("./src/routes/comment/retrieve");
 const commentUpdateRouter = require("./src/routes/comment/update");
+const commentCountRouter = require("./src/routes/comment/count");
 
 // application routings
 app.use("/user/register", userRegisterRouter);
@@ -74,6 +77,7 @@ app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
 app.use("/word/delete", jwt_middleware.validateAdminUser, wordDeleteRouter);
 app.use("/word/retrieve", wordRetrieveRouter);
 app.use("/word/update", jwt_middleware.validateUser, wordUpdateRouter);
+app.use("/word/count", jwt_middleware.validateAdminUser, wordCountRouter);
 
 app.use(
   "/suggestion/create",
@@ -91,6 +95,11 @@ app.use(
   jwt_middleware.validateUser,
   suggestionUpdateRouter
 );
+app.use(
+  "/suggestion/count",
+  jwt_middleware.validateAdminUser,
+  suggestionCountRouter
+);
 
 app.use("/comment/create", jwt_middleware.validateUser, commentCreateRouter);
 app.use("/comment/delete", jwt_middleware.validateUser, commentDeleteRouter);
@@ -100,6 +109,7 @@ app.use(
   commentRetrieveRouter
 );
 app.use("/comment/update", jwt_middleware.validateUser, commentUpdateRouter);
+app.use("/comment/count", jwt_middleware.validateAdminUser, commentCountRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
