@@ -5,6 +5,15 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
+import {
+  ButtonsModule,
+  CarouselModule,
+  MDBBootstrapModule,
+  WavesModule
+} from 'angular-bootstrap-md';
 
 import { UserProfileComponent } from './pages/user-profile/user-profile/user-profile.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
@@ -36,9 +45,15 @@ import { ComponentInteractionsService } from './component-interactions.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    CarouselModule,
+    ButtonsModule,
+    MDBBootstrapModule,
+    WavesModule
   ],
   providers: [UserService, ComponentInteractionsService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
