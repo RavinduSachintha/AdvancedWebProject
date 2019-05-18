@@ -1,8 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpBackendRequestService } from "./http-backend-request.service";
-import { AuthUser } from "../models/auth-user";
+import { AdminUser } from "../models/admin-user";
 import { HttpEnum } from "../utils/http-enum.enum";
 import { Router } from "@angular/router";
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+const jwtHelper = new JwtHelperService();
 
 @Injectable({
   providedIn: "root"
@@ -13,31 +16,39 @@ export class AuthenticationService {
     private httpBackendRequest: HttpBackendRequestService
   ) {}
 
-  loginUser(authUser: AuthUser) {
+  loginAdmin(adminUser: AdminUser) {
     this.httpBackendRequest
-      .realizarHttpPost(HttpEnum.USER_LOGIN, authUser)
+      .realizarHttpPost(HttpEnum.USER_LOGIN, adminUser)
       .subscribe(
         (result: any) => {
           if (result.status === "success") {
             if (result.data.user && result.data.token) {
-              localStorage.setItem(
-                "currentUser",
-                JSON.stringify({
-                  id: result.data.user._id,
-                  token: result.data.token
-                })
-              );
+              localStorage.setItem("userId", result.data.user.userId);
+              localStorage.setItem("userType", result.data.user.usertype);
+              localStorage.setItem("accessToken", result.data.token);
             }
-            this.router.navigate(["/admin-dashboard"]);
+            this.router.navigate(["/dashboard"]);
           } else {
             alert(result.error);
           }
         },
-        err => alert("Error occured.. Contact Administrations")
+        err => console.log("HTTP request not send. \n" + err)
       );
   }
 
-  logoutUser() {
-    localStorage.removeItem("currentUser");
+  logoutAdmin() {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userType");
+    localStorage.removeItem("accessToken");
+    this.router.navigate(["/login"]);
+  }
+
+  isAdminAuthenticated() {
+    let token = localStorage.getItem("accessToken");
+    let type = localStorage.getItem("userType");
+    return (
+      !jwtHelper.isTokenExpired(token) &&
+      (type == "admin" || type == "super-admin")
+    );
   }
 }
