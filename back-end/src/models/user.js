@@ -26,7 +26,19 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   userLevel: {
+    type: String
+  },
+  votedWords: {
     type: Number
+  },
+  suggestedWords: {
+    type: Number
+  },
+  joinedDate: {
+    type: String
+  },
+  birthday: {
+    type: String
   },
   votedWordCount: {
     type: Number
