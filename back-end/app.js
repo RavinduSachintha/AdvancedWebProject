@@ -44,6 +44,8 @@ app.use(function(req, res, next) {
 });
 
 // required routers
+const profileRouter = require("./src/routes/user/profile");
+
 const userRegisterRouter = require("./src/routes/user/register");
 const userLoginRouter = require("./src/routes/user/login");
 const userRetrieveRouter = require("./src/routes/user/retrieve");
