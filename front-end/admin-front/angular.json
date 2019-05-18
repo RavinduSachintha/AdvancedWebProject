@@ -32,7 +32,6 @@
               "src/assets/vendors/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js",
               "src/assets/extra-libs/sparkline/sparkline.js",
               "src/assets/dist/js/waves.js",
-              "src/assets/dist/js/sidebarmenu.js",
               "src/assets/dist/js/custom.min.js",
 
               "src/assets/vendors/flot/jquery.flot.js",
