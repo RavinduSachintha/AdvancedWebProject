@@ -18,6 +18,10 @@ const routes: Routes = [
         component: LandingComponent
       },
       // {
+      //   path: 'login',
+      //   component: Login
+      // },
+      // {
       //   path: 'landing',
       //   loadChildren: './landining/landing.module#LandingModule'
       // },
