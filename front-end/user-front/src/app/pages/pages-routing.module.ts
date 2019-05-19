@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { LandingComponent } from './landing/landing.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {
@@ -17,17 +19,22 @@ const routes: Routes = [
         path: 'landing',
         component: LandingComponent
       },
-      // {
-      //   path: 'login',
-      //   component: Login
-      // },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+
+      {
+        path: 'signup',
+        component: RegistrationComponent
+      },
       // {
       //   path: 'landing',
       //   loadChildren: './landining/landing.module#LandingModule'
       // },
       {
         path: '',
-        redirectTo: 'landing',
+        redirectTo: '',
         pathMatch: 'full'
       }
       // {
