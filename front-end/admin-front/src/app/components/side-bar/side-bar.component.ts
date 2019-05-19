@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import * as $ from "jquery";
+import { Router } from '@angular/router';
 
 declare var $: $;
 
@@ -10,24 +11,28 @@ declare var $: $;
   styleUrls: ["./side-bar.component.css"]
 })
 export class SideBarComponent implements OnInit {
-  constructor() {}
+  constructor(private router:Router) {}
 
-  ngOnInit() {
-    this.loader();
+  ngOnInit() {}
+
+  buttonAction() {
+    console.log(this.router.url);
   }
 
-  loader() {
-    $("#sidebarnav").css("background-color", "red");
+  sideBarAction() {
     $(function() {
       "use strict";
+
       var url = window.location + "";
       var path = url.replace(
         window.location.protocol + "//" + window.location.host + "/",
         ""
       );
-      var element = $("ul#sidebarnav a").filter(function() {
+
+      let element = $("ul#sidebarnav a").filter(function() {
         return this.href === url || this.href === path; // || url.href.indexOf(this.href) === 0;
       });
+
       element.parentsUntil(".sidebar-nav").each(function(index) {
         if ($(this).is("li") && $(this).children("a").length !== 0) {
           $(this)
@@ -44,7 +49,9 @@ export class SideBarComponent implements OnInit {
       });
 
       element.addClass("active");
+
       $("#sidebarnav a").on("click", function(e) {
+        console.log(path);
         if (!$(this).hasClass("active")) {
           // hide any open menus and remove all other classes
           $("ul", $(this).parents("ul:first")).removeClass("in");
@@ -65,6 +72,7 @@ export class SideBarComponent implements OnInit {
             .removeClass("in");
         }
       });
+
       $("#sidebarnav >li >a.has-arrow").on("click", function(e) {
         e.preventDefault();
       });
