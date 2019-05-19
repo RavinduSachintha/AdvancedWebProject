@@ -1,0 +1,47 @@
+<div class="customContainer">
+  <div class="custom1 card border-primary col-md-4" style="max-width: 20rem; height:400px;">
+    <div class="card-header text-info">Word in English</div>
+    <div class="card-body text-primary">
+      <h4 class="card-title customword1">Cloud</h4>
+      <div class="container customcontainer2">
+        A cloud refers to a public or semi-public space on transmission lines (such as T1 or T3) that exists between the end points 
+      </div>
+    </div>
+  </div>
+  <div class="custom1 card border-primary col-md-4" style="max-width: 20rem; height:400px;">
+    <div class="card-header text-info">Highest Voted Sinhala Word</div>
+    <div class="card-body text-primary">
+      <h2 class="customsinhalaword">වලාකුළු </h2>
+    </div>
+  </div>
+  <div class="custom1 card border-success col-md-4" style="max-width: 20rem; height:400px;">
+    <div class="card-header text-success">Votes</div>
+    <div class="card-body text-success">
+      <div class="container md-col-3">
+        <h4>Number of Votes</h4>
+        <div class="customcontainer1">{{numofvotes}}</div>
+      </div>
+      <div class="container customcontainer3 ">&nbsp;&nbsp;
+        <button type="button" (click)="voteup()" class="btn btn-primary">  <i class="fa fa-arrow-up" aria-hidden="true"></i> &nbsp;Up Vote &nbsp;&nbsp;</button>
+        <br/>&nbsp;&nbsp;
+        <button type="button" (click)="votedown()" class="btn btn-primary">  <i class="fa fa-arrow-down" aria-hidden="true"></i> &nbsp;Down Vote</button>
+        <br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class=" container col-md-6" > 
+  <br>
+  <h2> Add Your Suggestion For Word වලාකුළු</h2><br>
+  <input #suggestion ngModel type="text" class="form-control" placeholder="Enter Suggestion Here..." ><br>
+  <div [class.d-none]="show">
+      <font color="green">You Successfully Suggested <strong>{{submittedWord}} </strong> for වලාකුළු </font>
+  </div>
+  <div [class.d-none]="empty">
+      <font color="red">Suggested Word Must not be Empty </font>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submit(suggestion.value)" >Submit</button>
+</div>
+
