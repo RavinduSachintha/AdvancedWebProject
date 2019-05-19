@@ -1,0 +1,40 @@
+.custom1{
+    border-width: 7px;
+    margin: 20px;
+    display:inline-block;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+
+.customContainer{
+    margin-left: 80px;
+}
+
+.customsinhalaword{
+    text-align: center;
+    margin-top: 50px;
+    font-size:6ch;
+}
+
+.customcontainer1{
+    text-align: center;
+    font-size: 5ch;
+}
+
+.customword1{
+    text-align: center;
+    margin-top: 30px;
+    font-size:6ch;
+}
+
+.customcontainer2{
+    background-color:#68E895;
+    border-radius: 7px;
+    color:black;
+    
+}
+.customcontainer3{
+    font-size: 5ch;
+    background-color:#68E895;
+    border-radius: 7px;
+}

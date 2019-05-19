@@ -1,0 +1,25 @@
+.customcontainer4{
+    background-color:#bacee2;
+    border-style: solid;
+    border-color:#0099ff;
+    border-radius: 3ch;
+   
+    margin: 4ch;
+}
+
+
+.customcontainer7{
+    margin-top: 1.5ch;
+}
+
+.custombutton1{
+    float:right;
+}
+
+.row{
+    display:inline-block;
+}
+
+.custombutton2{
+    margin-left: 8ch;
+}

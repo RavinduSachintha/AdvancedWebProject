@@ -44,6 +44,8 @@ app.use(function(req, res, next) {
 });
 
 // required routers
+const profileRouter = require("./src/routes/user/profile");
+
 const userRegisterRouter = require("./src/routes/user/register");
 const userLoginRouter = require("./src/routes/user/login");
 const userRetrieveRouter = require("./src/routes/user/retrieve");
@@ -68,6 +70,12 @@ const commentUpdateRouter = require("./src/routes/comment/update");
 const commentCountRouter = require("./src/routes/comment/count");
 
 // application routings
+
+// app.use("/user/register", registerRouter);
+// app.use("/user/login", loginRouter);
+// app.use("/user/profile", jwt_middleware.validateUser,profileRouter);
+app.use("/user/profile", profileRouter);
+
 app.use("/user/register", userRegisterRouter);
 app.use("/user/login", userLoginRouter);
 app.use("/user/retrieve", jwt_middleware.validateUser, userRetrieveRouter);
@@ -110,6 +118,7 @@ app.use(
 );
 app.use("/comment/update", jwt_middleware.validateUser, commentUpdateRouter);
 app.use("/comment/count", jwt_middleware.validateAdminUser, commentCountRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
