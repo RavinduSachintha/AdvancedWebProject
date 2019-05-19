@@ -30,8 +30,11 @@ export class CRUDwordsComponent implements OnInit {
   }
 
   initializeList() {
-    this.wordService.getAllWords().subscribe(word => {
-      this.listOfWords.push(1);
+    this.wordService.getAllWords().subscribe((result: any) => {
+      let words = result.data;
+      words.forEach(word => {
+        this.listOfWords.push(word.data);
+      });
     });
   }
 }
