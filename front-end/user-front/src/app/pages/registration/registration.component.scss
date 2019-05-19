@@ -1,0 +1,65 @@
+@import '../../../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../../../styles/adjusment.scss';
+@import '../../../styles/base.scss';
+@import '../../../styles/media.scss';
+@import '../../../styles/normalize.css';
+@import '../../../styles/svg.scss';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+app-forms-page {
+  .container {
+    margin-top: 50px;
+  }
+
+  .section-title {
+    margin-bottom: 20px;
+  }
+
+  .user-details-container {
+    padding: 20px;
+    text-align: center;
+
+    .user-image {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .user-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 30px;
+      display: block;
+    }
+
+    .user-bio {
+      font-size: 12px;
+      margin-top: 20px;
+      display: block;
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .error-message {
+    font-size: 12px;
+  }
+
+  .double-line-hint {
+    .mat-input-hint-wrapper {
+      flex-wrap: wrap;
+
+      .hint-line {
+        flex: 0 0 100%;
+      }
+    }
+  }
+
+  .submit-btn {
+    margin-top: 30px;
+  }
+}
