@@ -4,7 +4,7 @@
       <div class="col-md-6">
         <mat-card>
           <h2 align="center" class="section-title">
-            Sign Up
+            Sign In
           </h2>
         </mat-card>
 
@@ -15,7 +15,7 @@
               novalidate
               (ngSubmit)="onSubmitAccountDetails(accountDetailsForm.value)"
             >
-              <div class="username">
+              <!-- <div class="username">
                 <mat-form-field class="full-width">
                   <input
                     matInput
@@ -42,7 +42,7 @@
                     >
                   </mat-error>
                 </mat-form-field>
-              </div>
+              </div> -->
 
               <div class="email">
                 <mat-form-field class="full-width">
@@ -106,7 +106,7 @@
                   </mat-form-field>
                 </div>
 
-                <div class="resubmit">
+                <!-- <div class="resubmit">
                   <mat-form-field class="full-width">
                     <input
                       matInput
@@ -142,10 +142,10 @@
                       >
                     </mat-error>
                   </mat-form-field>
-                </div>
+                </div> -->
               </div>
 
-              <div class="terms">
+              <!-- <div class="terms">
                 <mat-checkbox formControlName="terms">
                   I accept terms and conditions
                 </mat-checkbox>
@@ -165,7 +165,7 @@
                     >{{ validation.message }}</mat-error
                   >
                 </mat-error>
-              </div>
+              </div> -->
               <button
                 class="submit-btn"
                 color="primary"
@@ -173,7 +173,7 @@
                 type="submit"
                 [disabled]="!accountDetailsForm.valid"
               >
-                Sign Up
+                Sign In
               </button>
 
               <div class="button"></div>
