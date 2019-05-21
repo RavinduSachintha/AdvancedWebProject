@@ -7,13 +7,14 @@ import { WordService } from "../services/word.service";
   styleUrls: ["./crudwords.component.css"]
 })
 export class CRUDwordsComponent implements OnInit {
-  listOfWords = [];
+  listOfWordsAndUserIds = [];
 
   constructor(private wordService: WordService) {}
 
   public items = ["වලාකුළු1", "වලාකුළු2", "වලාකුළු3"];
   public show = true;
   public empty = true;
+  public myId="5cd3ff104003201945f9e158";
 
   ngOnInit() {
     this.initializeList();
@@ -27,13 +28,16 @@ export class CRUDwordsComponent implements OnInit {
       this.show = false;
       this.empty = true;
     }
+    
   }
 
   initializeList() {
     this.wordService.getAllWords().subscribe((result: any) => {
       let words = result.data;
       words.forEach(word => {
-        this.listOfWords.push(word.data);
+        if (word.userId==this.myId){
+        this.listOfWordsAndUserIds.push([word.userId,word.data]);
+        }
       });
     });
   }

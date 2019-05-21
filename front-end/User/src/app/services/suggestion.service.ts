@@ -6,20 +6,16 @@ import { HttpEnum } from "../utils/http-enum.enum";
 @Injectable({
   providedIn: "root"
 })
-export class WordService {
+export class SuggestionService {
   constructor(private httpBackendRequest: HttpBackendRequestService) {}
 
-  getAllWords() {
+  getAllSuggestions() {
     return this.httpBackendRequest.realizarHttpGetWithoutToken(
-      HttpEnum.WORD_VIEW_ALL
+      HttpEnum.SUGGESTION_VIEW_ALL
     );
   }
 
-  getWordById(wordId) {
-    return this.httpBackendRequest.realizarHttpGetWithoutToken(
-      HttpEnum.WORD_VIEW_BY_ID+wordId
-    );
-  }
+
 
   
 

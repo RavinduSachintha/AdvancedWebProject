@@ -2,16 +2,14 @@
   <div class="custom1 card border-primary col-md-4" style="max-width: 20rem; height:400px;">
     <div class="card-header text-info">Word in English</div>
     <div class="card-body text-primary">
-      <h4 class="card-title customword1">Cloud</h4>
-      <div class="container customcontainer2">
-        A cloud refers to a public or semi-public space on transmission lines (such as T1 or T3) that exists between the end points 
-      </div>
+      <h4 class="card-title customword1">{{WordData[0][0]}}</h4>
+     
     </div>
   </div>
   <div class="custom1 card border-primary col-md-4" style="max-width: 20rem; height:400px;">
     <div class="card-header text-info">Highest Voted Sinhala Word</div>
     <div class="card-body text-primary">
-      <h2 class="customsinhalaword">වලාකුළු </h2>
+      <h2 class="customsinhalaword">{{WordData[0][1]}} </h2>
     </div>
   </div>
   <div class="custom1 card border-success col-md-4" style="max-width: 20rem; height:400px;">
@@ -33,7 +31,7 @@
 
 <div class=" container col-md-6" > 
   <br>
-  <h2> Add Your Suggestion For Word වලාකුළු</h2><br>
+  <h2> Add Your Suggestion For<strong> {{WordData[0][0]}} </strong></h2><br>
   <input #suggestion ngModel type="text" class="form-control" placeholder="Enter Suggestion Here..." ><br>
   <div [class.d-none]="show">
       <font color="green">You Successfully Suggested <strong>{{submittedWord}} </strong> for වලාකුළු </font>

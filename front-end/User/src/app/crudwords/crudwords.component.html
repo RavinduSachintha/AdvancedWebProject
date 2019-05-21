@@ -57,7 +57,6 @@
             <div class="col-sm-12 controls">
               <a
                 id="btn-fblogin"
-                href="#"
                 class="btn btn-primary"
                 (click)="submit(word.value, meaning.value)"
                 >Submit Word</a
@@ -77,8 +76,8 @@
 
         <div class="panel-body">
           <div class="container2" style="padding:5ch;">
-            <div *ngFor="let item of items">
-              <h4 class="row">{{ item }}</h4>
+            <div *ngFor="let word of listOfWordsAndUserIds">
+              <h4 class="row">{{ word[1] }}</h4>
 
               <div class="btn btn-primary row" style="float:right;">Delete</div>
               <hr style="border-width: 1px; border-color:darkseagreen; " />
@@ -91,8 +90,11 @@
 </div>
 
 <!-- testing -->
-<div>
+<!-- <div>
   <p>Testing Start..............................</p>
-  <li *ngFor="let word of listOfWords">{{ word }}</li>
+  <li *ngFor="let word of listOfWordsAndUserIds">
+    <div>{{ word[1] }}</div> 
+    
+    </li>
   <p>Testing End ..............................</p>
-</div>
+</div> -->
