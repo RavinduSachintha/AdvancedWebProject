@@ -1,8 +1,8 @@
 <br>
 <div class="container"><h2>Other Recomandations</h2></div>
 <div *ngFor="let item of items; let i=index" class="container col-md-9 customcontainer4 container">
-  <div class="container customcontainer5 col-md-2 row" style="padding-top: 2ch;"><h4>{{item[1]}}</h4></div>
-  <div class="container customcontainer6 col-md-2 row" style="padding-top: 2ch;"><h4>Votes {{OtherReccomandVotes[i]}}</h4></div>
+  <div class="container customcontainer5 col-md-2 row" style="padding-top: 2ch;"><h4><strong>{{item[1]}}</strong></h4></div>
+  <div ngModel class="container customcontainer6 col-md-3 row" style="padding-top: 2ch;"><h4>Votes {{OtherReccomandVotes[i]}}</h4></div>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <button class="btn btn-danger" [class.d-none]="MatchId(item[0])">Delete Suggestion</button>
   <div class="container customcontainer7">
@@ -35,7 +35,7 @@
       <br><br>
     </div>
   </div>
+    
 </div>
-
 
       

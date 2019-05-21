@@ -5,7 +5,7 @@ import { CRUDwordsComponent } from "./crudwords/crudwords.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "insertword", pathMatch: "full" },
-  { path: "viewword/:wordid", component: ViewWordComponent },
+  { path: "viewword/:wordId", component: ViewWordComponent },
   { path: "insertword", component: CRUDwordsComponent }
 ];
 

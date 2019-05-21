@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SuggestionService } from "../services/suggestion.service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cards-one',
@@ -7,18 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsOneComponent implements OnInit {
 
-  constructor() { }
+  constructor(private suggestionService: SuggestionService,private router: Router) { }
 
-  public items=[[111,"වලාකුළු1"],[112,"වලාකුළු2"],[113,"වලාකුළු3"]];
-  public myId=111;
-  public OtherReccomandVotes=[2343,4555,5454];
+
+  // public items=[[111,"වලාකුළු1"],[112,"වලාකුළු2"],[113,"වලාකුළු3"]];
+  // public myId=111;
+  public OtherReccomandVotes=[];
   public comments=[[112,"Ravindu Sachintha","Great word..Amazing"],[113,"Ruwan Liyanage","This is very bad"],[111,"Rashmi Shehana","Wow thats nice.."],[114,"Gayan Priyadarshana","What is this shit?"]]
- public correct_index=-1;
+  public correct_index=-1;
+  public myId="5cdda1052050d77d6774640f";
+ public wordId=this.router.url.split("/")[2];
   
   public show=true;
   public empty=true;
+  public SuggestionData=[];
+  public items=this.SuggestionData;
 
   ngOnInit() {
+    this.initializeLists();
   }
 
   public voteup(n) {
@@ -47,9 +55,21 @@ export class CardsOneComponent implements OnInit {
       this.show=false;
       this.empty=true;
     }
-    this.correct_index=i;
-    
-    
+    this.correct_index=i; 
+  }
+
+  initializeLists() {
+    this.suggestionService.getAllSuggestions().subscribe((result: any) => {
+      let suggestions = result.data.sort(function(o1,o2){
+        return o2.votesCount-o1.votesCount;
+      });
+      suggestions.forEach(suggestion => {
+       if (suggestion.wordId==this.wordId){
+        this.SuggestionData.push([suggestion.userId,suggestion.data,suggestion.userId]);
+        this.OtherReccomandVotes.push(suggestion.votesCount);
+      }
+      });
+    });
   }
 
   
