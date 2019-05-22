@@ -21,6 +21,12 @@ export class WordService {
     );
   }
 
+  getWordByPart(wordpart){
+    return this.httpBackendRequest.realizarHttpGetWithoutToken(
+      HttpEnum.WORD_VIEW_BY_WORDPART+wordpart
+    );
+  }
+
   
 
 
