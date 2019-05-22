@@ -9,6 +9,7 @@ import { CardsOneComponent } from "./cards-one/cards-one.component";
 import { ViewWordComponent } from "./view-word/view-word.component";
 import { CRUDwordsComponent } from "./crudwords/crudwords.component";
 import { HttpBackendRequestService } from "./services/http-backend-request.service";
+import { SearchWordComponent } from './search-word/search-word.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpBackendRequestService } from "./services/http-backend-request.servi
     CardsComponent,
     CardsOneComponent,
     ViewWordComponent,
-    CRUDwordsComponent
+    CRUDwordsComponent,
+    SearchWordComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [HttpBackendRequestService],

@@ -1,41 +1,58 @@
 <br>
-<div class="container"><h2>Other Recomandations</h2></div>
-<div *ngFor="let item of items; let i=index" class="container col-md-9 customcontainer4 container">
-  <div class="container customcontainer5 col-md-2 row" style="padding-top: 2ch;"><h4><strong>{{item[1]}}</strong></h4></div>
-  <div ngModel class="container customcontainer6 col-md-3 row" style="padding-top: 2ch;"><h4>Votes {{OtherReccomandVotes[i]}}</h4></div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button class="btn btn-danger" [class.d-none]="MatchId(item[0])">Delete Suggestion</button>
+<div class="container"><h2>Suggestions..</h2></div>
+<div *ngFor="let item of items; let i=index" class=" col-md-9 customcontainer4 container">
+ 
+  <div align="center">
+    <div class="container customcontainer5 col-md-3 row" style="padding-top: 2ch;"><h4>&nbsp;&nbsp;<strong>{{item[1]}}</strong></h4></div>
+    <div ngModel class="container customcontainer6 col-md-3 row" style="padding-top: 2ch;"><h4>Votes {{OtherReccomandVotes[i]}}</h4></div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-danger" [class.d-none]="MatchId(item[0])">Delete Suggestion</button>
+  </div>
+
   <div class="container customcontainer7">
-    <button type="button" (click)="voteup(i)" class="btn btn-primary">&nbsp;Up Vote &nbsp;<i class="fa fa-arrow-up" aria-hidden="true"></i> &nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
-    <button type="button" (click)="votedown(i)" class="btn btn-primary">&nbsp;Down Vote &nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i>&nbsp;&nbsp;</button>
-    <br><br>
+    <div align="center">
+      <button type="button" (click)="voteup(i)" class="btn btn-primary">&nbsp;Up Vote &nbsp;<i class="fa fa-arrow-up" aria-hidden="true"></i> &nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" (click)="votedown(i)" class="btn btn-primary">&nbsp;Down Vote &nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i>&nbsp;&nbsp;</button>
+      <br><br>
+    </div>
+
+  
     <h3>Comments <i class="fa fa-book" aria-hidden="true"></i> </h3>
     <br>
+
+
     <div *ngFor="let comment of comments; let j=index" class="container customcontainer8">
       <strong>{{comment[1]}}</strong> {{comment[2]}} 
+
       <div [class.d-none]="MatchId(comment[0])" class="custombutton2">
         <br>
         <button class="btn btn-info col-md-2 " >Edit Comment</button> &nbsp;&nbsp;&nbsp;
         <button class="btn btn-info  " >Delete Comment</button>
       </div>
+
       <hr>
     </div> 
+
+
     <div class=" container" > 
       <br>
-      <h4> Add Your Comments</h4><br>
+      <h4> Add Your Comments For Suggestion "{{item[1]}}"</h4><br>
       <input #suggestion ngModel type="text" class="form-control" placeholder="Enter Suggestion Here..." ><br>
+
       <div [class.d-none]="show || i!=correct_index">
         <font color="green">Your Comment is Successfully Added</font>
       </div>
+
       <div [class.d-none]="empty || i!=correct_index">
         <font color="red">Comment Must not be Empty </font>
       </div>
+
       <br>
       <button class="btn btn-primary" (click)="submit(suggestion.value,i)" >Submit Comment</button>
       <br><br>
+
     </div>
   </div>
-    
 </div>
 
       

@@ -1,0 +1,39 @@
+<div class="main">
+  
+ 
+  <div class="input-group" >
+    <input ngModel type="text" class="form-control" placeholder="Search the word here!!!" #word>
+    <div class="input-group-append">
+      <button ngModel (click)="SubmitWord(word.value)"  class="btn btn-secondary" type="button" >
+        <i class="fa fa-search"></i>
+      </button>
+      
+    </div>
+  </div>
+
+  <div ngModel *ngIf="openPartList && PartlistOfWords.length>0 ; else Other"> <strong><br>Did You Mean...</strong><br>
+    <div *ngFor="let part of PartlistOfWords">
+      <div ngModel class="container con3" (click)="cardSubmit(part[0])" >{{part[1]}} </div><br>
+    </div>
+  </div>
+
+  <div ngModel *ngIf="openPartList && PartlistOfWords.length==0 ; else Other">
+     <strong><br><font color="red">Sorry..No related Words.</font></strong>
+  </div>
+  
+  
+  
+<h2 class="con1">Some Words In The System..
+  <br><small><small> &nbsp;&nbsp;&nbsp;Click to View Details..</small></small>
+</h2>
+
+  <div class="container con1" *ngFor="let w of listOfWords;let i=index">
+      <div *ngIf="i<3" class="card bg-info">
+          <div class="card-body text-center">
+            <p ngModel (click)="cardSubmit(w[0])" class="card-text con2">{{w[1] | titlecase}}</p>
+          </div>
+      </div>
+  </div>
+  
+</div>
+
