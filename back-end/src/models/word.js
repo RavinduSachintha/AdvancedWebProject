@@ -12,6 +12,9 @@ const WordSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
+  description: {
+    type: String
+  },
   state: {
     type: String
   },
