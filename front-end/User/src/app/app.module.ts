@@ -10,6 +10,7 @@ import { ViewWordComponent } from "./view-word/view-word.component";
 import { CRUDwordsComponent } from "./crudwords/crudwords.component";
 import { HttpBackendRequestService } from "./services/http-backend-request.service";
 import { SearchWordComponent } from './search-word/search-word.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchWordComponent } from './search-word/search-word.component';
     CardsOneComponent,
     ViewWordComponent,
     CRUDwordsComponent,
-    SearchWordComponent
+    SearchWordComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [HttpBackendRequestService],

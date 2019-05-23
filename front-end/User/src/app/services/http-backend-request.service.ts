@@ -17,7 +17,26 @@ export class HttpBackendRequestService {
     });
   }
 
-  
+  // POST request sending function with Token
+  realizarHttpPostWithToken(requestType: string, bodyObject: Object) {
+    const token = localStorage.getItem("accessToken");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": token
+    });
+    return this.http.post(requestType, bodyObject, {
+      headers: headers
+    });
+  }
 
+  // POST request sending function without Token
+  realizarHttpPostWithoutToken(requestType: string, bodyObject: Object) {
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json"
+    });
+    return this.http.post(requestType, bodyObject, {
+      headers: headers
+    });
+  }
 
 }
