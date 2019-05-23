@@ -13,6 +13,7 @@ router.put("/", function(req, res) {
       userId: req.body.userId,
       data: req.body.data,
       state: req.body.state,
+      description: req.body.description,
       bestSuggestion: req.body.bestSuggestion,
       startDate: req.body.startDate,
       endDate: req.body.endDate,

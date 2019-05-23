@@ -12,6 +12,7 @@ router.post("/", function(req, res) {
     let wordData = {
       userId: req.body.userId,
       data: req.body.data,
+      description: req.body.description,
       state: req.body.state,
       bestSuggestion: req.body.bestSuggestion,
       startDate: req.body.startDate,

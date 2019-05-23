@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { WordService } from "../services/word.service";
+import { Word } from '../models/word';
 
 @Component({
   selector: "app-crudwords",
@@ -28,6 +29,18 @@ export class CRUDwordsComponent implements OnInit {
       this.show = false;
       this.empty = true;
     }
+
+    let wordItem = new Word();
+    wordItem.data = word;
+
+    this.wordService.insertWord(wordItem)
+      .toPromise()
+      .then(result => {
+        alert("Successfully inserted the word.");
+      }).catch(error => {
+        alert("Something went wrong");
+        console.log(error);
+      })
     
   }
 
@@ -41,4 +54,6 @@ export class CRUDwordsComponent implements OnInit {
       });
     });
   }
+
+  
 }
