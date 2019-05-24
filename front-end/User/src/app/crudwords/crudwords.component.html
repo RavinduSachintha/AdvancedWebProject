@@ -79,7 +79,9 @@
             <div *ngFor="let word of listOfWordsAndUserIds">
               <h4 class="row">{{ word[1] }}</h4>
 
-              <div class="btn btn-primary row" style="float:right;">Delete</div>
+              <div class="btn btn-info view row" style="float:right;" (click)="viewWord(word[2])">View</div><br>
+              <div class="btn btn-danger row" style="float:right;" (click)="deleteWord(word[2])">Delete</div><br>
+
               <hr style="border-width: 1px; border-color:darkseagreen; " />
             </div>
           </div>
@@ -89,12 +91,3 @@
   </div>
 </div>
 
-<!-- testing -->
-<!-- <div>
-  <p>Testing Start..............................</p>
-  <li *ngFor="let word of listOfWordsAndUserIds">
-    <div>{{ word[1] }}</div> 
-    
-    </li>
-  <p>Testing End ..............................</p>
-</div> -->

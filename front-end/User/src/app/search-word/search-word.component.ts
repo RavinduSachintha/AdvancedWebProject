@@ -12,13 +12,16 @@ export class SearchWordComponent implements OnInit {
   listOfWords = [];
   PartlistOfWords=[];
   
-  constructor(private wordService: WordService,private route:Router) { }
+  constructor(private wordService: WordService,private route:Router) {
+    this.initializeList();
+   }
   public numOfWords=0;
+  public myId=localStorage.getItem('userId');
   public wordId="o";
   public openPartList=false;
   public u=0;
   ngOnInit() {
-    this.initializeList();
+    
   }
 
   initializeList() {
@@ -33,9 +36,10 @@ export class SearchWordComponent implements OnInit {
   }
 
   initializePartList(wordPart) {
+    this.PartlistOfWords=[];
     this.wordService.getWordByPart(wordPart.toLowerCase()).subscribe((result: any) => {
       let words = result.data;
-      this.u=words.length;
+      // this.u=words.length;
       // this.numOfWords=words.length;
       words.forEach(word => {
         this.PartlistOfWords.push([word._id,word.data]);
@@ -47,18 +51,17 @@ export class SearchWordComponent implements OnInit {
 
 
   SubmitWord(iword){  
+    
     for (let w of this.listOfWords){
       if (w[1]==iword.toLowerCase()){
         this.wordId=w[0];
         this.route.navigateByUrl('/viewword/'+this.wordId);
         return;
       }
-        
-      
-      
     }
     this.initializePartList(iword)
     this.openPartList=true;
+    
   }
 
   cardSubmit(id){
