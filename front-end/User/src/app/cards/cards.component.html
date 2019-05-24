@@ -14,7 +14,7 @@
   </div>
   <div class="custom1 card border-primary col-md-4" style="max-width: 20rem; height:300px;">
     <div class="card-header text-primary">Votes</div>
-    <div class="card-body text-success">
+    <div class="card-body text-primary">
       <div class="container md-col-3">
         <h4>Voted By</h4>
         <div class="customcontainer1">{{numofvotes}}</div>
@@ -25,7 +25,7 @@
 
 <div class=" container col-md-6" > 
   <br><br>
-  <h2> Add Your Suggestion For Word<font color="blue"> "{{WordData[0][0] | titlecase}}" </font></h2><br>
+  <h2 class="heading1"> Add Your Suggestion For Word<font color="blue"> "{{WordData[0][0] | titlecase}}" </font></h2><br>
   <input #suggestion ngModel type="text" class="form-control" placeholder="Enter Suggestion Here..." ><br>
   <div [class.d-none]="show">
       <font color="green">You Successfully Suggested <strong>{{submittedWord}} </strong> for වලාකුළු </font>
@@ -36,4 +36,3 @@
   <br>
   <button class="btn btn-primary" (click)="submit(suggestion.value)" >Submit</button>
 </div>
-

@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       email: this.email,
       password: this.password
     };
+    
 
     this.authService.loginUser(authUser);
 

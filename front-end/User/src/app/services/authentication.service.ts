@@ -19,12 +19,12 @@ export class AuthenticationService {
   // login function for users
   loginUser(user: User) {
     this.httpBackendRequest
-      .realizarHttpPostWithoutToken(HttpEnum.USER_LOGIN, user)
+      .realizarHttpPostWithToken(HttpEnum.USER_LOGIN, user)
       .subscribe(
         (result: any) => {
           if (result.status === "success") {
             if (result.data.user && result.data.token) {
-              localStorage.setItem("userId", result.data.user.userId);
+              localStorage.setItem("userId", result.data.user._id);
               localStorage.setItem("userType", result.data.user.usertype);
               localStorage.setItem("accessToken", result.data.token);
             }
@@ -53,5 +53,15 @@ export class AuthenticationService {
       !jwtHelper.isTokenExpired(token) &&
       (type == "normal")
     );
+  }
+
+  //view user details by id
+  seeUserDetails(userid){
+    
+      return this.httpBackendRequest.realizarHttpGetWithToken(
+        HttpEnum.USER_PROFILE+userid
+      );
+    
+  
   }
 }
