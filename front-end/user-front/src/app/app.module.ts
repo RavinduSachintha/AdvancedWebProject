@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,9 +24,12 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { MyProfileComponent } from './pages/user-profile/my-profile/my-profile.component';
 import { EditDetailsComponent } from './pages/user-profile/edit-details/edit-details.component';
 import { ChangePasswordComponent } from './pages/user-profile/change-password/change-password.component';
+import { UserLoginComponent } from './pages/user-login/user-login.component';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 
 import { UserService } from './user.service';
 import { ComponentInteractionsService } from './component-interactions.service';
+
 
 @NgModule({
   declarations: [
@@ -40,10 +43,13 @@ import { ComponentInteractionsService } from './component-interactions.service';
     MyProfileComponent,
     EditDetailsComponent,
     ChangePasswordComponent,
+    UserLoginComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule,
