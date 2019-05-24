@@ -40,7 +40,11 @@
     </form>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active">Login</a>
+          <a class="nav-link" *ngIf="authService.loggedIn()" [routerLink]="['/profile']" routerLinkActive="router-link-active" (click)="getOneUserProfile('5cc938de15efa90a6148592f')">My Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="nav-link" *ngIf="authService.loggedIn()" style="cursor:pointer" (click)="authService.logoutUser()">Logout</a>
       </li>
     </ul>
   </div>

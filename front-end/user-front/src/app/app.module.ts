@@ -29,6 +29,8 @@ import { UserRegistrationComponent } from './pages/user-registration/user-regist
 
 import { UserService } from './user.service';
 import { ComponentInteractionsService } from './component-interactions.service';
+import { HttpBackendRequestService } from './service/http-backend-request.service';
+import { AuthenticationService } from './service/authentication.service';
 
 
 @NgModule({
@@ -59,7 +61,7 @@ import { ComponentInteractionsService } from './component-interactions.service';
     MDBBootstrapModule,
     WavesModule
   ],
-  providers: [UserService, ComponentInteractionsService],
+  providers: [UserService, ComponentInteractionsService, HttpBackendRequestService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
