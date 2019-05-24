@@ -23,7 +23,14 @@ const SuggestionSchema = new mongoose.Schema({
   },
   createdDate: {
     type: Date
+  },
+  upVotedList:{
+    type:Array
+  },
+  downVotedList:{
+    type:Array
   }
+
 });
 
 module.exports = mongoose.model("Suggestion", SuggestionSchema);

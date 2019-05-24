@@ -39,4 +39,40 @@ export class HttpBackendRequestService {
     });
   }
 
+  // GET request sending function with token
+  realizarHttpGetWithToken(requestType: string) {
+    const token = localStorage.getItem("accessToken");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": token
+    });
+    return this.http.get(requestType, {
+      headers: headers
+    });
+  }
+
+
+// DELETE request sending function with token
+  realizarHttpDeleteWithToken(requestType: string) {
+    const token = localStorage.getItem("accessToken");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": token
+    });
+    return this.http.delete(requestType, {
+      headers: headers
+    });
+  }
+
+  realizarHttpPutWithToken(requestType: string, bodyObject: Object) {
+    const token = localStorage.getItem("accessToken");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": token
+    });
+    return this.http.put(requestType, bodyObject, {
+      headers: headers
+    });
+  }
+
 }

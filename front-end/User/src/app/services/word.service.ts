@@ -34,6 +34,12 @@ export class WordService {
     );
   }
 
+  deleteWord(wordId){
+    return this.httpBackendRequest.realizarHttpDeleteWithToken(
+      HttpEnum.WORD_DELETE+wordId
+    );
+  }
+
   
 
 
