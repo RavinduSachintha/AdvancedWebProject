@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 
 
 @Component({
@@ -12,11 +13,11 @@ import { User } from '../../models/user';
 export class UserLoginComponent implements OnInit {
 
   // loginForm: FormGroup;
-  username: String;
-  password: String;
+  email: string;
+  password: string;
 
   // constructor(private fb: FormBuilder, private router: Router) { }
-  constructor() { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
     // this.loginForm = this.fb.group({
@@ -27,11 +28,14 @@ export class UserLoginComponent implements OnInit {
 
   userLogin() {
     let loggedUser: User = {
-      username : this.username,
+      email : this.email,
       password : this.password
     };
 
-    console.log(loggedUser);
+    this.authService.loginUser(loggedUser);
+
+    this.email = null;
+    this.password = null;
 
   }
 
