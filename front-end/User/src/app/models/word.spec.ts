@@ -1,7 +1,7 @@
 import { Word } from './word';
 
-describe('Word', () => {
-  it('should create an instance', () => {
+fdescribe('Word', () => {
+  fit('should create an instance of Words Model', () => {
     expect(new Word()).toBeTruthy();
   });
 });

@@ -1,13 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SearchWordComponent } from './search-word.component';
-
-describe('SearchWordComponent', () => {
+import { RouterTestingModule } from '@angular/router/testing';
+fdescribe('SearchWordComponent', () => {
   let component: SearchWordComponent;
   let fixture: ComponentFixture<SearchWordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[HttpClientTestingModule,RouterTestingModule],
       declarations: [ SearchWordComponent ]
     })
     .compileComponents();
@@ -19,7 +20,7 @@ describe('SearchWordComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create the search-word Component', () => {
     expect(component).toBeTruthy();
   });
 });

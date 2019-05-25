@@ -1,13 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { CardsComponent } from './cards.component';
 
-describe('CardsComponent', () => {
+fdescribe('CardsComponent', () => {
   let component: CardsComponent;
   let fixture: ComponentFixture<CardsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[HttpClientTestingModule,RouterTestingModule],
       declarations: [ CardsComponent ]
     })
     .compileComponents();
@@ -19,7 +21,7 @@ describe('CardsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create CardsOne Component', () => {
     expect(component).toBeTruthy();
   });
 });

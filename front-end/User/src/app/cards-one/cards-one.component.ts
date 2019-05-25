@@ -32,7 +32,7 @@ export class CardsOneComponent implements OnInit {
   public empty=true;
   public SuggestionData=[];
   public items=this.SuggestionData;
-  // public id=localStorage.getItem('accesstoken');
+  public myName=localStorage.getItem('username');
   
 
   // public commentList=[];
@@ -81,7 +81,7 @@ export class CardsOneComponent implements OnInit {
     commentItem.userId=this.myId;
     commentItem.suggestionId=this.SuggestionData[i][2];
 
-    this.comments.push([this.myId,word,this.SuggestionData[i][2],"Me",commentItem.id])
+    this.comments.push([this.myId,word,this.SuggestionData[i][2],this.myName,commentItem.id])
 
 
 

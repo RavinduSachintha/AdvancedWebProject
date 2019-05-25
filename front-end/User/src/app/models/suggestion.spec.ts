@@ -1,7 +1,7 @@
 import { Suggestion } from './suggestion';
 
-describe('Suggestion', () => {
-  it('should create an instance', () => {
+fdescribe('Suggestion', () => {
+  fit('should create an instance of Suggestions Model', () => {
     expect(new Suggestion()).toBeTruthy();
   });
 });

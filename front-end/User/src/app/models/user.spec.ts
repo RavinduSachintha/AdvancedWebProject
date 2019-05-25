@@ -1,7 +1,7 @@
 import { User } from './user';
 
-describe('User', () => {
-  it('should create an instance', () => {
+fdescribe('User', () => {
+  fit('should create an instance of User Model', () => {
     expect(new User()).toBeTruthy();
   });
 });
