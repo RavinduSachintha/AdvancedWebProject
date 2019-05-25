@@ -9,12 +9,15 @@ import { UserSuggestedWordsComponent } from './pages/user-profile/user-suggested
 import { MyProfileComponent } from './pages/user-profile/my-profile/my-profile.component';
 import { EditDetailsComponent } from './pages/user-profile/edit-details/edit-details.component';
 import { ChangePasswordComponent } from './pages/user-profile/change-password/change-password.component';
+import { UserLoginComponent } from './pages/user-login/user-login.component';
+import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 
 const routes: Routes = [
 
   {path: "", redirectTo: "/home", pathMatch: "full"},
   {path: "home", component: UserHomeComponent},
-  {path: 'pages', loadChildren: './pages/pages.module#PagesModule'},
+  {path: "login", component: UserLoginComponent},
+  {path: "register", component: UserRegistrationComponent},
   {
     path: "profile/:id",
     component: UserProfileComponent,
@@ -37,12 +40,12 @@ const routes: Routes = [
 //   { path: '**', redirectTo: 'Pages' }
 // ];
 
-const config: ExtraOptions = {
-  useHash: true
-};
+// const config: ExtraOptions = {
+//   useHash: true
+// };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
