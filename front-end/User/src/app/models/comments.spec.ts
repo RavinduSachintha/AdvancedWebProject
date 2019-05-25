@@ -1,7 +1,7 @@
 import { Comments } from './comments';
 
-describe('Comments', () => {
-  it('should create an instance', () => {
+fdescribe('Comments', () => {
+  fit('should create an instance of Comments Model', () => {
     expect(new Comments()).toBeTruthy();
   });
 });

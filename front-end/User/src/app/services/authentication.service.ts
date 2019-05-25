@@ -25,6 +25,7 @@ export class AuthenticationService {
           if (result.status === "success") {
             if (result.data.user && result.data.token) {
               localStorage.setItem("userId", result.data.user._id);
+              localStorage.setItem("username", result.data.user.username);
               localStorage.setItem("userType", result.data.user.usertype);
               localStorage.setItem("accessToken", result.data.token);
             }

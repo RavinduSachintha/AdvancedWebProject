@@ -26,6 +26,7 @@ import { AuthenticationService } from './services/authentication.service';
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [HttpBackendRequestService, AuthenticationService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[CardsComponent,CardsOneComponent]
 })
 export class AppModule {}

@@ -13,9 +13,11 @@ import { Word } from '../models/word';
 export class CardsComponent implements OnInit {
   
 
-  WordData = [];
+  WordData = [["","",""]];
   
-  constructor(private wordService: WordService,private router: Router,private suggestionService: SuggestionService) { }
+  constructor(private wordService: WordService,private router: Router,private suggestionService: SuggestionService) { 
+    this.initializeList();
+  }
   public numofvotes=232340;
   public submittedWord="";
   public show=true;
@@ -27,7 +29,7 @@ export class CardsComponent implements OnInit {
   
 
   ngOnInit() {
-    this.initializeList();
+   
     this.highestVotedSuggestion();
   }
 
@@ -79,10 +81,8 @@ export class CardsComponent implements OnInit {
   initializeList() {
     this.wordService.getWordById(this.wordId).subscribe((result: any) => {
       let words = result.data;
-      if(words==null){
-        this.WordData.push("Wrong Word Id!!!");
-      }else{
-        this.WordData.push([words.data,words.bestSuggestion]);
+      if(words!=null){
+        this.WordData.unshift([words.data,words.bestSuggestion]);
       }
       
       });
