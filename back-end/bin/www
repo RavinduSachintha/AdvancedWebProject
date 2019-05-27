@@ -7,6 +7,9 @@
 var app = require("../app");
 var debug = require("debug")("back-end:server");
 var http = require("http");
+// var https = require("https");
+// var fs = require("fs");
+// var path = require("path");
 var connection = require("../src/utils/connection");
 
 /**
@@ -21,6 +24,15 @@ app.set("port", port);
  */
 
 var server = http.createServer(app);
+
+/**
+ * Create HTTPS server.
+ */
+
+// var server = https.createServer({
+//   key: fs.readFileSync(path.join(__dirname, "..", "..", "certs", "server.key")),
+//   cert: fs.readFileSync(path.join(__dirname, "..", "..", "certs", "server.cert")),
+// }, app);
 
 /**
  * Listen on provided port, on all network interfaces.
