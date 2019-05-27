@@ -1,0 +1,40 @@
+<section>
+  <div class="container">
+    <div class="card-wrappper">
+      <h1 class="heading">My Profile</h1>
+        <div class="card">
+          <img src="assets/images/profile_background.jpg" alt="card background" class="card-img">
+          <img src=" assets/images/my_profile_image.jpg" alt="profile image" class="profile-img">
+          <h2>testuser123</h2>
+          <h3 style="color: cornflowerblue; padding-top: 5px; font-style: italic;">testuser@gmail.com</h3>
+          <h5 style="color: crimson; font-size: 18px; margin: 8px 0; "><i class="fas fa-star"></i> Expert</h5>
+
+          <div class="row">
+              <div style="padding: 30px 50px;">
+                  <i class="fas fa-clipboard-check" style="font-size: 75px; text-align: center; color: rgb(69, 60, 200);"></i>
+                  <h4 style="padding-top: 10px; color: rgb(69, 60, 200); margin-bottom: 5px;"> Voted Words </h4>
+                  <span class="badge badge-primary"><p style="padding: 4px 12px;">300</p></span>
+              </div>
+              <div style="padding: 30px 50px;">
+                  <i class="fas fa-lightbulb" style="font-size: 75px; text-align: center; color: rgb(29, 161, 46);"></i>
+                  <h4 style="padding-top: 10px; color: rgb(29, 161, 46); margin-bottom: 5px;"> Suggested Words </h4>
+                  <span class="badge badge-success"><p style="padding: 4px 12px;">35</p></span>
+              </div>
+          </div>
+
+          <div class="container">
+            <h4>Member since</h4><i style="color: cornflowerblue">19th July 2018</i>
+            <h4>Name</h4><i style="color: cornflowerblue">Test User</i>
+            <h4>Profession</h4><i style="color: cornflowerblue">Student</i>
+            <h4>Birth Day</h4><i style="color: cornflowerblue">1996 July 20</i>
+          </div>
+
+          <div class="row">
+            <button [routerLink]="['..', 'editdetails']" routerLinkActive="router-link-active"  class="btn btn-outline-danger" style="margin: 20px 10px; padding: 4px 10px;"><i class="fas fa-edit"></i> Edit My Details</button>
+            <button [routerLink]="['..', 'changepassword']" routerLinkActive="router-link-active" class="btn btn-outline-warning" style="margin: 20px 10px; padding: 4px 10px;"><i class="fas fa-lock"></i> Change Password</button>
+          </div>
+
+        </div>
+      </div>
+  </div>
+</section>

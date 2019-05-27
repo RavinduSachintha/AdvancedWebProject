@@ -19,17 +19,19 @@ export class AuthenticationService {
   // login function for users
   loginUser(user: User) {
     this.httpBackendRequest
-      .realizarHttpPostWithToken(HttpEnum.USER_LOGIN, user)
+      .realizarHttpPostWithoutToken(HttpEnum.USER_LOGIN, user)
       .subscribe(
         (result: any) => {
           if (result.status === "success") {
             if (result.data.user && result.data.token) {
               localStorage.setItem("userId", result.data.user._id);
+              localStorage.setItem("user", JSON.stringify(result.data.user));
               localStorage.setItem("username", result.data.user.username);
               localStorage.setItem("userType", result.data.user.usertype);
               localStorage.setItem("accessToken", result.data.token);
             }
-            this.router.navigate(["/insertword"]);
+            // this.router.navigate(["/insertword"]);
+            this.router.navigate(['/home']);
           } else {
             alert(result.error);
           }
@@ -41,6 +43,7 @@ export class AuthenticationService {
   // logout function for users
   logoutUser() {
     localStorage.removeItem("userId");
+    localStorage.removeItem("user");
     localStorage.removeItem("userType");
     localStorage.removeItem("accessToken");
     this.router.navigate(["/login"]);
@@ -65,4 +68,36 @@ export class AuthenticationService {
     
   
   }
+
+  //check whether a user is loggedin //CHAMOD
+  loggedIn() {
+    return !!localStorage.getItem("accessToken");
+  }
+
+  //check user validity CHAMOD
+  isUserAuthenticated() {
+    let token = localStorage.getItem("accessToken");
+    return !jwtHelper.isTokenExpired(token);
+  }
+
+  //register function for users CHAMOD
+  registerUser(user: User) {
+    this.httpBackendRequest
+      .realizarHttpPostWithoutToken(HttpEnum.USER_REGISTER, user)
+      .subscribe(
+        (result: any) => {
+          if (result.status === "success") {
+            if (result.data.user && result.data.token) {
+              localStorage.setItem("user", JSON.stringify(result.data.user));
+              localStorage.setItem("accessToken", result.data.token);
+            }
+            this.router.navigate(["/login"]);
+          } else {
+            alert(result.error);
+          }
+        },
+        err => console.log("HTTP request not send. \n" + err)
+      );
+  }
+
 }
