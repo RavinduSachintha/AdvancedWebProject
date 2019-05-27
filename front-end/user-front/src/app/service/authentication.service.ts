@@ -16,7 +16,7 @@ export class AuthenticationService {
 
   //login function for normal users
   loginUser(user: User) {
-    this.httpBackendRequest.realizarHttpPost(HttpEnum.USER_LOGIN, user)
+    this.httpBackendRequest.realizarHttpPostWithoutToken(HttpEnum.USER_LOGIN, user)
     .subscribe(
       (result: any) => {
         if (result.status === "success") {
@@ -57,7 +57,7 @@ export class AuthenticationService {
   //register function for users
   registerUser(user: User) {
     this.httpBackendRequest
-      .realizarHttpPost(HttpEnum.USER_REGISTER, user)
+      .realizarHttpPostWithoutToken(HttpEnum.USER_REGISTER, user)
       .subscribe(
         (result: any) => {
           if (result.status === "success") {

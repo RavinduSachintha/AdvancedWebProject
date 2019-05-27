@@ -11,6 +11,7 @@ import { EditDetailsComponent } from './pages/user-profile/edit-details/edit-det
 import { ChangePasswordComponent } from './pages/user-profile/change-password/change-password.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: "profile/:id",
     component: UserProfileComponent,
+    // canActivate: [AuthGuard],
     children: [
       {path: "", redirectTo: "overview", pathMatch: "full"},
       {path: "overview", component: UserProfileOverviewComponent},
