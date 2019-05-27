@@ -26,6 +26,8 @@ import { EditDetailsComponent } from './pages/user-profile/edit-details/edit-det
 import { ChangePasswordComponent } from './pages/user-profile/change-password/change-password.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { AuthGuard } from './auth.guard';
+import { UserProfileService } from './services/user-profile.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,7 @@ import { UserRegistrationComponent } from './pages/user-registration/user-regist
     UserRegistrationComponent
   ],
   imports: [BrowserModule,ReactiveFormsModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [HttpBackendRequestService, AuthenticationService],
+  providers: [HttpBackendRequestService, AuthenticationService, AuthGuard, UserProfileService],
   bootstrap: [AppComponent],
   exports:[CardsComponent,CardsOneComponent]
 })

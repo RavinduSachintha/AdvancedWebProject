@@ -5,9 +5,9 @@
         <div class="card">
           <img src="assets/images/profile_background.jpg" alt="card background" class="card-img">
           <img src=" assets/images/my_profile_image.jpg" alt="profile image" class="profile-img">
-          <h2>testuser123</h2>
-          <h3 style="color: cornflowerblue; padding-top: 5px; font-style: italic;">testuser@gmail.com</h3>
-          <h5 style="color: crimson; font-size: 18px; margin: 8px 0; "><i class="fas fa-star"></i> Expert</h5>
+          <h2>{{user.username}}</h2>
+          <h3 style="color: cornflowerblue; padding-top: 5px; font-style: italic;">{{user.email}}</h3>
+          <h5 style="color: crimson; font-size: 18px; margin: 8px 0; "><i class="fas fa-star"></i> User Level: {{user.userLevel}}</h5>
 
           <div class="row">
               <div style="padding: 30px 50px;">
@@ -23,10 +23,10 @@
           </div>
 
           <div class="container">
-            <h4>Member since</h4><i style="color: cornflowerblue">19th July 2018</i>
-            <h4>Name</h4><i style="color: cornflowerblue">Test User</i>
-            <h4>Profession</h4><i style="color: cornflowerblue">Student</i>
-            <h4>Birth Day</h4><i style="color: cornflowerblue">1996 July 20</i>
+            <h4>Member since</h4><i style="color: cornflowerblue">{{user.joinedDate}}</i>
+            <h4>Name</h4><i style="color: cornflowerblue">{{user.name}}</i>
+            <h4>Profession</h4><i style="color: cornflowerblue">{{user.profession}}</i>
+            <h4>Birth Day</h4><i style="color: cornflowerblue">{{user.birthday}}</i>
           </div>
 
           <div class="row">

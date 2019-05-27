@@ -15,21 +15,23 @@ import { EditDetailsComponent } from './pages/user-profile/edit-details/edit-det
 import { ChangePasswordComponent } from './pages/user-profile/change-password/change-password.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  { path: "", redirectTo: "login", pathMatch: "full" },
-  { path: "login" , component: LoginComponent },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
+  // { path: "login" , component: LoginComponent },
 
   { path: "viewword/:wordId", component: ViewWordComponent },
   { path: "insertword", component: CRUDwordsComponent },
   {path: "searchWord", component:SearchWordComponent},
   {path: "home", component: UserHomeComponent},
-  // {path: "login", component: UserLoginComponent},
+  {path: "login", component: UserLoginComponent},
   {path: "register", component: UserRegistrationComponent},
   {
     path: "profile/:id",
     component: UserProfileComponent,
+    // canActivate: [AuthGuard],
     children: [
       {path: "", redirectTo: "overview", pathMatch: "full"},
       {path: "overview", component: UserProfileOverviewComponent},

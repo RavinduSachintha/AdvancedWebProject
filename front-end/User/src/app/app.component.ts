@@ -13,7 +13,8 @@ export class AppComponent {
 
   constructor( private router: Router, public authService: AuthenticationService) {}
 
-  getOneUserProfile(id) {
+  gotoUserDashboard() {
+    let id = JSON.parse(localStorage.getItem('user'))._id;
     this.router.navigate([`/profile/${id}`]);
   }
 
