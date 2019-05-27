@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/models/user';
+import { UserProfileService } from 'src/app/service/user-profile.service';
 
 
 @Component({
@@ -16,13 +18,18 @@ export class EditDetailsComponent implements OnInit {
     profession: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  id = JSON.parse(localStorage.getItem('user'))._id;
+
+  constructor(private fb: FormBuilder, private userProfileService: UserProfileService) { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-    console.log(this.profileForm.value);
+  onSubmit(name, username, birthday, profession) {
+    this.userProfileService.editUserProfileDetails(this.id, name, username, birthday, profession)
+      .subscribe(() => {
+        alert("Details updated successfully");
+      });
   }
 
 }

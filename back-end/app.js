@@ -1,6 +1,7 @@
 // required modules
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
@@ -12,6 +13,8 @@ const jwt_middleware = new JWT_Middleware();
 const app = express();
 
 app.use(logger("dev"));
+
+app.use(cors());
 
 // parse incoming requests
 app.use(bodyParser.json());
@@ -73,8 +76,8 @@ const commentCountRouter = require("./src/routes/comment/count");
 
 // app.use("/user/register", registerRouter);
 // app.use("/user/login", loginRouter);
-// app.use("/user/profile", jwt_middleware.validateUser,profileRouter);
-app.use("/user/profile", profileRouter);
+app.use("/user/profile", jwt_middleware.validateUser,profileRouter);
+// app.use("/user/profile", profileRouter);
 
 app.use("/user/register", userRegisterRouter);
 app.use("/user/login", userLoginRouter);

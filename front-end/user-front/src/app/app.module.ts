@@ -27,10 +27,11 @@ import { ChangePasswordComponent } from './pages/user-profile/change-password/ch
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 
-import { UserService } from './user.service';
 import { ComponentInteractionsService } from './component-interactions.service';
 import { HttpBackendRequestService } from './service/http-backend-request.service';
 import { AuthenticationService } from './service/authentication.service';
+import { AuthGuard } from './auth.guard';
+import { UserProfileService } from './service/user-profile.service';
 
 
 @NgModule({
@@ -61,7 +62,7 @@ import { AuthenticationService } from './service/authentication.service';
     MDBBootstrapModule,
     WavesModule
   ],
-  providers: [UserService, ComponentInteractionsService, HttpBackendRequestService, AuthenticationService],
+  providers: [ComponentInteractionsService, HttpBackendRequestService, AuthenticationService, AuthGuard, UserProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
