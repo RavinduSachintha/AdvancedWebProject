@@ -8,22 +8,22 @@
           <h2>testuser@gmail.com</h2>
           <h5 style="color: crimson; font-size: 18px; margin: 12px 0; "><i class="fas fa-star"></i> Rookie</h5>
 
-          <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="profileForm" (ngSubmit)="onSubmit(name.value, username.value, birthday.value, profession.value)">
             <div class="form-group">
               <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Name</label>
-              <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="name" required>
+              <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="name" #name required>
             </div>
             <div class="form-group">
               <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Username</label>
-              <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="username" required>
+              <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="username" #username required>
             </div>
             <div class="form-group">
                 <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Birth Day</label>
-                <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="date" class="form-control" formControlName="birthday" required>
+                <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="date" class="form-control" formControlName="birthday" #birthday required>
             </div>
             <div class="form-group">
                 <label style="padding: 5px 2px; color: rgb(12, 105, 24); font-size: 15px; font-weight: 900;">Profession</label>
-                <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="profession" required>
+                <input style="padding: 3px 10px; border-radius: 1rem; min-width: 15rem;" type="text" class="form-control" formControlName="profession" #profession required>
             </div>
             <div *ngIf="!profileForm.valid" style="margin-top: 5px; color: red; font-style: italic;">
                 Fill out all fields

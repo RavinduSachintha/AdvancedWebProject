@@ -9,19 +9,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: User;
-  id: String;
+  user: User = JSON.parse(localStorage.getItem('user'));
 
   constructor( private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-   
-  }
-
-  
-
-  sendUserObject() {
-    
   }
 
 }

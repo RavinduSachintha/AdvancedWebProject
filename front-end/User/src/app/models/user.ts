@@ -11,5 +11,7 @@ export interface User {
   suggestedWords?: String,
   joinedDate?: String,
   birthday?: String,
+  profession?: string,
+  name?: string,
   token?: string;
 }

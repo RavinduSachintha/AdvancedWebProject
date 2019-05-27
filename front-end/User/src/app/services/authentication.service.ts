@@ -44,6 +44,7 @@ export class AuthenticationService {
   logoutUser() {
     localStorage.removeItem("userId");
     localStorage.removeItem("user");
+    localStorage.removeItem("username");
     localStorage.removeItem("userType");
     localStorage.removeItem("accessToken");
     this.router.navigate(["/login"]);
@@ -61,12 +62,12 @@ export class AuthenticationService {
 
   //view user details by id
   seeUserDetails(userid){
-    
+
       return this.httpBackendRequest.realizarHttpGetWithToken(
         HttpEnum.USER_PROFILE+userid
       );
-    
-  
+
+
   }
 
   //check whether a user is loggedin //CHAMOD

@@ -7,13 +7,13 @@
             <div class="sidebar-header" style="text-align: center;">
                 <i class="fas fa-user" style="font-size: 65px; color: rgb(133, 13, 69);"></i>
                 <h4 style="padding-top: 10px; color: rgb(6, 29, 105); margin-bottom: 0px;"><i class="far fa-id-badge"></i> {{user.username}}</h4>
-                <h5 style="color: crimson;"><i class="fas fa-star"></i> {{user.userLevel}}</h5>
+                <h5 style="color: crimson;"><i class="fas fa-star"></i> User Level: {{user.userLevel}}</h5>
             </div>
 
             <ul class="list-unstyled components" style="padding-left: 15px;">
 
                 <li>
-                    <a [routerLink]="['overview']" routerLinkActive="active" routerLinkActiveOption="{exact: true}" (click)="sendUserObject()"><i class="fas fa-chart-pie" style="font-size: 20px; padding-right: 15px;"></i>Overview</a>
+                    <a [routerLink]="['overview']" routerLinkActive="active" routerLinkActiveOption="{exact: true}"><i class="fas fa-chart-pie" style="font-size: 20px; padding-right: 15px;"></i>Overview</a>
                 </li>
                 <li>
                     <a [routerLink]="['myprofile']" routerLinkActive="active"><i class="fas fa-id-card" style="font-size: 20px; padding-right: 15px;"></i>My Profile</a>
