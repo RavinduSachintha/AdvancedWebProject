@@ -7,7 +7,6 @@ import { AuthenticationService } from "src/app/services/authentication.service";
   styleUrls: ["./nav-bar.component.css"]
 })
 export class NavBarComponent implements OnInit {
-
   loadAPI: any;
   url = "assets/dist/js/custom.min.js";
 

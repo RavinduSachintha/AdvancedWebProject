@@ -3,5 +3,4 @@
 
 <!-- logged user pages layout -->
 <app-nav-bar *ngIf="!isLoginRouter()"></app-nav-bar>
-<app-side-bar *ngIf="!isLoginRouter()"></app-side-bar>
 <router-outlet *ngIf="!isLoginRouter()"></router-outlet>
