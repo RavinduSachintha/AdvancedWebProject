@@ -552,6 +552,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
         return;
       }
     }
-    $(".pie, .bars").css("visibility", "visible");
+    $(".card-body").css("background-image", "none");
+    $(".pie, .bars").removeClass("m-fadeOut").addClass("m-fadeIn");
   }
 }

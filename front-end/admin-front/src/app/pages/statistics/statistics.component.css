@@ -1,3 +1,22 @@
-.pie, .bars {
-    visibility: hidden;
+.pie,
+.bars {
+  visibility: hidden;
+}
+
+.card-body {
+  background-image: url("../../../assets/images/loading.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.m-fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 500ms;
+}
+.m-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 500ms;
 }
