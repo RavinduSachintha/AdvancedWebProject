@@ -13,4 +13,16 @@ export class SuggestionService {
       HttpEnum.SUGGESTION_ALL_COUNT
     );
   }
+
+  getNumberOfCompleteSuggestions() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.SUGGESTION_COMPLETE_ALL_COUNT
+    );
+  }
+
+  getNumberOfIncompleteSuggestions() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.SUGGESTION_INCOMPLETE_ALL_COUNT
+    );
+  }
 }

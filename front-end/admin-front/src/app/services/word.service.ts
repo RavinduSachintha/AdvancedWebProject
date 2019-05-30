@@ -13,4 +13,28 @@ export class WordService {
       HttpEnum.WORD_ALL_COUNT
     );
   }
+
+  getNumberOfActiveWords() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.WORD_ACTIVE_ALL_COUNT
+    );
+  }
+
+  getNumberOfInactiveWords() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.WORD_INACTIVE_ALL_COUNT
+    );
+  }
+
+  getNumberOfCompleteWords() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.WORD_COMPLETE_ALL_COUNT
+    );
+  }
+
+  getNumberOfIncompleteWords() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.WORD_INCOMPLETE_ALL_COUNT
+    );
+  }
 }
