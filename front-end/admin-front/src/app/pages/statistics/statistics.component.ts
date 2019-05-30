@@ -4,7 +4,7 @@ import * as $ from "jquery";
 import { UserService } from "src/app/services/user.service";
 import { WordService } from "src/app/services/word.service";
 import { SuggestionService } from "src/app/services/suggestion.service";
-import { CommentService } from 'src/app/services/comment.service';
+import { CommentService } from "src/app/services/comment.service";
 
 declare var $: $;
 
@@ -47,6 +47,22 @@ export class StatisticsComponent implements OnInit {
         color: "#00556A"
       }
     ];
+  }
+
+  // bar chart 1 data
+  barChart1_dataSetCreator() {
+    let data1 = [[0, 20], [1, 50]];
+
+    let data2 = [[0, 15], [1, 30]];
+    return [
+      { label: "Active / Complete", data: data1, color: "#5482FF" },
+      { label: "Inactive / Incomplete", data: data2, color: "#FF8254" }
+    ];
+  }
+
+  // bar chart 1 ticks
+  barChart1_ticksSetCreator() {
+    return [[0, "Words"], [1, "Suggestions"]];
   }
 
   // pie chart 1 options
@@ -125,6 +141,62 @@ export class StatisticsComponent implements OnInit {
     }
   };
 
+  // bar chart 1 options
+  barChart1_opt = {
+    series: {
+      stack: true,
+      bars: {
+        show: true
+      }
+    },
+    bars: {
+      align: "center",
+      barWidth: 0.5
+    },
+    xaxis: {
+      mode: "categories",
+      axisLabel: "World Cities",
+      axisLabelUseCanvas: true,
+      axisLabelFontSizePixels: 12,
+      axisLabelFontFamily: "Verdana, Arial",
+      axisLabelPadding: 10,
+      autoscaleMargin: 0.1,
+      tickLength: 0,
+      ticks: this.barChart1_ticksSetCreator()
+    },
+    yaxis: {
+      axisLabelUseCanvas: true,
+      axisLabelFontSizePixels: 12,
+      axisLabelFontFamily: "Verdana, Arial",
+      axisLabelPadding: 3,
+      min: 0,
+      max: 100,
+      tickFormatter: function(v, axis) {
+        return v + "%";
+      }
+    },
+    legend: {
+      noColumns: 1,
+      labelBoxBorderColor: "#000000",
+      position: "nw"
+    },
+    grid: {
+      hoverable: true,
+      borderWidth: 2,
+      backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+    },
+    tooltip: true,
+    tooltipOpts: {
+      cssClass: "flotTip",
+      content: "%y.0, %s",
+      shifts: {
+        x: 20,
+        y: 0
+      },
+      defaultTheme: false
+    }
+  };
+
   // breadcrumbs = [
   //   { title: "Statistics", link: "/statistics", active: true },
   //   { title: "Test01", link: "/test01", active: true },
@@ -151,10 +223,10 @@ export class StatisticsComponent implements OnInit {
     this.dataInitializer();
   }
 
-  // plot the pie chart
-  plotPieChart(
+  // plot charts
+  plotChart(
     id: string,
-    data: { label: string; data: number; color: string }[],
+    data: { label: string; data: any; color: string }[],
     opt: {}
   ) {
     // jquery code
@@ -179,16 +251,25 @@ export class StatisticsComponent implements OnInit {
       num_of_comments: false
     };
 
-    let plot1 = this.plotPieChart(
+    let plot1 = this.plotChart(
       "pieChart1",
       this.pieChart1_dataSetCreator(),
       this.pieChart1_opt
     );
-    let plot2 = this.plotPieChart(
+
+    let plot2 = this.plotChart(
       "pieChart2",
       this.pieChart2_dataSetCreator(),
       this.pieChart2_opt
     );
+
+    let plot3 = this.plotChart(
+      "barChart1",
+      this.barChart1_dataSetCreator(),
+      this.barChart1_opt
+    );
+
+    plot3.draw();
 
     this.userService.getNumberOfRegUsers().subscribe(
       (count: any) => {

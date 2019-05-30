@@ -14,29 +14,33 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: "always"
   },
   {
     path: "statistics",
     component: StatisticsComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: "always"
   },
   {
     path: "view-registered-user",
     component: ViewRegUserComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: "always"
   },
   {
     path: "view-words-and-suggestions",
     component: ViewWordSuggestionComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: "always"
   },
   { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
   { path: "**", redirectTo: "" }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
