@@ -1,6 +1,21 @@
-.registerbox {
-  background-color: rgb(233, 233, 236);
+.border {
   width: 100%;
   height: 600px;
   background-image: url('../../../assets/img/svg/register.jpg');
+}
+
+.loginbox {
+  width: 500px;
+  margin-left: 400px;
+  margin-top: 170px;
+}
+
+.mat-card {
+  background-color: rgba(245, 240, 240, 0.815);
+  width: 500px;
+}
+
+.btn {
+  margin-left: 160px;
+  width: 110px;
 }

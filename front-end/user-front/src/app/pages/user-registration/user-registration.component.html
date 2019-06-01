@@ -1,22 +1,47 @@
-<div class="registerbox">
-  <mat-card>
-    <form (ngSubmit)="userRegister()">
+<div class="border">
+  <div class="container  loginbox">
+    <mat-card>
+      <form (ngSubmit)="userRegister()">
         <div class="form-group">
-          <label>Email</label>
-          <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email" required>
+          <!-- <label>Email</label> -->
+          <input
+            [(ngModel)]="email"
+            name="email"
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="                              enter your email"
+            required
+          />
         </div>
         <div class="form-group">
-            <label>Username</label>
-            <input [(ngModel)]="username" name="username" class="form-control" id="username" placeholder="Enter Username" required>
-          </div>
+          <!-- <label>Username</label> -->
+          <input
+            [(ngModel)]="username"
+            name="username"
+            class="form-control"
+            id="username"
+            placeholder="                              enter username"
+            required
+          />
+        </div>
         <div class="form-group">
-          <label>Password</label>
-          <input [(ngModel)]="password" name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+          <!-- <label>Password</label> -->
+          <input
+            [(ngModel)]="password"
+            name="password"
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="                              enter password"
+            required
+          />
         </div>
         <div>
-          <button type="submit" class="btn btn-primary">Sign Up</button>
+          <button type="submit" class="btn btn-primary btn">Sign Up</button>
         </div>
-    </form>
-  </mat-card>
+      </form>
+    </mat-card>
+  </div>
 </div>
-
