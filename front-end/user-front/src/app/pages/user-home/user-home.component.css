@@ -1,2 +1,17 @@
-@import '../../../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css'
+@import '../../../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
 
+.landing {
+  background-color: rgb(233, 233, 236);
+}
+
+.header {
+  margin-left: 230px;
+}
+
+.description {
+  margin-left: 130px;
+}
+
+.row {
+  margin-top: 30px;
+}
