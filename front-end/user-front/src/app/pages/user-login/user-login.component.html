@@ -12,7 +12,7 @@
               class="form-control"
               id="email"
               aria-describedby="emailHelp"
-              placeholder="Enter Email"
+              placeholder="                              enter your email"
               required
             />
           </div>
@@ -25,17 +25,19 @@
               type="password"
               class="form-control"
               id="password"
-              placeholder="Enter Password"
+              placeholder="                              enter password"
               required
             />
           </div>
 
           <div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary signinbtn">
+              Sign In
+            </button>
             <button
               [routerLink]="['/register']"
               routerLinkActive="router-link-active"
-              class="btn btn-outline-success"
+              class="btn btn-outline-success signupbtn"
             >
               Sign Up
             </button>

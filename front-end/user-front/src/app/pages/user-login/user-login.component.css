@@ -15,3 +15,13 @@
   margin-top: 170px;
   width: 500px;
 }
+
+.signinbtn {
+  width: 130px;
+  margin-left: 60px;
+}
+
+.signupbtn {
+  width: 130px;
+  margin-left: 10px;
+}
