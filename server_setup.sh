@@ -38,6 +38,9 @@ mv ./www.example ./www
 
 cd /home
 
+echo Start pm2 backend instance...
+pm2 start 0
+
 echo Finished back-end configurations...
 
 echo Finished server configurations...
