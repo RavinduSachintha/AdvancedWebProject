@@ -19,8 +19,7 @@ router.get("/profile", function(req, res) {
 
 // POST route for getting profiles details by user name
 router.get("/profile/:username", function(req, res) {
-  let pattern = ".*" + req.params.username + ".*";
-  userModel.find({ username: {$regex: pattern, $options: "i"} }, (err, user) => {
+  userModel.find({ username: new RegExp(req.params.username, "ig")}, (err, user) => {
     if (err) {
       res.json(new ResponseObject("unsuccess", null, err));
     } else {
