@@ -37,7 +37,8 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.userList = [];
     this.getUsersSub.unsubscribe();
-    this.searchUserSub.unsubscribe();
+    // this.searchUserSub.unsubscribe();
   }
 }

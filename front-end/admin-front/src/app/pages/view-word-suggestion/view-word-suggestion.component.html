@@ -4,10 +4,146 @@
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
-  <p>
-    View-word-suggestion works !
-  </p>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- column -->
+      <div class="col-6">
+        <div class="card">
+          <form class="form-horizontal">
+            <div class="card-body">
+              <h4 class="card-title">Search Words</h4>
+            </div>
+            <div class="form-group col-12 col-lg-10 col-md-10 mx-auto">
+              <div class="row">
+                <div class="col-8 pl-0">
+                  <input
+                    #word
+                    type="text"
+                    class="form-control search-comp"
+                    id="word"
+                    placeholder="Enter the word"
+                  />
+                </div>
+                <div class="col-4">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-block search-comp"
+                    (click)="searchWord(word.value)"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <form class="form-horizontal">
+            <div class="card-body">
+              <h4 class="card-title">Search Suggestions</h4>
+            </div>
+            <div class="form-group col-12 col-lg-10 col-md-10 mx-auto">
+              <div class="row">
+                <div class="col-8 pl-0">
+                  <input
+                    #suggestion
+                    type="text"
+                    class="form-control search-comp"
+                    id="suggestion"
+                    placeholder="Enter the suggestion"
+                  />
+                </div>
+                <div class="col-4">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-block search-comp"
+                    (click)="searchSuggestion(suggestion.value)"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- column -->
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Words</h4>
+          </div>
+          <div class="comment-widgets scrollable">
+            <!-- Comment Row -->
+            <div
+              *ngFor="let word of wordList"
+              class="d-flex flex-row comment-row m-t-0"
+            >
+              <div class="comment-text w-100">
+                <h6 class="font-medium">
+                  {{ word.data }} -(badge){{ word.state }} -(badge){{ word.activeState }}
+                </h6>
+                <div class="comment-footer">
+                  <span class="text-muted float-right">{{word.createdDate}}</span>
+                  <button type="button" class="btn btn-cyan btn-sm">
+                    View Word
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm">
+                    Change Status
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm">
+                    Delete Word
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Comment Row -->
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Suggestions</h4>
+          </div>
+          <div class="comment-widgets scrollable">
+            <!-- Comment Row -->
+            <div
+              *ngFor="let suggestion of suggestionList"
+              class="d-flex flex-row comment-row m-t-0"
+            >
+              <div class="comment-text w-100">
+                <h6 class="font-medium">
+                  {{ suggestion.data }} -(badge){{ suggestion.state }}
+                </h6>
+                <span class="m-b-15 d-block"
+                  >{{suggestion.votesCount}}
+                </span>
+                <div class="comment-footer">
+                  <span class="text-muted float-right">{{suggestion.createdDate}}</span>
+                  <button type="button" class="btn btn-cyan btn-sm">
+                    View Suggestion
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm">
+                    Change Status
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm">
+                    Delete Suggestion
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Comment Row -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Page wrapper  -->
+  <!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Page wrapper  -->
-<!-- ============================================================== -->

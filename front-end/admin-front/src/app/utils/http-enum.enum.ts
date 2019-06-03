@@ -5,11 +5,15 @@ export enum HttpEnum {
   USER_ALL_PROFILES = "https://www.wadanpabanduma.tk/backend/user/retrieve/all",
   USER_REG_COUNT = "https://www.wadanpabanduma.tk/backend/user/count/reg-users",
   USER_ADMIN_COUNT = "https://www.wadanpabanduma.tk/backend/user/count/admins",
+
+  WORD_RETRIEVE_ALL = "https://www.wadanpabanduma.tk/backend/word/retrieve/all",
   WORD_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/word/count/all",
   WORD_ACTIVE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/word/count/all/active",
   WORD_INACTIVE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/word/count/all/inactive",
   WORD_COMPLETE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/word/count/all/complete",
   WORD_INCOMPLETE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/word/count/all/incomplete",
+
+  SUGGESTION_RETRIEVE_ALL = "https://www.wadanpabanduma.tk/backend/suggestion/retrieve/all",
   SUGGESTION_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/suggestion/count/all",
   SUGGESTION_COMPLETE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/suggestion/count/all/complete",
   SUGGESTION_INCOMPLETE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/suggestion/count/all/incomplete",

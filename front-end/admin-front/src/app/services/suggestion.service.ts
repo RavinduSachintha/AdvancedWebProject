@@ -8,6 +8,12 @@ import { HttpEnum } from "../utils/http-enum.enum";
 export class SuggestionService {
   constructor(private httpBackendRequest: HttpBackendRequestService) {}
 
+  getAllSuggestions() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.SUGGESTION_RETRIEVE_ALL
+    );
+  }
+
   getNumberOfSuggestions() {
     return this.httpBackendRequest.realizarHttpGetWithToken(
       HttpEnum.SUGGESTION_ALL_COUNT
