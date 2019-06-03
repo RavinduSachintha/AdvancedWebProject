@@ -8,6 +8,12 @@ import { HttpEnum } from "../utils/http-enum.enum";
 export class UserService {
   constructor(private httpBackendRequest: HttpBackendRequestService) {}
 
+  getAllRegUsers() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.USER_ALL_PROFILES
+    );
+  }
+
   getNumberOfRegUsers() {
     return this.httpBackendRequest.realizarHttpGetWithToken(
       HttpEnum.USER_REG_COUNT
