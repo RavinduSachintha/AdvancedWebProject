@@ -19,7 +19,8 @@ router.get("/profile", function(req, res) {
 
 // POST route for getting profiles details by user name
 router.get("/profile/:username", function(req, res) {
-  userModel.find({username:new RegExp(req.params.username,"ig")}, (err, user) => {
+  let pattern = ".*" + req.params.username + ".*";
+  userModel.find({ username: {$regex: pattern, $options: "i"} }, (err, user) => {
     if (err) {
       res.json(new ResponseObject("unsuccess", null, err));
     } else {
@@ -32,7 +33,7 @@ router.get("/profile/:username", function(req, res) {
 //Rashmi
 
 router.get("/all", function(req, res) {
-  userModel.find({},(err, user) => {
+  userModel.find({}, (err, user) => {
     if (err) {
       res.json(new ResponseObject("unsuccess", null, err));
     } else {
@@ -40,6 +41,5 @@ router.get("/all", function(req, res) {
     }
   });
 });
-
 
 module.exports = router;
