@@ -17,9 +17,9 @@ router.get("/profile", function(req, res) {
   });
 });
 
-// POST route for getting profile details by user name
+// POST route for getting profiles details by user name
 router.get("/profile/:username", function(req, res) {
-  userModel.findOne({ username: req.params.username }, (err, user) => {
+  userModel.find({username:new RegExp(req.params.username,"ig")}, (err, user) => {
     if (err) {
       res.json(new ResponseObject("unsuccess", null, err));
     } else {

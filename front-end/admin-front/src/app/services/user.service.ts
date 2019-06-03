@@ -14,6 +14,12 @@ export class UserService {
     );
   }
 
+  getRegUserByUsername(username: string) {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.USER_PROFILE + "/" + username
+    );
+  }
+
   getNumberOfRegUsers() {
     return this.httpBackendRequest.realizarHttpGetWithToken(
       HttpEnum.USER_REG_COUNT
