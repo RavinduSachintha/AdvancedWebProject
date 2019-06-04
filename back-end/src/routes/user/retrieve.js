@@ -32,7 +32,7 @@ router.get("/profile/:username", function(req, res) {
 //Rashmi
 
 router.get("/all", function(req, res) {
-  userModel.find({},(err, user) => {
+  userModel.find({}, (err, user) => {
     if (err) {
       res.json(new ResponseObject("unsuccess", null, err));
     } else {
@@ -40,6 +40,5 @@ router.get("/all", function(req, res) {
     }
   });
 });
-
 
 module.exports = router;

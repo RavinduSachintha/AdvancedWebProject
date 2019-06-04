@@ -8,6 +8,12 @@ import { HttpEnum } from "../utils/http-enum.enum";
 export class WordService {
   constructor(private httpBackendRequest: HttpBackendRequestService) {}
 
+  getAllWords() {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.WORD_RETRIEVE_ALL
+    );
+  }
+
   getNumberOfWords() {
     return this.httpBackendRequest.realizarHttpGetWithToken(
       HttpEnum.WORD_ALL_COUNT

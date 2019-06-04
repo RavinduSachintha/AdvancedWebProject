@@ -4,10 +4,92 @@
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
-  <p>
-    View-reg-user works !
-  </p>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- column -->
+      <div class="col-12">
+        <div class="card">
+          <form class="form-horizontal">
+            <div class="card-body">
+              <h4 class="card-title">Search Users</h4>
+            </div>
+            <div class="form-group col-12 col-lg-10 col-md-10 mx-auto">
+              <div class="row">
+                <div class="col-10 pl-0">
+                  <input
+                    #username
+                    type="text"
+                    class="form-control search-comp"
+                    id="username"
+                    placeholder="Enter username or email address"
+                  />
+                </div>
+                <div class="col-2">
+                  <button
+                    type="button"
+                    class="btn btn-primary btn-block search-comp"
+                    (click)="searchUser(username.value)"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- column -->
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Registerd Users</h4>
+          </div>
+          <div class="comment-widgets scrollable">
+            <!-- Comment Row -->
+            <div
+              *ngFor="let user of userList"
+              class="d-flex flex-row comment-row m-t-0"
+            >
+              <div class="p-2">
+                <img
+                  src="assets/images/users/1.jpg"
+                  alt="user"
+                  width="50"
+                  class="rounded-circle"
+                />
+              </div>
+              <div class="comment-text w-100">
+                <h6 class="font-medium">
+                  {{ user.username }} ({{ user.name }})
+                </h6>
+                <span class="m-b-15 d-block"
+                  >{{ user.profession }} - {{ user.email }}
+                </span>
+                <div class="comment-footer">
+                  <span class="text-muted float-right">{{
+                    user.joinedDate
+                  }}</span>
+                  <button type="button" class="btn btn-cyan btn-sm">
+                    View Profile
+                  </button>
+                  <button type="button" class="btn btn-success btn-sm">
+                    Change Status
+                  </button>
+                  <button type="button" class="btn btn-danger btn-sm">
+                    Delete Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Comment Row -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- End Page wrapper  -->
+  <!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Page wrapper  -->
-<!-- ============================================================== -->
