@@ -97,7 +97,7 @@ app.use(
 );
 app.use(
   "/suggestion/delete",
-  jwt_middleware.validateAdminUser,
+  jwt_middleware.validateUser,
   suggestionDeleteRouter
 );
 app.use("/suggestion/retrieve", suggestionRetrieveRouter);
