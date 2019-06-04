@@ -27,13 +27,13 @@ export class CardsOneComponent implements OnInit {
   // public myId="5cdda1052050d77d6774640f";
   public myId=localStorage.getItem('userId');
  public wordId=this.router.url.split("/")[2];
-  
+
   public show=true;
   public empty=true;
   public SuggestionData=[];
   public items=this.SuggestionData;
   public myName=localStorage.getItem('username');
-  
+
 
   // public commentList=[];
   public commentedUserName="";
@@ -69,11 +69,11 @@ export class CardsOneComponent implements OnInit {
       this.empty=false;
       this.show=true;
     }else{
-     
+
       this.show=false;
       this.empty=true;
     }
-    this.correct_index=i; 
+    this.correct_index=i;
 
     let commentItem = new Comments();
     commentItem.data = word;
@@ -101,7 +101,7 @@ export class CardsOneComponent implements OnInit {
 
   initializeLists() {
     this.suggestionService.getAllSuggestions().subscribe((result: any) => {
-      
+
       let suggestions = result.data.sort(function(o1,o2){
         return o2.votesCount-o1.votesCount;
       });
@@ -130,7 +130,7 @@ export class CardsOneComponent implements OnInit {
 
     let getConfirm=confirm("Do You Want Need To Delete The Suggestion ?");
     if (getConfirm){
-  
+
 
     this.suggestionService.deleteSuggestion(suggestionId)
       .toPromise()
@@ -149,14 +149,14 @@ export class CardsOneComponent implements OnInit {
         }
       });
     }
-      
+
 
   }
 
   deleteComment(commentId){
     let getConfirm=confirm("Do You Want Need To Delete The Comment ?");
     if (getConfirm){
-  
+
 
     this.commentsService.deleteComment(commentId)
       .toPromise()
@@ -202,7 +202,7 @@ export class CardsOneComponent implements OnInit {
       this.OtherReccomandVotes[n]++;
   }
 
-  
-  
+
+
 
 }

@@ -50,6 +50,14 @@ class SuggestionController {
       .then(suggestion => callback(null, suggestion))
       .catch(err => callback(err));
   }
+
+  getAllSuggestionsByUserId(userId, callback) {
+    suggestionModel
+      .find({userId: userId})
+      .then(suggestion => callback(null, suggestion))
+      .catch(err => callback(err));
+  }
+
 }
 
 module.exports = SuggestionController;
