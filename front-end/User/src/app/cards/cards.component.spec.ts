@@ -3,7 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CardsComponent } from './cards.component';
 
-fdescribe('CardsComponent', () => {
+describe('CardsComponent', () => {
   let component: CardsComponent;
   let fixture: ComponentFixture<CardsComponent>;
 
@@ -21,7 +21,7 @@ fdescribe('CardsComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create CardsOne Component', () => {
+  it('should create CardsOne Component', () => {
     expect(component).toBeTruthy();
   });
 });

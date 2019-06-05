@@ -3,7 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {CommentsService } from './comments.service';
 import { of } from 'rxjs';
 
-fdescribe('CommentsService', () => {
+describe('CommentsService', () => {
     let commentsService:CommentsService;
   beforeEach(() => {TestBed.configureTestingModule({
       imports:[HttpClientTestingModule],
@@ -12,13 +12,13 @@ fdescribe('CommentsService', () => {
   commentsService=TestBed.get(CommentsService);
 });
 
-  fit('should be created', () => {
+  it('should be created', () => {
     expect(commentsService).toBeTruthy();
   });
 
   // Add tests for getAllComments() method
-  fdescribe('getAllComments', () => {
-    fit('should return a collection of comments', () => {
+  describe('getAllComments', () => {
+    it('should return a collection of comments', () => {
       const commentsResponse = [
         {"_id":"5cd40f381d256f235dd4944c","userId":"5cd3ff104003201945f9e158","wordId":"","suggestionId":"","data":"Database","likesCount":"","createdDate":"2019-05-09T00:00:00.000Z","__v":0},
         {"_id":"5cd40f381d256f235dd4944c","userId":"5cd3ff104003201945f9e158","wordId":"","suggestionId":"","data":"Database","likesCount":"","createdDate":"2019-05-09T00:00:00.000Z","__v":0}];
@@ -32,10 +32,10 @@ fdescribe('CommentsService', () => {
   });
 
 
-  
 
 
 
 
- 
+
+
 });
