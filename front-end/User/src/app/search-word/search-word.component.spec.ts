@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SearchWordComponent } from './search-word.component';
 import { RouterTestingModule } from '@angular/router/testing';
-fdescribe('SearchWordComponent', () => {
+describe('SearchWordComponent', () => {
   let component: SearchWordComponent;
   let fixture: ComponentFixture<SearchWordComponent>;
 
@@ -20,7 +20,7 @@ fdescribe('SearchWordComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create the search-word Component', () => {
+  it('should create the search-word Component', () => {
     expect(component).toBeTruthy();
   });
 });

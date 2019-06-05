@@ -3,7 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {WordService } from './word.service';
 import { of } from 'rxjs';
 
-fdescribe('WordService', () => {
+describe('WordService', () => {
     let wordService:WordService;
   beforeEach(() => {TestBed.configureTestingModule({
       imports:[HttpClientTestingModule],
@@ -12,13 +12,13 @@ fdescribe('WordService', () => {
   wordService=TestBed.get(WordService);
 });
 
-  fit('should be created', () => {
+  it('should be created', () => {
     expect(wordService).toBeTruthy();
   });
 
   // Add tests for getAllWords() method
-  fdescribe('getAllWords', () => {
-    fit('should return a collection of words', () => {
+  describe('getAllWords', () => {
+    it('should return a collection of words', () => {
       const wordResponse = [
         {"_id":"5cd40f381d256f235dd4944c","userId":"5cd3ff104003201945f9e158","data":"Database","state":"incomplete","bestSuggestion":"දත්ත ගබඩාව ","startDate":"2019-05-09T00:00:00.000Z","endDate":"2019-06-09T00:00:00.000Z","activeState":"active","createdDate":"2019-05-09T00:00:00.000Z","__v":0},
         {"_id":"5ce18875d4981f1eba44ab6a","userId":"5cdda1052050d77d6774640f","data":"cloud","__v":0,"bestSuggestion":"වළාකුල"} ];
@@ -33,9 +33,9 @@ fdescribe('WordService', () => {
 
 
   // Add tests for getWordById() method
-  fdescribe('getWordById', () => {
-    fit('should return a single word', () => {
-      const wordResponse = 
+  describe('getWordById', () => {
+    it('should return a single word', () => {
+      const wordResponse =
         {"_id":"5cd40f381d256f235dd4944c","userId":"5cd3ff104003201945f9e158","data":"Database","state":"incomplete","bestSuggestion":"දත්ත ගබඩාව ","startDate":"2019-05-09T00:00:00.000Z","endDate":"2019-06-09T00:00:00.000Z","activeState":"active","createdDate":"2019-05-09T00:00:00.000Z","__v":0};
       let response;
       spyOn(wordService, 'getWordById').and.returnValue(of(wordResponse));
@@ -47,11 +47,11 @@ fdescribe('WordService', () => {
   });
 
   // Add tests for getWordByPart() method
-  fdescribe('getWordByPart', () => {
-    fit('should return related words', () => {
+  describe('getWordByPart', () => {
+    it('should return related words', () => {
       const wordResponse = [
         {"_id":"5cd40f381d256f235dd4944c","userId":"5cd3ff104003201945f9e158","data":"Database","state":"incomplete","bestSuggestion":"දත්ත ගබඩාව ","startDate":"2019-05-09T00:00:00.000Z","endDate":"2019-06-09T00:00:00.000Z","activeState":"active","createdDate":"2019-05-09T00:00:00.000Z","__v":0},
-        {"_id":"5ce18875d4981f1eba44ab6a","userId":"5cdda1052050d77d6774640f","data":"cloud","__v":0,"bestSuggestion":"වළාකුල"} 
+        {"_id":"5ce18875d4981f1eba44ab6a","userId":"5cdda1052050d77d6774640f","data":"cloud","__v":0,"bestSuggestion":"වළාකුල"}
       ];
         let response;
       spyOn(wordService, 'getWordByPart').and.returnValue(of(wordResponse));
@@ -66,5 +66,5 @@ fdescribe('WordService', () => {
 
 
 
- 
+
 });
