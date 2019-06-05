@@ -65,22 +65,30 @@
               </div>
               <div class="comment-text w-100">
                 <h6 class="font-medium">
-                  {{ user.username }} ({{ user.name }})
+                  <b>{{ user.name }}</b> ({{ user.username }})
                 </h6>
-                <span class="m-b-15 d-block"
-                  >{{ user.profession }} - {{ user.email }}
+                <span class="m-b-15 d-block">
+                  {{ user.email }}
+                  <span class="badge badge-pill badge-warning ml-3 text-white font-weight-bold">{{
+                    user.profession
+                  }}</span>
                 </span>
                 <div class="comment-footer">
                   <span class="text-muted float-right">{{
                     user.joinedDate
                   }}</span>
-                  <button type="button" class="btn btn-cyan btn-sm">
+                  <button
+                    type="button"
+                    class="btn btn-cyan btn-sm btn-dec"
+                    data-toggle="modal"
+                    data-target="#viewModel"
+                  >
                     View Profile
                   </button>
-                  <button type="button" class="btn btn-success btn-sm">
+                  <button type="button" class="btn btn-success btn-sm btn-dec">
                     Change Status
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm">
+                  <button type="button" class="btn btn-danger btn-sm btn-dec">
                     Delete Profile
                   </button>
                 </div>
@@ -99,4 +107,63 @@
   <!-- ============================================================== -->
   <!-- End Page wrapper  -->
   <!-- ============================================================== -->
+</div>
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  id="viewModel"
+  aria-hidden="true"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
+            <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-9">
+              Level 1: .col-sm-9
+              <div class="row">
+                <div class="col-8 col-sm-6">
+                  Level 2: .col-8 .col-sm-6
+                </div>
+                <div class="col-4 col-sm-6">
+                  Level 2: .col-4 .col-sm-6
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -89,9 +89,17 @@
             >
               <div class="comment-text w-100">
                 <h6 class="font-medium">
-                  {{ word.data }} -(badge){{ word.state }} -(badge){{
-                    word.activeState
-                  }}
+                  {{ word.data }}
+                  <span
+                    class="badge badge-pill badge-warning ml-3 text-white font-weight-bold"
+                  >
+                    {{ word.state }}
+                  </span>
+                  <span
+                    class="badge badge-pill badge-secondary ml-3 text-white font-weight-bold"
+                  >
+                    {{ word.activeState }}
+                  </span>
                 </h6>
                 <div class="comment-footer">
                   <span class="text-muted float-right">{{
@@ -139,7 +147,12 @@
             >
               <div class="comment-text w-100">
                 <h6 class="font-medium">
-                  {{ suggestion.data }} -(badge){{ suggestion.state }}
+                  {{ suggestion.data }}
+                  <span
+                    class="badge badge-pill badge-warning ml-3 text-white font-weight-bold"
+                  >
+                    {{ suggestion.state }}
+                  </span>
                 </h6>
                 <div class="comment-footer">
                   <span class="text-muted float-right">{{
