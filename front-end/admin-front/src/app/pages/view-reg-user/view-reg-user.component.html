@@ -51,13 +51,14 @@
             <div
               *ngFor="
                 let user of userList
-                  | paginate: { itemsPerPage: 10, currentPage: p }
+                  | paginate: { itemsPerPage: 10, currentPage: p };
+                let i = index
               "
               class="d-flex flex-row comment-row m-t-0"
             >
               <div class="p-2">
                 <img
-                  src="assets/images/users/1.jpg"
+                  src="assets/images/users/user_icon.png"
                   alt="user"
                   width="50"
                   class="rounded-circle"
@@ -69,9 +70,10 @@
                 </h6>
                 <span class="m-b-15 d-block">
                   {{ user.email }}
-                  <span class="badge badge-pill badge-warning ml-3 text-white font-weight-bold">{{
-                    user.profession
-                  }}</span>
+                  <span
+                    class="badge badge-pill badge-warning ml-3 text-white font-weight-bold"
+                    >{{ user.profession }}</span
+                  >
                 </span>
                 <div class="comment-footer">
                   <span class="text-muted float-right">{{
@@ -80,15 +82,16 @@
                   <button
                     type="button"
                     class="btn btn-cyan btn-sm btn-dec"
-                    data-toggle="modal"
-                    data-target="#viewModel"
+                    (click)="openViewModal(i)"
                   >
                     View Profile
                   </button>
-                  <button type="button" class="btn btn-success btn-sm btn-dec">
-                    Change Status
-                  </button>
-                  <button type="button" class="btn btn-danger btn-sm btn-dec">
+                  <button
+                    *ngIf="isAdminUser()"
+                    type="button"
+                    class="btn btn-danger btn-sm btn-dec"
+                    (click)="deleteUser(i)"
+                  >
                     Delete Profile
                   </button>
                 </div>
@@ -115,12 +118,11 @@
   role="dialog"
   id="viewModel"
   aria-hidden="true"
-  tabindex="-1"
 >
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+      <div class="modal-header bg-light">
+        <h4 class="modal-title">{{ selectedUser.name }}</h4>
         <button
           type="button"
           class="close"
@@ -132,34 +134,41 @@
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
-            <div class="col-md-2 ml-auto">.col-md-2 .ml-auto</div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 ml-auto">.col-md-6 .ml-auto</div>
-          </div>
-          <div class="row">
-            <div class="col-sm-9">
-              Level 1: .col-sm-9
-              <div class="row">
-                <div class="col-8 col-sm-6">
-                  Level 2: .col-8 .col-sm-6
-                </div>
-                <div class="col-4 col-sm-6">
-                  Level 2: .col-4 .col-sm-6
-                </div>
-              </div>
-            </div>
-          </div>
+          <table class="mx-auto">
+            <tr>
+              <td class="text-left"><b>User Name</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedUser.username }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Email Address</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedUser.email }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>User Type</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedUser.usertype }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Profession</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedUser.profession }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Birth Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedUser.birthday }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Joined Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedUser.joinedDate }}</td>
+            </tr>
+          </table>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Close
         </button>

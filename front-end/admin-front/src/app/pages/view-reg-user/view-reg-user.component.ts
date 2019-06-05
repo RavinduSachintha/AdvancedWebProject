@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { UserService } from "src/app/services/user.service";
 import { Subscription } from "rxjs";
+import * as $ from "jquery";
+
+declare var $: $;
 
 @Component({
   selector: "app-view-reg-user",
@@ -11,6 +14,7 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) {}
 
   userList = [];
+  selectedUser: any;
 
   getUsersSub: Subscription;
   searchUserSub: Subscription;
@@ -23,6 +27,7 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
       .getAllRegUsers()
       .subscribe((result: any) => {
         for (const user of result.data) {
+          // console.log(user)
           this.userList.push(user);
         }
       });
@@ -43,5 +48,24 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
     this.userList = [];
     this.getUsersSub.unsubscribe();
     // this.searchUserSub.unsubscribe();
+  }
+
+  openViewModal(index: number) {
+    this.selectedUser = this.userList[index];
+    $("#viewModel").modal();
+  }
+
+  isAdminUser() {
+    return localStorage.getItem("userType") == "super-admin";
+  }
+
+  deleteUser(index: number) {
+    if (confirm("Proceed the deletion ?")) {
+      this.userService.deleteUser(index).subscribe((result: any) => {
+        alert(
+          "The user of " + result.data.name + " have been successfully deleted."
+        );
+      });
+    }
   }
 }

@@ -1,6 +1,7 @@
 export enum HttpEnum {
   USER_LOGIN = "https://www.wadanpabanduma.tk/backend/user/login",
-  USER_REGISTER = "https://www.wadanpabanduma.tk/backend/register",
+  USER_REGISTER = "https://www.wadanpabanduma.tk/backend/user/register",
+  USER_DELETE = "https://www.wadanpabanduma.tk/backend/user/delete",
   USER_PROFILE = "https://www.wadanpabanduma.tk/backend/user/retrieve/profile",
   USER_ALL_PROFILES = "https://www.wadanpabanduma.tk/backend/user/retrieve/all",
   USER_REG_COUNT = "https://www.wadanpabanduma.tk/backend/user/count/reg-users",

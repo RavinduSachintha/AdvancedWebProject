@@ -31,4 +31,10 @@ export class UserService {
       HttpEnum.USER_ADMIN_COUNT
     );
   }
+
+  deleteUser(id: number) {
+    return this.httpBackendRequest.realizarHttpDeleteWithToken(
+      HttpEnum.USER_DELETE + "/" + id
+    );
+  }
 }

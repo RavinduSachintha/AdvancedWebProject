@@ -34,6 +34,23 @@ class AuthController {
       }
     });
   }
+
+  // delete user by ID from DB //
+  deleteUserById(userId, callback) {
+    userModel
+      .findByIdAndDelete(userModel)
+      .then(user => callback(null, user))
+      .catch(err => callback(err));
+    // commentModel
+    //   .deleteMany({ wordId: wordId })
+    //   .then(comment => callback(null, comment))
+    //   .catch(err => callback(err));
+
+    // suggestionModel
+    //   .deleteMany({ wordId: wordId })
+    //   .then(suggestion => callback(null, suggestion))
+    //   .catch(err => callback(err));
+  }
 }
 
 module.exports = AuthController;

@@ -28,4 +28,16 @@ export class HttpBackendRequestService {
       headers: headers
     });
   }
+
+  // DELETE request sending function
+  realizarHttpDeleteWithToken(requestType: string) {
+    const token = localStorage.getItem("accessToken");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": token
+    });
+    return this.http.delete(requestType, {
+      headers: headers
+    });
+  }
 }
