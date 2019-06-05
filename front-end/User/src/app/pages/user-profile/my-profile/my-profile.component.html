@@ -1,7 +1,7 @@
 <section>
   <div class="container">
     <div class="card-wrappper">
-      <h1 class="heading">My Profile</h1>
+      <h1 class="heading">My <span style="color: rgb(241, 55, 92);">Profile</span></h1>
         <div class="card">
           <img src="assets/images/profile_background.jpg" alt="card background" class="card-img">
           <img src=" assets/images/my_profile_image.jpg" alt="profile image" class="profile-img">
@@ -10,16 +10,27 @@
           <h5 style="color: crimson; font-size: 18px; margin: 8px 0; "><i class="fas fa-star"></i> User Level: {{user.userLevel}}</h5>
 
           <div class="row">
-              <div style="padding: 30px 50px;">
-                  <i class="fas fa-clipboard-check" style="font-size: 75px; text-align: center; color: rgb(69, 60, 200);"></i>
-                  <h4 style="padding-top: 10px; color: rgb(69, 60, 200); margin-bottom: 5px;"> Voted Words </h4>
-                  <span class="badge badge-primary"><p style="padding: 4px 12px;">300</p></span>
-              </div>
-              <div style="padding: 30px 50px;">
-                  <i class="fas fa-lightbulb" style="font-size: 75px; text-align: center; color: rgb(29, 161, 46);"></i>
-                  <h4 style="padding-top: 10px; color: rgb(29, 161, 46); margin-bottom: 5px;"> Suggested Words </h4>
-                  <span class="badge badge-success"><p style="padding: 4px 12px;">35</p></span>
-              </div>
+              <a [routerLink]="['..', 'addedwords']" routerLinkActive="router-link-active" style="text-decoration: none">
+                <div style="padding: 30px 50px;" class="mr-5">
+                  <i class="fab fa-weebly" style="font-size: 75px; text-align: center; color: rgb(238, 39, 172);"></i>
+                  <h4 style="padding-top: 10px; color: rgb(238, 39, 172); margin-bottom: 5px;"> My Words </h4>
+                  <span class="badge badge-danger" style="color: white; background-color: rgb(238, 39, 172)"><p style="padding: 4px 12px;">{{words.length}}</p></span>
+                </div>
+              </a>
+              <a [routerLink]="['..', 'mycomments']" routerLinkActive="router-link-active" style="text-decoration: none">
+                <div style="padding: 30px 50px;">
+                  <i class="fas fa-feather" style="font-size: 75px; text-align: center; color: rgb(30, 71, 255);"></i>
+                  <h4 style="padding-top: 10px; color: rgb(30, 71, 255); margin-bottom: 5px;"> My Comments </h4>
+                  <span class="badge badge-primary" style="color: white; background-color: rgb(30, 71, 255)"><p style="padding: 4px 12px;">{{comments.length}}</p></span>
+                </div>
+              </a>
+              <a [routerLink]="['..', 'suggestedwords']" routerLinkActive="router-link-active" style="text-decoration: none">
+                <div style="padding: 30px 50px;" class="ml-2">
+                    <i class="fas fa-lightbulb" style="font-size: 75px; text-align: center; color: rgb(4, 182, 28);"></i>
+                    <h4 style="padding-top: 10px; color: rgb(29, 161, 46); margin-bottom: 5px;"> My Suggestions </h4>
+                    <span class="badge badge-success"><p style="padding: 4px 12px;">{{suggestions.length}}</p></span>
+                </div>
+              </a>
           </div>
 
           <div class="container">

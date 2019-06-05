@@ -7,7 +7,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { UserProfileComponent } from './pages/user-profile/user-profile/user-profile.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { UserProfileOverviewComponent } from './pages/user-profile/user-profile-overview/user-profile-overview.component';
 import { UserAddedWordsComponent } from './pages/user-profile/user-added-words/user-added-words.component';
 import { UserSuggestedWordsComponent } from './pages/user-profile/user-suggested-words/user-suggested-words.component';
 import { MyProfileComponent } from './pages/user-profile/my-profile/my-profile.component';
@@ -24,7 +23,11 @@ const routes: Routes = [
   // { path: "login" , component: LoginComponent },
 
   { path: "viewword/:wordId", component: ViewWordComponent },
-  { path: "insertword", component: CRUDwordsComponent },
+  {
+    path: "insertword",
+    component: CRUDwordsComponent,
+    canActivate: [AuthGuard]
+  },
   {path: "searchWord", component:SearchWordComponent},
   {path: "home", component: UserHomeComponent},
   {path: "login", component: UserLoginComponent},
@@ -34,8 +37,7 @@ const routes: Routes = [
     component: UserProfileComponent,
     canActivate: [AuthGuard],
     children: [
-      {path: "", redirectTo: "overview", pathMatch: "full"},
-      {path: "overview", component: UserProfileOverviewComponent},
+      {path: "", redirectTo: "myprofile", pathMatch: "full"},
       {path: "addedwords", component: UserAddedWordsComponent},
       {path: "suggestedwords", component: UserSuggestedWordsComponent},
       {path: "mycomments", component: UserCommentsComponent},
