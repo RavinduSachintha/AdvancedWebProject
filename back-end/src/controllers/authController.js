@@ -38,7 +38,7 @@ class AuthController {
   // delete user by ID from DB //
   deleteUserById(userId, callback) {
     userModel
-      .findByIdAndDelete(userModel)
+      .findByIdAndDelete(userId)
       .then(user => callback(null, user))
       .catch(err => callback(err));
     // commentModel
