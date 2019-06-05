@@ -9,6 +9,8 @@ const SuggestionSchema = new mongoose.Schema({
   },
   wordId: {
     type: String,
+    // type: mongoose.Schema.Types.ObjectId,
+    // ref: "Word",
     required: true
   },
   data: {

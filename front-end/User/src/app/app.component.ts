@@ -14,7 +14,7 @@ export class AppComponent {
   constructor( private router: Router, public authService: AuthenticationService) {}
 
   gotoUserDashboard() {
-    let id = JSON.parse(localStorage.getItem('user'))._id;
+    let id = localStorage.getItem('userId');
     this.router.navigate([`/profile/${id}`]);
   }
 

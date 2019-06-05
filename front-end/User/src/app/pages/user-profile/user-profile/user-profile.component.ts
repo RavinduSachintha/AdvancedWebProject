@@ -9,7 +9,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  user: User = JSON.parse(localStorage.getItem('user'));
+  user = {
+    email : localStorage.getItem('email'),
+    username : localStorage.getItem('username'),
+    userLevel : localStorage.getItem('userLevel'),
+    joinedDate : localStorage.getItem('joinedDate'),
+    name : localStorage.getItem('name'),
+    profession : localStorage.getItem('profession'),
+    birthday : localStorage.getItem('birthday')
+  };
 
   constructor( private router: Router, private route: ActivatedRoute) {}
 

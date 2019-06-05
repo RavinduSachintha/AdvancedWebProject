@@ -18,7 +18,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { UserProfileComponent } from './pages/user-profile/user-profile/user-profile.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { UserProfileOverviewComponent } from './pages/user-profile/user-profile-overview/user-profile-overview.component';
-import { UserVotedWordsComponent } from './pages/user-profile/user-voted-words/user-voted-words.component';
+import { UserAddedWordsComponent } from './pages/user-profile/user-added-words/user-added-words.component';
 import { UserSuggestedWordsComponent } from './pages/user-profile/user-suggested-words/user-suggested-words.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MyProfileComponent } from './pages/user-profile/my-profile/my-profile.component';
@@ -28,6 +28,7 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { UserRegistrationComponent } from './pages/user-registration/user-registration.component';
 import { AuthGuard } from './auth.guard';
 import { UserProfileService } from './services/user-profile.service';
+import { UserCommentsComponent } from './pages/user-profile/user-comments/user-comments.component';
 
 @NgModule({
   declarations: [
@@ -41,14 +42,15 @@ import { UserProfileService } from './services/user-profile.service';
     UserProfileComponent,
     UserHomeComponent,
     UserProfileOverviewComponent,
-    UserVotedWordsComponent,
+    UserAddedWordsComponent,
     UserSuggestedWordsComponent,
     PageNotFoundComponent,
     MyProfileComponent,
     EditDetailsComponent,
     ChangePasswordComponent,
     UserLoginComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    UserCommentsComponent
   ],
   imports: [BrowserModule,ReactiveFormsModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [HttpBackendRequestService, AuthenticationService, AuthGuard, UserProfileService],

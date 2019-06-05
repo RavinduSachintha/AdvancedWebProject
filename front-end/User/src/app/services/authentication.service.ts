@@ -25,10 +25,15 @@ export class AuthenticationService {
           if (result.status === "success") {
             if (result.data.user && result.data.token) {
               localStorage.setItem("userId", result.data.user._id);
-              localStorage.setItem("user", JSON.stringify(result.data.user));
               localStorage.setItem("username", result.data.user.username);
               localStorage.setItem("userType", result.data.user.usertype);
+              localStorage.setItem("email", result.data.user.email);
+              localStorage.setItem("joinedDate", result.data.user.joinedDate);
+              localStorage.setItem("birthday", result.data.user.birthday);
+              localStorage.setItem("name", result.data.user.name);
+              localStorage.setItem("profession", result.data.user.profession);
               localStorage.setItem("accessToken", result.data.token);
+              // localStorage.setItem("user", JSON.stringify(result.data.user));
             }
             // this.router.navigate(["/insertword"]);
             this.router.navigate(['/home']);
@@ -43,10 +48,15 @@ export class AuthenticationService {
   // logout function for users
   logoutUser() {
     localStorage.removeItem("userId");
-    localStorage.removeItem("user");
     localStorage.removeItem("username");
     localStorage.removeItem("userType");
+    localStorage.removeItem("email");
+    localStorage.removeItem("joinedDate");
+    localStorage.removeItem("birthday");
+    localStorage.removeItem("name");
+    localStorage.removeItem("profession");
     localStorage.removeItem("accessToken");
+    // localStorage.removeItem("user");
     this.router.navigate(["/login"]);
   }
 

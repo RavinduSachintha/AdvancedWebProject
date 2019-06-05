@@ -1,0 +1,34 @@
+<div class="container heading" style="text-align: center">
+  <h1>My <span style="color: rgb(241, 55, 92);">Comments</span></h1>
+</div>
+
+<div class="container" style="text-align: center; max-width: 85%;">
+  <div *ngIf="suggestions.length!=0; else empty">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Word</th>
+          <th scope="col">Suggestion</th>
+          <th scope="col">Comment</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mappedArray; let i = index;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item[0]}}</td>
+          <td>{{item[1]}}</td>
+          <td>{{item[2]}}</td>
+          <td><a [routerLink]="['/viewword', item[3]]" routerLinkActive="router-link-active"  routerLinkActive="router-link-active" ><i class="fas fa-search"></i></a> | <a (click)="deleteComment(item[4])" routerLinkActive="router-link-active"><i class="fas fa-trash-alt" style="color: crimson;"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #empty>
+    <h3>You haven't added any comments</h3>
+  </ng-template>
+
+
+</div>
+

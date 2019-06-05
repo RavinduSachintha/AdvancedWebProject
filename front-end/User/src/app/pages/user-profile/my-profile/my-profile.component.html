@@ -23,10 +23,16 @@
           </div>
 
           <div class="container">
-            <h4>Member since</h4><i style="color: cornflowerblue">{{user.joinedDate}}</i>
-            <h4>Name</h4><i style="color: cornflowerblue">{{user.name}}</i>
-            <h4>Profession</h4><i style="color: cornflowerblue">{{user.profession}}</i>
-            <h4>Birth Day</h4><i style="color: cornflowerblue">{{user.birthday}}</i>
+            <h4>Member since</h4><p style="color: cornflowerblue">{{user.joinedDate}}</p>
+            <h4>Name</h4>
+              <p *ngIf="user.name!='undefined'" style="color: cornflowerblue">{{user.name}}</p>
+              <p *ngIf="user.name=='undefined'" style="color: cornflowerblue">Not Set</p>
+            <h4>Profession</h4>
+              <p *ngIf="user.profession!='undefined'" style="color: cornflowerblue">{{user.profession}}</p>
+              <p *ngIf="user.profession=='undefined'" style="color: cornflowerblue">Not Set</p>
+            <h4>Birth Day</h4>
+              <p *ngIf="user.birthday!='undefined'" style="color: cornflowerblue">{{user.birthday}}</p>
+              <p *ngIf="user.birthday=='undefined'" style="color: cornflowerblue">Not Set</p>
           </div>
 
           <div class="row">

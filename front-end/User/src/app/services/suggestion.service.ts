@@ -34,9 +34,12 @@ export class SuggestionService {
     );
   }
 
+  getAllSuggestionsByUserId(userId) {
+    return this.httpBackendRequest.realizarHttpGetWithoutToken(
+      HttpEnum.SUGGESTION_VIEW_ALL_BY_USER_ID+userId
+    );
+  }
 
-
-  
 
 
 }
