@@ -80,27 +80,40 @@
           <div class="comment-widgets scrollable">
             <!-- Comment Row -->
             <div
-              *ngFor="let word of wordList"
+              *ngFor="
+                let word of wordList
+                  | paginate
+                    : { id: 'wordPagination', itemsPerPage: 10, currentPage: p }
+              "
               class="d-flex flex-row comment-row m-t-0"
             >
               <div class="comment-text w-100">
                 <h6 class="font-medium">
-                  {{ word.data }} -(badge){{ word.state }} -(badge){{ word.activeState }}
+                  {{ word.data }} -(badge){{ word.state }} -(badge){{
+                    word.activeState
+                  }}
                 </h6>
                 <div class="comment-footer">
-                  <span class="text-muted float-right">{{word.createdDate}}</span>
-                  <button type="button" class="btn btn-cyan btn-sm">
-                    View Word
+                  <span class="text-muted float-right">{{
+                    word.createdDate
+                  }}</span>
+                  <button type="button" class="btn btn-cyan btn-sm btn-dec">
+                    View
                   </button>
-                  <button type="button" class="btn btn-success btn-sm">
+                  <button type="button" class="btn btn-success btn-sm btn-dec">
                     Change Status
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm">
-                    Delete Word
+                  <button type="button" class="btn btn-danger btn-sm btn-dec">
+                    Delete
                   </button>
                 </div>
               </div>
             </div>
+
+            <pagination-controls
+              id="wordPagination"
+              (pageChange)="p = $event"
+            ></pagination-controls>
             <!-- Comment Row -->
           </div>
         </div>
@@ -113,30 +126,42 @@
           <div class="comment-widgets scrollable">
             <!-- Comment Row -->
             <div
-              *ngFor="let suggestion of suggestionList"
+              *ngFor="
+                let suggestion of suggestionList
+                  | paginate
+                    : {
+                        id: 'suggestionPagination',
+                        itemsPerPage: 10,
+                        currentPage: q
+                      }
+              "
               class="d-flex flex-row comment-row m-t-0"
             >
               <div class="comment-text w-100">
                 <h6 class="font-medium">
                   {{ suggestion.data }} -(badge){{ suggestion.state }}
                 </h6>
-                <span class="m-b-15 d-block"
-                  >{{suggestion.votesCount}}
-                </span>
                 <div class="comment-footer">
-                  <span class="text-muted float-right">{{suggestion.createdDate}}</span>
-                  <button type="button" class="btn btn-cyan btn-sm">
-                    View Suggestion
+                  <span class="text-muted float-right">{{
+                    suggestion.createdDate
+                  }}</span>
+                  <button type="button" class="btn btn-cyan btn-sm btn-dec">
+                    View
                   </button>
-                  <button type="button" class="btn btn-success btn-sm">
+                  <button type="button" class="btn btn-success btn-sm btn-dec">
                     Change Status
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm">
-                    Delete Suggestion
+                  <button type="button" class="btn btn-danger btn-sm btn-dec">
+                    Delete
                   </button>
                 </div>
               </div>
             </div>
+
+            <pagination-controls
+              id="suggestionPagination"
+              (pageChange)="q = $event"
+            ></pagination-controls>
             <!-- Comment Row -->
           </div>
         </div>

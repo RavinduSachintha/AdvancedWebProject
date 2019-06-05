@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
+import { NgxPaginationModule } from "ngx-pagination";
 
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./pages/login/login.component";
@@ -20,7 +21,7 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, DashboardComponent, NavBarComponent, SideBarComponent, StatisticsComponent, ViewRegUserComponent, ViewWordSuggestionComponent, ProfileComponent, BreadcrumbComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxPaginationModule],
   providers: [HttpBackendRequestService, AuthenticationService],
   bootstrap: [AppComponent]
 })

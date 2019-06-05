@@ -21,6 +21,10 @@ export class ViewWordSuggestionComponent implements OnInit, OnDestroy {
   getSuggestionsSub: Subscription;
   searchUserSub: Subscription;
 
+  // for pagination
+  p: number = 1;
+  q: number = 1;
+
   ngOnInit() {
     this.getWordsSub = this.wordService
       .getAllWords()

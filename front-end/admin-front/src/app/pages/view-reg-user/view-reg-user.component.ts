@@ -15,6 +15,9 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
   getUsersSub: Subscription;
   searchUserSub: Subscription;
 
+  // for pagination
+  p: number = 1;
+
   ngOnInit() {
     this.getUsersSub = this.userService
       .getAllRegUsers()
