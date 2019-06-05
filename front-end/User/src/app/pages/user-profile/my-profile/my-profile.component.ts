@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user';
+import { WordService } from '../../../services/word.service';
+import { SuggestionService } from '../../../services/suggestion.service';
+import { CommentsService } from '../../../services/comments.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -18,11 +21,77 @@ export class MyProfileComponent implements OnInit {
     birthday : localStorage.getItem('birthday')
   };
 
-  constructor() { }
+  userId = localStorage.getItem('userId');
+
+  words = [];
+  suggestions = [];
+  comments = [];
+
+  constructor(private wordService: WordService, private suggestionService: SuggestionService, private commentsService: CommentsService) { }
 
   ngOnInit() {
+    this.fetchWords();
+    this.fetchSuggestions();
+    this.fetchComments();
   }
 
+  fetchWords() {
+
+    let promise = new Promise((resolve, reject) => {
+
+      this.wordService.getAllWords().subscribe((result: any) => {
+        let words = result.data;
+        words.forEach(word => {
+          if(word.userId == this.userId) {
+            this.words.push([word._id, word.data]);
+          }
+        });
+        resolve();
+      });
+
+    });
+
+    return promise;
+
+  }
+
+  fetchSuggestions() {
+
+    let promise = new Promise((resolve, reject) => {
+
+      this.suggestionService.getAllSuggestionsByUserId(this.userId).subscribe((result: any) => {
+        let suggestions = result.data;
+        suggestions.forEach(suggestion => {
+          this.suggestions.push([suggestion._id, suggestion.wordId, suggestion.data, suggestion.state, suggestion.votesCount]);
+        });
+        resolve();
+      });
+
+    });
+
+    return promise;
+  }
+
+  fetchComments() {
+
+    let promise = new Promise((resolve, reject) => {
+
+      this.commentsService.getAllComments().subscribe((result: any) => {
+        let comments = result.data;
+        comments.forEach(comment => {
+          if(this.userId == comment.userId) {
+            this.comments.push([comment._id, comment.data, comment.suggestionId, comment.wordId]);
+          }
+        });
+        resolve();
+
+      });
+
+    });
+
+    return promise;
+
+  }
 
 
 }

@@ -11,8 +11,17 @@ html {
 
 a {
   text-decoration: none;
+  transform: scale(1);
+  transition-duration: 0.2s;
   color: #fff;
 }
+
+a:hover {
+  transform: scale(1.1);
+  transition-duration: 0.2s;
+}
+
+
 
 section {
   padding: 1rem 0;

@@ -17,7 +17,6 @@ import { AuthenticationService } from './services/authentication.service';
 
 import { UserProfileComponent } from './pages/user-profile/user-profile/user-profile.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
-import { UserProfileOverviewComponent } from './pages/user-profile/user-profile-overview/user-profile-overview.component';
 import { UserAddedWordsComponent } from './pages/user-profile/user-added-words/user-added-words.component';
 import { UserSuggestedWordsComponent } from './pages/user-profile/user-suggested-words/user-suggested-words.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -41,7 +40,6 @@ import { UserCommentsComponent } from './pages/user-profile/user-comments/user-c
     LoginComponent,
     UserProfileComponent,
     UserHomeComponent,
-    UserProfileOverviewComponent,
     UserAddedWordsComponent,
     UserSuggestedWordsComponent,
     PageNotFoundComponent,
