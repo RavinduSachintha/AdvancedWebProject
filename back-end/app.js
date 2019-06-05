@@ -85,7 +85,7 @@ app.use("/user/retrieve", jwt_middleware.validateUser, userRetrieveRouter);
 app.use("/user/count", jwt_middleware.validateAdminUser, userCountRouter);
 
 app.use("/word/create", jwt_middleware.validateUser, wordCreateRouter);
-app.use("/word/delete", jwt_middleware.validateAdminUser, wordDeleteRouter);
+app.use("/word/delete", jwt_middleware.validateUser, wordDeleteRouter);
 app.use("/word/retrieve", wordRetrieveRouter);
 app.use("/word/update", jwt_middleware.validateUser, wordUpdateRouter);
 app.use("/word/count", jwt_middleware.validateAdminUser, wordCountRouter);
