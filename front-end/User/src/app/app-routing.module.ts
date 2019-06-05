@@ -24,7 +24,11 @@ const routes: Routes = [
   // { path: "login" , component: LoginComponent },
 
   { path: "viewword/:wordId", component: ViewWordComponent },
-  { path: "insertword", component: CRUDwordsComponent },
+  {
+    path: "insertword",
+    component: CRUDwordsComponent,
+    canActivate: [AuthGuard]
+  },
   {path: "searchWord", component:SearchWordComponent},
   {path: "home", component: UserHomeComponent},
   {path: "login", component: UserLoginComponent},
