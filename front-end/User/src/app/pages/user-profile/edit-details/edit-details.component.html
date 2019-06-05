@@ -1,12 +1,12 @@
 <section>
   <div class="container">
     <div class="card-wrappper">
-      <h1 class="heading">My Profilem | <span style="color: rgb(241, 55, 92);">Edit Your Details</span></h1>
+      <h1 class="heading">My Profile | <span style="color: rgb(241, 55, 92);">Edit Your Details</span></h1>
         <div class="card">
           <img src="assets/images/profile_background.jpg" alt="card background" class="card-img">
           <img src=" assets/images/my_profile_image.jpg" alt="profile image" class="profile-img">
-          <h2>testuser@gmail.com</h2>
-          <h5 style="color: crimson; font-size: 18px; margin: 12px 0; "><i class="fas fa-star"></i> Rookie</h5>
+          <h2>{{user.email}}</h2>
+          <h5 style="color: crimson; font-size: 18px; margin: 12px 0; "><i class="fas fa-star"></i> UserLevel: {{user.userLevel}}</h5>
 
           <form [formGroup]="profileForm" (ngSubmit)="onSubmit(name.value, username.value, birthday.value, profession.value)">
             <div class="form-group">

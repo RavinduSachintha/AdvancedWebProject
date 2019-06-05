@@ -1,29 +1,35 @@
-<p>
-  user-suggested-words works!
-</p>
+<div class="container heading" style="text-align: center">
+  <h1>My <span style="color: rgb(241, 55, 92);">Suggestions</span></h1>
+</div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+<div class="container" style="text-align: center; max-width: 85%;">
+  <div *ngIf="suggestions.length!=0; else empty">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Word</th>
+          <th scope="col">Suggestion</th>
+          <th scope="col">State</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let suggestion of suggestions; let i = index;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{mappedWords[i][1]}}</td>
+          <td>{{suggestion[2]}}</td>
+          <td>{{suggestion[3]}}</td>
+          <td>{{suggestion[4]}}</td>
+          <td><a [routerLink]="['/viewword', suggestion[1]]" routerLinkActive="router-link-active"  routerLinkActive="router-link-active" ><i class="fas fa-search"></i></a> | <a (click)="deleteSuggestion(suggestion[0])" routerLinkActive="router-link-active"><i class="fas fa-trash-alt" style="color: crimson;"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  <ng-template #empty>
+    <h3>You haven't added any suggestions</h3>
+  </ng-template>
+
+
 </div>

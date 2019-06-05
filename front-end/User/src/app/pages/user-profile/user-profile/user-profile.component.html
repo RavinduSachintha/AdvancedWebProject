@@ -5,8 +5,9 @@
 
         <nav id="sidebar">
             <div class="sidebar-header" style="text-align: center;">
-                <i class="fas fa-user" style="font-size: 65px; color: rgb(133, 13, 69);"></i>
-                <h4 style="padding-top: 10px; color: rgb(6, 29, 105); margin-bottom: 0px;"><i class="far fa-id-badge"></i> {{user.username}}</h4>
+                <!-- <i class="fas fa-user" style="font-size: 65px; color: rgb(133, 13, 69);"></i> -->
+                <img src=" assets/images/s.png" alt="profile image" class="img-thumbnail" style="border-radius: 50%; max-height: 140px;">
+                <h4 style="padding-top: 10px; color: rgb(6, 29, 105); margin-bottom: 8px;"><i class="far fa-id-badge"></i> {{user.username}}</h4>
                 <h5 style="color: crimson;"><i class="fas fa-star"></i> User Level: {{user.userLevel}}</h5>
             </div>
 
@@ -16,32 +17,19 @@
                     <a [routerLink]="['overview']" routerLinkActive="active" routerLinkActiveOption="{exact: true}"><i class="fas fa-chart-pie" style="font-size: 20px; padding-right: 15px;"></i>Overview</a>
                 </li>
                 <li>
-                    <a [routerLink]="['myprofile']" routerLinkActive="active"><i class="fas fa-id-card" style="font-size: 20px; padding-right: 15px;"></i>My Profile</a>
+                    <a [routerLink]="['myprofile']" routerLinkActive="active"><i class="fas fa-id-card" style="font-size: 20px; padding-right: 15px;"></i>Profile Details</a>
                 </li>
                 <li>
-                    <a [routerLink]="['votedwords']" routerLinkActive="active"><i class="fas fa-clipboard-check" style="font-size: 20px; padding-right: 15px;"></i>Voted Words</a>
+                    <a [routerLink]="['addedwords']" routerLinkActive="active"><i class="fas fa-clipboard-check" style="font-size: 20px; padding-right: 15px;"></i>My Words</a>
                 </li>
                 <li>
-                    <a [routerLink]="['suggestedwords']" routerLinkActive="active"><i class="fas fa-lightbulb" style="font-size: 20px; padding-right: 15px;"></i>Suggested Words</a>
+                    <a [routerLink]="['suggestedwords']" routerLinkActive="active"><i class="fas fa-lightbulb" style="font-size: 20px; padding-right: 15px;"></i>My Suggestions</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
+                  <a [routerLink]="['mycomments']" routerLinkActive="active"><i class="fas fa-feather" style="font-size: 20px; padding-right: 15px;"></i>My Comments</a>
+              </li>
 
             </ul>
-
-            <!-- <p> ID: {{user._id}}</p> -->
 
         </nav>
 

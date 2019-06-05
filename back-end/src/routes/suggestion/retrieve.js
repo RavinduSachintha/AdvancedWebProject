@@ -30,4 +30,14 @@ router.get("/:suggestionId", function(req, res) {
   );
 });
 
+router.get("/userid/:id", function(req, res) {
+  suggestionController.getAllSuggestionsByUserId(req.params.id, (err, suggestion) => {
+    if (err) {
+      res.json(new ResponseObject("unsuccess", null, err));
+    } else {
+      res.json(new ResponseObject("success", suggestion, null));
+    }
+  });
+});
+
 module.exports = router;

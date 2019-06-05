@@ -12,6 +12,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class EditDetailsComponent implements OnInit {
 
+  user = {
+    email : localStorage.getItem('email'),
+    username : localStorage.getItem('username'),
+    userLevel : localStorage.getItem('userLevel'),
+    joinedDate : localStorage.getItem('joinedDate'),
+    name : localStorage.getItem('name'),
+    profession : localStorage.getItem('profession'),
+    birthday : localStorage.getItem('birthday')
+  };
+
   profileForm = this.fb.group ({
     name: ['', Validators.required],
     username: ['', Validators.required],
@@ -19,7 +29,7 @@ export class EditDetailsComponent implements OnInit {
     profession: ['', Validators.required]
   });
 
-  id = JSON.parse(localStorage.getItem('user'))._id;
+  id = localStorage.getItem('userId');
 
   constructor(private fb: FormBuilder, private userProfileService: UserProfileService, private router: Router, private route: ActivatedRoute) { }
 
@@ -28,10 +38,23 @@ export class EditDetailsComponent implements OnInit {
 
   onSubmit(name, username, birthday, profession) {
     this.userProfileService.editUserProfileDetails(this.id, name, username, birthday, profession)
-      .subscribe(() => {
-        alert("Details updated successfully");
-        this.router.navigate(['../myprofile'], { relativeTo: this.route });
-      });
+      .subscribe((user : any) => {
+        if(user.status === "success") {
+          localStorage.setItem('name', name);
+          localStorage.setItem('username', username);
+          localStorage.setItem('birthday', birthday);
+          localStorage.setItem('profession', profession);
+          alert("Details updated successfully");
+          this.router.navigate(['../myprofile'], { relativeTo: this.route }).then(() => {window.location.reload();});
+        }
+        else {
+          alert(user.status);
+        }
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   }
 
 }

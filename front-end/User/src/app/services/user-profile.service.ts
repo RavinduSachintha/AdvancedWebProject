@@ -20,4 +20,12 @@ export class UserProfileService {
     return this.httpBackendRequestService.realizarHttpPostWithToken(HttpEnum.USER_EDIT_DETAILS+id, editedDetails);
   }
 
+  changeUserPassword(id, currentpwd, newpwd) {
+    const newpwdDetais = {
+      currentpwd: currentpwd,
+      newpwd: newpwd
+    }
+    return this.httpBackendRequestService.realizarHttpPostWithToken(HttpEnum.USER_CHANGE_PASSWORD+id, newpwdDetais);
+  }
+
 }
