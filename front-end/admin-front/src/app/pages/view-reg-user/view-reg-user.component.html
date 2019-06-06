@@ -4,6 +4,10 @@
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
+
+  <!-- Bread crumb -->
+  <app-breadcrumb pageTitle="Registered Users"></app-breadcrumb>
+
   <div class="container-fluid">
     <div class="row">
       <!-- column -->
@@ -44,7 +48,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Registerd Users</h4>
+            <h4 class="card-title">Users List</h4>
           </div>
           <div class="comment-widgets scrollable">
             <!-- Comment Row -->
@@ -87,7 +91,7 @@
                     View Profile
                   </button>
                   <button
-                    *ngIf="isAdminUser()"
+                    *ngIf="isSuperAdminUser()"
                     type="button"
                     class="btn btn-danger btn-sm btn-dec"
                     (click)="deleteUser(i)"

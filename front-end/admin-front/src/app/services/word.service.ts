@@ -49,4 +49,10 @@ export class WordService {
       HttpEnum.WORD_INCOMPLETE_ALL_COUNT
     );
   }
+
+  deleteWord(id: number) {
+    return this.httpBackendRequest.realizarHttpDeleteWithToken(
+      HttpEnum.WORD_DELETE + "/" + id
+    );
+  }
 }

@@ -46,7 +46,9 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
       .subscribe((result: any) => {
         for (const user of result.data) {
           // console.log(user)
-          this.userList.push(user);
+          if(user.usertype != "super-admin"){
+            this.userList.push(user);
+          }
         }
       });
   }
@@ -75,7 +77,7 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
     $("#viewModel").modal();
   }
 
-  isAdminUser() {
+  isSuperAdminUser() {
     return localStorage.getItem("userType") == "super-admin";
   }
 

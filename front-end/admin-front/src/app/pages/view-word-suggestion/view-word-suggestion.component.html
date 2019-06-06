@@ -4,6 +4,9 @@
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
+  <!-- Bread crumb -->
+  <app-breadcrumb pageTitle="Words & Suggestions"></app-breadcrumb>
+
   <div class="container-fluid">
     <div class="row">
       <!-- column -->
@@ -120,7 +123,12 @@
                   <button type="button" class="btn btn-success btn-sm btn-dec">
                     Change Status
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm btn-dec">
+                  <button
+                    *ngIf="isSuperAdminUser()"
+                    type="button"
+                    class="btn btn-danger btn-sm btn-dec"
+                    (click)="deleteWord(i)"
+                  >
                     Delete
                   </button>
                 </div>
@@ -178,7 +186,12 @@
                   <button type="button" class="btn btn-success btn-sm btn-dec">
                     Change Status
                   </button>
-                  <button type="button" class="btn btn-danger btn-sm btn-dec">
+                  <button
+                    *ngIf="isSuperAdminUser()"
+                    type="button"
+                    class="btn btn-danger btn-sm btn-dec"
+                    (click)="deleteSuggestion(i)"
+                  >
                     Delete
                   </button>
                 </div>

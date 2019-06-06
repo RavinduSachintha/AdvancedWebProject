@@ -37,4 +37,10 @@ export class SuggestionService {
       HttpEnum.SUGGESTION_INCOMPLETE_ALL_COUNT
     );
   }
+
+  deleteSuggestion(id: number) {
+    return this.httpBackendRequest.realizarHttpDeleteWithToken(
+      HttpEnum.SUGGESTION_DELETE + "/" + id
+    );
+  }
 }

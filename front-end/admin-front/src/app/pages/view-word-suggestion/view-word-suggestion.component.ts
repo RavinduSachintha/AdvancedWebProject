@@ -129,4 +129,46 @@ export class ViewWordSuggestionComponent implements OnInit, OnDestroy {
     this.selectedSuggestion = this.suggestionList[index];
     $("#viewSuggestionModel").modal();
   }
+
+  deleteWord(index: number) {
+    if (confirm("Proceed the deletion ?")) {
+      this.wordService
+        .deleteWord(this.wordList[index]._id)
+        .subscribe((result: any) => {
+          if (result.status == "success" && result.data != null) {
+            alert(
+              "The word of " +
+                result.data.data +
+                " have been successfully deleted."
+            );
+            location.reload();
+          } else {
+            console.log("Error " + result.error);
+          }
+        });
+    }
+  }
+
+  deleteSuggestion(index: number) {
+    if (confirm("Proceed the deletion ?")) {
+      this.suggestionService
+        .deleteSuggestion(this.suggestionList[index]._id)
+        .subscribe((result: any) => {
+          if (result.status == "success" && result.data != null) {
+            alert(
+              "The suggestion of " +
+                result.data.data +
+                " have been successfully deleted."
+            );
+            location.reload();
+          } else {
+            console.log("Error " + result.error);
+          }
+        });
+    }
+  }
+
+  isSuperAdminUser() {
+    return localStorage.getItem("userType") == "super-admin";
+  }
 }
