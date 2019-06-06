@@ -1,6 +1,6 @@
 // required modules
 const suggestionModel = require("../models/suggestion");
-const commentModel=require("../models/comment");
+const commentModel = require("../models/comment");
 
 class SuggestionController {
   constructor() {}
@@ -21,7 +21,7 @@ class SuggestionController {
       .catch(err => callback(err));
   }
 
-  // delete suggestion by ID from DB 
+  // delete suggestion by ID from DB
   deleteSuggestionById(suggestionId, callback) {
     suggestionModel
       .findByIdAndDelete(suggestionId)
@@ -29,10 +29,9 @@ class SuggestionController {
       .catch(err => callback(err));
 
     commentModel
-      .deleteMany({"suggestionId": suggestionId})
+      .deleteMany({ suggestionId: suggestionId })
       .then(comment => callback(null, comment))
       .catch(err => callback(err));
-
   }
 
   // get suggestion by ID from DB
@@ -53,11 +52,18 @@ class SuggestionController {
 
   getAllSuggestionsByUserId(userId, callback) {
     suggestionModel
-      .find({userId: userId})
+      .find({ userId: userId })
       .then(suggestion => callback(null, suggestion))
       .catch(err => callback(err));
   }
 
+  // get suggestions using word parts from DB
+  getSuggestionsByPart(part, callback) {
+    suggestionModel
+      .find({ data: new RegExp(part, "ig") })
+      .then(suggestion => callback(null, suggestion))
+      .catch(err => callback(err));
+  }
 }
 
 module.exports = SuggestionController;

@@ -83,7 +83,12 @@
               *ngFor="
                 let word of wordList
                   | paginate
-                    : { id: 'wordPagination', itemsPerPage: 10, currentPage: p }
+                    : {
+                        id: 'wordPagination',
+                        itemsPerPage: 10,
+                        currentPage: p
+                      };
+                let i = index
               "
               class="d-flex flex-row comment-row m-t-0"
             >
@@ -105,7 +110,11 @@
                   <span class="text-muted float-right">{{
                     word.createdDate
                   }}</span>
-                  <button type="button" class="btn btn-cyan btn-sm btn-dec">
+                  <button
+                    type="button"
+                    class="btn btn-cyan btn-sm btn-dec"
+                    (click)="openViewWordModal(i)"
+                  >
                     View
                   </button>
                   <button type="button" class="btn btn-success btn-sm btn-dec">
@@ -141,7 +150,8 @@
                         id: 'suggestionPagination',
                         itemsPerPage: 10,
                         currentPage: q
-                      }
+                      };
+                let i = index
               "
               class="d-flex flex-row comment-row m-t-0"
             >
@@ -158,7 +168,11 @@
                   <span class="text-muted float-right">{{
                     suggestion.createdDate
                   }}</span>
-                  <button type="button" class="btn btn-cyan btn-sm btn-dec">
+                  <button
+                    type="button"
+                    class="btn btn-cyan btn-sm btn-dec"
+                    (click)="openViewSuggestionModal(i)"
+                  >
                     View
                   </button>
                   <button type="button" class="btn btn-success btn-sm btn-dec">
@@ -184,4 +198,134 @@
   <!-- ============================================================== -->
   <!-- End Page wrapper  -->
   <!-- ============================================================== -->
+</div>
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  id="viewWordModel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h4 class="modal-title">{{ selectedWord.data }}</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <table class="mx-auto">
+            <tr>
+              <td class="text-left"><b>Description</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.description }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>State</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.state }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Active State</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.activeState }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Best Suggestion</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.bestSuggestion }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Start Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.startDate }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>End Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.endDate }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Created Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.createdDate }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  id="viewSuggestionModel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h4 class="modal-title">{{ selectedSuggestion.data }}</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <table class="mx-auto">
+            <tr>
+              <td class="text-left"><b>Votes Count</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedSuggestion.votesCount }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Related Word</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedSuggestion.wordId }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>User ID</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedSuggestion.userId }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Active State</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedSuggestion.state }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Created Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedSuggestion.createdDate }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

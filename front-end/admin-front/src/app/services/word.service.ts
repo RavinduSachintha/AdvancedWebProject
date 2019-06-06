@@ -14,6 +14,12 @@ export class WordService {
     );
   }
 
+  getWordByPart(word: string) {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.WORD_RETRIEVE_BY_PART + "/" + word
+    );
+  }
+
   getNumberOfWords() {
     return this.httpBackendRequest.realizarHttpGetWithToken(
       HttpEnum.WORD_ALL_COUNT

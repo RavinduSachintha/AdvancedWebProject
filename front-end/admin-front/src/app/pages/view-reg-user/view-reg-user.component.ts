@@ -5,6 +5,16 @@ import * as $ from "jquery";
 
 declare var $: $;
 
+export interface User {
+  name: string;
+  username: string;
+  email: string;
+  usertype: string;
+  profession: string;
+  birthday: string;
+  joinedDate: string;
+}
+
 @Component({
   selector: "app-view-reg-user",
   templateUrl: "./view-reg-user.component.html",
@@ -14,7 +24,15 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) {}
 
   userList = [];
-  selectedUser: any;
+  selectedUser: User = {
+    name: "",
+    username: "",
+    email: "",
+    usertype: "",
+    profession: "",
+    birthday: "",
+    joinedDate: ""
+  };
 
   getUsersSub: Subscription;
   searchUserSub: Subscription;
@@ -61,11 +79,20 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
 
   deleteUser(index: number) {
     if (confirm("Proceed the deletion ?")) {
-      this.userService.deleteUser(index).subscribe((result: any) => {
-        alert(
-          "The user of " + result.data.name + " have been successfully deleted."
-        );
-      });
+      this.userService
+        .deleteUser(this.userList[index]._id)
+        .subscribe((result: any) => {
+          if (result.status == "success" && result.data != null) {
+            alert(
+              "The user of " +
+                result.data.name +
+                " have been successfully deleted."
+            );
+            location.reload();
+          } else {
+            console.log("Error " + result.error);
+          }
+        });
     }
   }
 }

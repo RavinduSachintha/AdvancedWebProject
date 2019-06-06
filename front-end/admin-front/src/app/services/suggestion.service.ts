@@ -14,6 +14,12 @@ export class SuggestionService {
     );
   }
 
+  getSuggestionByPart(suggestion: string) {
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.SUGGESTION_RETRIEVE_BY_PART + "/" + suggestion
+    );
+  }
+
   getNumberOfSuggestions() {
     return this.httpBackendRequest.realizarHttpGetWithToken(
       HttpEnum.SUGGESTION_ALL_COUNT

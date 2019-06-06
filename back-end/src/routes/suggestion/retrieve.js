@@ -16,6 +16,17 @@ router.get("/all", function(req, res) {
   });
 });
 
+//get routes to retrieve all suggestions include an adding part 
+router.get("/suggestionPart/:part", function(req, res) {
+  suggestionController.getSuggestionsByPart(req.params.part,(err, suggestion) => {
+    if (err) {
+      res.json(new ResponseObject("unsuccess", null, err));
+    } else {
+      res.json(new ResponseObject("success", suggestion, null));
+    }
+  });
+});
+
 // GET routes for getting data
 router.get("/:suggestionId", function(req, res) {
   suggestionController.getSuggestionById(
