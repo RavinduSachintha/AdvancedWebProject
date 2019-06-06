@@ -51,6 +51,14 @@ class AuthController {
     //   .then(suggestion => callback(null, suggestion))
     //   .catch(err => callback(err));
   }
+
+  // get users using name parts from DB //rs
+  getUserByPart(part, callback) {
+    userModel
+      .find({ username: new RegExp(part, "ig") })
+      .then(user => callback(null, user))
+      .catch(err => callback(err));
+  }
 }
 
 module.exports = AuthController;
