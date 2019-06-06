@@ -1,3 +1,94 @@
-<p>
-  insert-word works!
-</p>
+<app-side-bar></app-side-bar>
+
+<div class="page-wrapper">
+  <!-- Bread crumb -->
+  <app-breadcrumb pageTitle="Insert A Word"></app-breadcrumb>
+
+  <!-- Container fluid  -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-8 col-md-10 mx-auto">
+        <div class="card">
+          <form class="form-horizontal">
+            <div class="card-header">
+              <h4 class="card-title">Word Informations</h4>
+            </div>
+            <div class="card-body">
+              <div class="form-group row">
+                <label
+                  for="word"
+                  class="col-sm-3 text-right control-label col-form-label"
+                  >Word</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="data"
+                    placeholder="English word"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="description"
+                  class="col-sm-3 text-right control-label col-form-label"
+                  >Description</label
+                >
+                <div class="col-sm-9">
+                  <textarea
+                    class="form-control"
+                    placeholder="Briefly describe the meaning"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="activeState"
+                  class="col-sm-3 text-right control-label col-form-label"
+                  >State</label
+                >
+                <div class="col-sm-9">
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="customControlValidation1"
+                      name="radio-stacked"
+                      required
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customControlValidation1"
+                      >Active</label
+                    >
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input
+                      type="radio"
+                      class="custom-control-input"
+                      id="customControlValidation2"
+                      name="radio-stacked"
+                      required
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customControlValidation2"
+                      >Inactive</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="border-top">
+              <div class="card-body text-right">
+                <button type="submit" class="col-3 btn btn-primary mx-2">Submit</button>
+                <button type="reset" class="col-3 btn btn-primary mx-2">Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
