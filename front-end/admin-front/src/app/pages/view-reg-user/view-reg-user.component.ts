@@ -57,7 +57,9 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
       .getRegUserByUsername(username)
       .subscribe((result: any) => {
         if (result.status == "success" && result.data != null) {
-          this.userList.push(result.data);
+          result.data.forEach(item => {
+            this.userList.push(item);
+          });
         }
       });
   }

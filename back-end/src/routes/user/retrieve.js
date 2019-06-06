@@ -31,17 +31,6 @@ router.get("/profile/namePart/:part", function(req, res) {
   });
 });
 
-//get routes to retrieve all users include an adding part
-router.get("/profile/namePart/:part", function(req, res) {
-  wordController.getWordByPart(req.params.part, (err, word) => {
-    if (err) {
-      res.json(new ResponseObject("unsuccess", null, err));
-    } else {
-      res.json(new ResponseObject("success", word, null));
-    }
-  });
-});
-
 //Post route for getting all the user profiles
 //Rashmi
 
