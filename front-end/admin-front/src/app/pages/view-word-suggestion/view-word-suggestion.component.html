@@ -9,7 +9,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 col-lg-6 col-md-6">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="card">
           <form class="form-horizontal">
             <div class="card-body">
@@ -21,7 +21,7 @@
                   <input
                     #word
                     type="text"
-                    class="form-control search-comp"
+                    class="form-control search-comp mb-2"
                     id="word"
                     placeholder="Enter the word"
                   />
@@ -45,7 +45,6 @@
             <h4 class="card-title">Words</h4>
           </div>
           <div class="comment-widgets scrollable">
-            <!-- Comment Row -->
             <div
               *ngFor="
                 let word of wordList
@@ -103,11 +102,10 @@
               id="wordPagination"
               (pageChange)="p = $event"
             ></pagination-controls>
-            <!-- Comment Row -->
           </div>
         </div>
       </div>
-      <div class="col-12 col-lg-6 col-md-6">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="card">
           <form class="form-horizontal">
             <div class="card-body">
@@ -119,7 +117,7 @@
                   <input
                     #suggestion
                     type="text"
-                    class="form-control search-comp"
+                    class="form-control search-comp mb-2"
                     id="suggestion"
                     placeholder="Enter the suggestion"
                   />
@@ -143,7 +141,6 @@
             <h4 class="card-title">Suggestions</h4>
           </div>
           <div class="comment-widgets scrollable">
-            <!-- Comment Row -->
             <div
               *ngFor="
                 let suggestion of suggestionList
@@ -196,7 +193,6 @@
               id="suggestionPagination"
               (pageChange)="q = $event"
             ></pagination-controls>
-            <!-- Comment Row -->
           </div>
         </div>
       </div>
