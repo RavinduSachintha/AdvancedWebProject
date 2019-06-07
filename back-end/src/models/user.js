@@ -54,6 +54,9 @@ const UserSchema = new mongoose.Schema({
   },
   name: {
     type: String
+  },
+  state: {
+    type: String
   }
 });
 

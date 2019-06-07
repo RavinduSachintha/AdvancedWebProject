@@ -3,6 +3,8 @@ import { User } from '../../../models/user';
 import { WordService } from '../../../services/word.service';
 import { SuggestionService } from '../../../services/suggestion.service';
 import { CommentsService } from '../../../services/comments.service';
+import { UserProfileService } from '../../../services/user-profile.service';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -27,7 +29,14 @@ export class MyProfileComponent implements OnInit {
   suggestions = [];
   comments = [];
 
-  constructor(private wordService: WordService, private suggestionService: SuggestionService, private commentsService: CommentsService) { }
+  constructor(
+    private wordService: WordService,
+    private suggestionService: SuggestionService,
+    private commentsService: CommentsService,
+    private userService: UserProfileService,
+    private authService: AuthenticationService
+
+  ) { }
 
   ngOnInit() {
     this.fetchWords();
@@ -93,5 +102,23 @@ export class MyProfileComponent implements OnInit {
 
   }
 
+  deactivateAccount() {
+
+    let approval = confirm("Are you sure you want to deactivate your account?");
+
+    if(approval) {
+      this.userService.deacivateUserAccount(this.userId)
+      .toPromise()
+      .then(result => {
+        alert("Account deactivated successfully");
+      }).catch(error => {
+        alert("Something went wrong");
+        console.log(error);
+      }).then(() => {
+        this.authService.logoutUser();
+      });
+    }
+
+  }
 
 }

@@ -22,7 +22,8 @@ router.post("/", function(req, res) {
       userLevel: req.body.userLevel,
       votedWordCount: req.body.votedWordCount,
       suggestedWordCount: req.body.suggestedWordCount,
-      joinedDate: req.body.joinedDate
+      joinedDate: req.body.joinedDate,
+      state: req.body.state
     };
 
     // register the user in system

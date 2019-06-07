@@ -73,6 +73,38 @@ router.post("/changepassword/:id", (req, res) => {
   });
 });
 
+router.put("/deactivate/:id", function(req, res) {
+  if (req.body.state) {
+
+    let user = {
+      state : req.body.state
+    };
+
+    User.findByIdAndUpdate(req.params.id, user, (err, user)=> {
+      if(err) {
+        res.json(new ResponseObject("unsuccess", null, err));
+      }
+      else {
+        res.json(new ResponseObject("success", user, null));
+      }
+    });
+
+    // // update the suggestion to system
+    // suggestionController.updateSuggestion(req.body.suggestionId, suggestionData, (err, suggestion) => {
+    //     if (err) {
+    //       res.json(new ResponseObject("unsuccess", null, err.errmsg));
+    //     } else {
+    //       res.json(new ResponseObject("success", suggestion, null));
+    //     }
+    //   }
+    // );
+
+  } else {
+    res.json( new ResponseObject("unsuccess", null, "Required fields have to be filled out"));
+  }
+
+});
+
   
 
 module.exports = router;
