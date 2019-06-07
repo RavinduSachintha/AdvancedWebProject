@@ -11,8 +11,8 @@
 
   <div class="container customcontainer7">
     <div align="center">
-      <button type="button" (click)="updateSuggestionVotes(item[0],item[1],item[2],OtherReccomandVotes[i],i)"  >&nbsp;Up Vote &nbsp;<i class="fa fa-arrow-up" aria-hidden="true"></i> &nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="button" (click)="votedown(i)" >&nbsp;Down Vote &nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i>&nbsp;&nbsp;</button>
+      <button type="button" (click)="updateSuggestionVotes(item[0],item[1],item[2],OtherReccomandVotes[i],i,1)"  >&nbsp;Up Vote &nbsp;<i class="fa fa-arrow-up" aria-hidden="true"></i> &nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" (click)="updateSuggestionDownVotes(item[0],item[1],item[2],OtherReccomandVotes[i],i,-1)" >&nbsp;Down Vote &nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i>&nbsp;&nbsp;</button>
       <br><br>
     </div>
 

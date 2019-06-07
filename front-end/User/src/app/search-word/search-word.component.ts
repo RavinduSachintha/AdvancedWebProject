@@ -29,7 +29,7 @@ export class SearchWordComponent implements OnInit {
       let words = result.data;
       this.numOfWords=words.length;
       words.forEach(word => {
-        this.listOfWords.push([word._id,word.data]);
+        this.listOfWords.push([word._id,word.data,word.bestSuggestion]);
         
       });
     });

@@ -25,6 +25,7 @@ export class CardsComponent implements OnInit {
   // public myId="5cd3ff104003201945f9e158";
   public wordId=this.router.url.split("/")[2];
   public myId=localStorage.getItem('userId');
+  public No_Suggestion="No Suggestions!!"
 
   
 
@@ -93,12 +94,19 @@ export class CardsComponent implements OnInit {
     this.suggestionService.getAllSuggestions().subscribe((result: any) => {
       
       let suggestions = result.data;
+      let related_suggestions= [];
+      for (let sugg of suggestions){
+        if(sugg.wordId==this.wordId){
+          related_suggestions.push(sugg);
+        }
+      }
       
-      this.numofvotes=Math.max.apply(Math,suggestions.map(function(o){return o.votesCount;}));
+      this.numofvotes=Math.max.apply(Math,related_suggestions.map(function(o){return o.votesCount;}));
    
   });
 } 
  
+
 
 
 
