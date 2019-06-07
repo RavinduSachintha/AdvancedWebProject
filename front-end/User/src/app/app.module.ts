@@ -28,6 +28,8 @@ import { UserRegistrationComponent } from './pages/user-registration/user-regist
 import { AuthGuard } from './auth.guard';
 import { UserProfileService } from './services/user-profile.service';
 import { UserCommentsComponent } from './pages/user-profile/user-comments/user-comments.component';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +52,7 @@ import { UserCommentsComponent } from './pages/user-profile/user-comments/user-c
     UserRegistrationComponent,
     UserCommentsComponent
   ],
-  imports: [BrowserModule,ReactiveFormsModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule,MatCardModule,ReactiveFormsModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [HttpBackendRequestService, AuthenticationService, AuthGuard, UserProfileService],
   bootstrap: [AppComponent],
   exports:[CardsComponent,CardsOneComponent]

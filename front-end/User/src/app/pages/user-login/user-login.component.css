@@ -1,0 +1,27 @@
+@import '../../../../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+.border {
+  background-color: rgb(233, 233, 236);
+  width: 100%;
+  height: 600px;
+  background-image: url('../../../assets/images/login2.jpg');
+}
+
+.mat-card {
+  background-color: rgba(0, 0, 0, 0.815);
+}
+
+.loginbox {
+  margin-top: 170px;
+  width: 500px;
+}
+
+.signinbtn {
+  width: 130px;
+  margin-left: 60px;
+}
+
+.signupbtn {
+  width: 130px;
+  margin-left: 10px;
+}
