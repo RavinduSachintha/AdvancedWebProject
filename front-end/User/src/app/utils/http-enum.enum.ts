@@ -19,6 +19,7 @@ export enum HttpEnum {
   SUGGESTION_UPDATE="http://localhost:3000/suggestion/update/",
 
   SUGGESTION_VIEW_ALL_BY_USER_ID="http://localhost:3000/suggestion/retrieve/userid/",
+  DEACTIVATE_USER_ACCOUNT="http://localhost:3000/user/profile/deactivate/"
 
 
 }

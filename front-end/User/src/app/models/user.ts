@@ -13,5 +13,6 @@ export interface User {
   birthday?: String,
   profession?: string,
   name?: string,
-  token?: string;
+  token?: string,
+  state?: string
 }

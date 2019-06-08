@@ -29,6 +29,7 @@ export class UserRegistrationComponent implements OnInit {
       username : this.username,
       password : this.password,
       usertype : "normal",
+      state : "active",
       joinedDate : this.joinedDate
     };
 

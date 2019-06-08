@@ -17,7 +17,7 @@ class AuthController {
 
   // login authentication for user
   loginUser(userData, callback) {
-    userModel.findOne({ email: userData.email }, (err, user) => {
+    userModel.findOne({ email: userData.email, state: "active" }, (err, user) => {
       if (err) {
         callback(err);
       } else if (!user) {

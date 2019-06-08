@@ -28,4 +28,11 @@ export class UserProfileService {
     return this.httpBackendRequestService.realizarHttpPostWithToken(HttpEnum.USER_CHANGE_PASSWORD+id, newpwdDetais);
   }
 
+  deacivateUserAccount(id) {
+    const userAccount = {
+      state: "inactive"
+    }
+    return this.httpBackendRequestService.realizarHttpPutWithToken(HttpEnum.DEACTIVATE_USER_ACCOUNT+id, userAccount);
+  }
+
 }
