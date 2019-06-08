@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpBackendRequestService } from "./http-backend-request.service";
+import { Word } from "../models/word";
 import { HttpEnum } from "../utils/http-enum.enum";
 
 @Injectable({
@@ -54,5 +55,12 @@ export class WordService {
     return this.httpBackendRequest.realizarHttpDeleteWithToken(
       HttpEnum.WORD_DELETE + "/" + id
     );
+  }
+
+  insertWord(word: Word) {
+    return this.httpBackendRequest.realizarHttpPostWithToken(
+      HttpEnum.WORD_CREATE,
+      word
+    ).toPromise();
   }
 }

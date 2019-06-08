@@ -9,7 +9,11 @@
     <div class="row">
       <div class="col-12 col-lg-8 col-md-10 mx-auto">
         <div class="card">
-          <form class="form-horizontal">
+          <form
+            (ngSubmit)="submitForm()"
+            class="form-horizontal"
+            ngNativeValidate
+          >
             <div class="card-header">
               <h4 class="card-title">Word Informations</h4>
             </div>
@@ -22,10 +26,13 @@
                 >
                 <div class="col-sm-9">
                   <input
+                    [(ngModel)]="data"
+                    name="data"
                     type="text"
                     class="form-control"
                     id="data"
                     placeholder="English word"
+                    required
                   />
                 </div>
               </div>
@@ -37,6 +44,8 @@
                 >
                 <div class="col-sm-9">
                   <textarea
+                    [(ngModel)]="description"
+                    name="description"
                     class="form-control"
                     placeholder="Briefly describe the meaning"
                   ></textarea>
@@ -51,10 +60,12 @@
                 <div class="col-sm-9">
                   <div class="custom-control custom-radio">
                     <input
+                      [(ngModel)]="activeState"
                       type="radio"
                       class="custom-control-input"
                       id="customControlValidation1"
                       name="radio-stacked"
+                      value="active"
                       required
                     />
                     <label
@@ -65,10 +76,12 @@
                   </div>
                   <div class="custom-control custom-radio">
                     <input
+                      [(ngModel)]="activeState"
                       type="radio"
                       class="custom-control-input"
                       id="customControlValidation2"
                       name="radio-stacked"
+                      value="inactive"
                       required
                     />
                     <label
@@ -82,8 +95,12 @@
             </div>
             <div class="border-top">
               <div class="card-body text-right">
-                <button type="submit" class="col-3 btn btn-primary mx-2">Submit</button>
-                <button type="reset" class="col-3 btn btn-primary mx-2">Reset</button>
+                <button type="submit" class="col-3 btn btn-success mx-2">
+                  Submit
+                </button>
+                <button type="reset" class="col-3 btn btn-primary mx-2">
+                  Reset
+                </button>
               </div>
             </div>
           </form>
