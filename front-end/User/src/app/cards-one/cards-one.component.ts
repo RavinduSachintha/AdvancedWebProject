@@ -33,7 +33,8 @@ export class CardsOneComponent implements OnInit {
   public SuggestionData=[];
   public items=this.SuggestionData;
   public myName=localStorage.getItem('username');
-
+  public uVL=[];
+  public dVL=[];
 
   // public commentList=[];
   public commentedUserName="";
@@ -119,8 +120,8 @@ export class CardsOneComponent implements OnInit {
     this.commentsService.getAllComments().subscribe((result: any) => {
       let comments = result.data;
       comments.forEach(comment => {
-       this.authenticationService.seeUserDetails(comment.userId).subscribe((result:any)=>{
-          this.comments.push([comment.userId,comment.data,comment.suggestionId,result.username,comment._id]);
+       this.authenticationService.seeUserDetails(comment.userId).subscribe((res:any)=>{
+          this.comments.push([comment.userId,comment.data,comment.suggestionId,res.username,comment._id]);
         });
       });
     });
@@ -178,31 +179,90 @@ export class CardsOneComponent implements OnInit {
 
   }
 
-  updateSuggestionVotes(userId,suggestionData,suggestionId,votes,n){
-    let suggestionItem = new Suggestion();
-        suggestionItem.userId=userId;
-        suggestionItem.wordId=this.wordId;
-        suggestionItem.id="5ce63620f155ff2660d384e1";
-        suggestionItem.data = suggestionData;
-        suggestionItem.votesCount=4;
-        suggestionItem.state="Incomplete";
-        // suggestionItem.createdDate=new Date();
+  //This method is coverd ,Not updated in db***
+  updateSuggestionVotes(userId,suggestionData,suggestionId,votes,n,updateVote){
+   
+        this.suggestionService.getAllSuggestions().subscribe((result: any) => {
+          let suggestions = result.data;
+          
+          suggestions.forEach(suggestion => {
+            
+           if (suggestion._id==suggestionId){
+             this.uVL=suggestion.upVotedList + this.uVL;
+             this.uVL=[this.myId];
+
+            for(let upvotedguy of this.uVL){
+              
+              if(this.myId==upvotedguy){
+                alert("You have voted already !!!");
+                return;
+              }
+            }
+            suggestion.votesCount=suggestion.votesCount + updateVote;
+            this.OtherReccomandVotes[n]= this.OtherReccomandVotes[n] + updateVote;
+            this.uVL.push(this.myId);
+            suggestion.upVotedList.push(this.myId);
+
+            this.suggestionService.updateSuggestion(suggestion)
+            .toPromise()
+            .then(result => {
+              alert("Successfully updated the suggestion.");
+            }).catch(error => {
+              alert("Something went wrong");
+              console.log(error);
+            });
 
 
-    this.suggestionService.updateSuggestion(suggestionItem)
-      .toPromise()
-      .then(result => {
-        alert("Successfully updated the suggestion.");
-      }).catch(error => {
-        alert("Something went wrong");
-        console.log(error);
-      });
+          }
+          });
+        });
+        
+
+      
 
 
-      this.OtherReccomandVotes[n]++;
   }
 
+  updateSuggestionDownVotes(userId,suggestionData,suggestionId,votes,n,updateVote){
+   
+    this.suggestionService.getAllSuggestions().subscribe((result: any) => {
+      let suggestions = result.data;
+      
+      suggestions.forEach(suggestion => {
+        
+       if (suggestion._id==suggestionId){
+         this.dVL=suggestion.downVotedList + this.dVL;
+         //this.dVL=[this.myId];
+
+        for(let downvotedguy of this.dVL){
+          
+          if(this.myId==downvotedguy){
+            alert("You have voted already !!!");
+            return;
+          }
+        }
+        suggestion.votesCount=suggestion.votesCount + updateVote;
+        this.OtherReccomandVotes[n]= this.OtherReccomandVotes[n] + updateVote;
+        this.dVL.push(this.myId);
+        suggestion.downVotedList.push(this.myId);
+
+        this.suggestionService.updateSuggestion(suggestion)
+        .toPromise()
+        .then(result => {
+          alert("Successfully updated the suggestion.");
+        }).catch(error => {
+          alert("Something went wrong");
+          console.log(error);
+        });
+
+
+      }
+      });
+    });
+    
 
 
 
+
+}
 }

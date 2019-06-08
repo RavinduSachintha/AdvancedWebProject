@@ -9,7 +9,7 @@
   <div class="custom1 card border-primary col-md-4" style="max-width: 20rem; height:300px;">
     <div class="card-header text-info">Highest Voted Sinhala Word</div>
     <div class="card-body text-primary">
-      <h2 class="customsinhalaword">{{WordData[0][1]}} </h2>
+      <h2 class="customsinhalaword">{{WordData[0][1] ? WordData[0][1] : "No Words!!"}} </h2>
     </div>
   </div>
   <div class="custom1 card border-primary col-md-4" style="max-width: 20rem; height:300px;">
@@ -17,7 +17,7 @@
     <div class="card-body text-primary">
       <div class="container md-col-3">
         <h4>Voted By</h4>
-        <div class="customcontainer1">{{numofvotes}}</div>
+        <div class="customcontainer1">{{ numofvotes < 0 ? 0 : numofvotes }}</div>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
   <h2 class="heading1"> Add Your Suggestion For Word<font color="blue"> "{{WordData[0][0] | titlecase}}" </font></h2><br>
   <input #suggestion ngModel type="text" class="form-control" placeholder="Enter Suggestion Here..." ><br>
   <div [class.d-none]="show">
-      <font color="green">You Successfully Suggested <strong>{{submittedWord}} </strong> for වලාකුළු </font>
+      <font color="green">You Successfully Suggested <strong>{{submittedWord}} </strong> </font>
   </div>
   <div [class.d-none]="empty">
       <font color="red">Suggested Word Must not be Empty </font>

@@ -1,6 +1,6 @@
 <div class="main">
   <div class="input-group" >
-    <input ngModel type="text" class="form-control" placeholder="Search the word here!!!" #word>
+    <input ngModel type="text" class="form-control" placeholder="Search the word here!!!" #word style="border-color:cornflowerblue;border-width:5px;">
     <div class="input-group-append">
       <button  (click)="SubmitWord(word.value)"  class="btn btn-secondary" type="button" >
         <i class="fa fa-search"></i>
@@ -23,15 +23,19 @@
 </h2>
 
   <div class="container con1" *ngFor="let w of listOfWords;let i=index">
-      <div *ngIf="i<4" class="con4 ">
+      <div *ngIf="i<3" class="con4 ">
           <div class="con5">
             <p  class="heading1 con2">{{w[1] | titlecase}}</p>
             <div class="con6">
               <button (click)="cardSubmit(w[0])" style="float:right" >view More..</button>
-            </div>
-            
+            </div> 
           </div>
+
+
       </div>
+
+
+     
   </div>
   
 </div>

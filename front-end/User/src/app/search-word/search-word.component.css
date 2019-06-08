@@ -43,6 +43,7 @@
     background-color: cornflowerblue;
     width:60ch;
     height: 25ch;
+    border-radius: 5ch;
 }
 .con5{
     padding-left:4ch;
@@ -53,4 +54,7 @@
 }
 .con6{
     padding:2ch;
+}
+.row{
+    display:inline-block;
 }
