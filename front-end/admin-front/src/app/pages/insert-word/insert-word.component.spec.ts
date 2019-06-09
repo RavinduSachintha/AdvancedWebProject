@@ -1,16 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterTestingModule } from "@angular/router/testing";
+import { FormsModule } from "@angular/forms";
 
-import { InsertWordComponent } from './insert-word.component';
+import { InsertWordComponent } from "./insert-word.component";
+import { SideBarComponent } from "../../components/side-bar/side-bar.component";
+import { BreadcrumbComponent } from "../../components/breadcrumb/breadcrumb.component";
 
-describe('InsertWordComponent', () => {
+fdescribe("InsertWordComponent", () => {
   let component: InsertWordComponent;
   let fixture: ComponentFixture<InsertWordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InsertWordComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule, RouterTestingModule, FormsModule],
+      declarations: [InsertWordComponent, SideBarComponent, BreadcrumbComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +24,7 @@ describe('InsertWordComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

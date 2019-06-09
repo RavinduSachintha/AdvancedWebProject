@@ -11,6 +11,8 @@ declare var $: $;
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  title: string = "admin-front";
+
   constructor(private router: Router) {}
 
   ngOnInit() {

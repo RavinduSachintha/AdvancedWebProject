@@ -1,16 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterTestingModule } from "@angular/router/testing";
 
-import { AddAdminComponent } from './add-admin.component';
+import { AddAdminComponent } from "./add-admin.component";
+import { SideBarComponent } from "../../components/side-bar/side-bar.component";
 
-describe('AddAdminComponent', () => {
+fdescribe("AddAdminComponent", () => {
   let component: AddAdminComponent;
   let fixture: ComponentFixture<AddAdminComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddAdminComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientModule, RouterTestingModule],
+      declarations: [AddAdminComponent, SideBarComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +22,7 @@ describe('AddAdminComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
