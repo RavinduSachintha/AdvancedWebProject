@@ -14,6 +14,9 @@ declare var $: $;
 export class WordRoundsComponent implements OnInit {
   wordList = [];
 
+  // for pagination
+  p: number = 1;
+
   selectedWord: Word = {
     wordId: "",
     data: "",
