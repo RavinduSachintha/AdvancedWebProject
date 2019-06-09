@@ -16,6 +16,7 @@ export enum HttpEnum {
   WORD_COMPLETE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/word/count/all/complete",
   WORD_INCOMPLETE_ALL_COUNT = "https://www.wadanpabanduma.tk/backend/word/count/all/incomplete",
   WORD_CREATE = "https://www.wadanpabanduma.tk/backend/word/create",
+  WORD_UPDATE = "https://www.wadanpabanduma.tk/backend/word/update",
 
   SUGGESTION_RETRIEVE_ALL = "https://www.wadanpabanduma.tk/backend/suggestion/retrieve/all",
   SUGGESTION_RETRIEVE_BY_PART = "https://www.wadanpabanduma.tk/backend/suggestion/retrieve/suggestionPart",

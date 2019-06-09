@@ -19,13 +19,24 @@ export class HttpBackendRequestService {
 
   // POST request sending function with token
   realizarHttpPostWithToken(requestType: string, bodyObject: Object) {
-    console.log(bodyObject);
     const token = localStorage.getItem("accessToken");
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
       "x-access-token": token
     });
     return this.http.post(requestType, bodyObject, {
+      headers: headers
+    });
+  }
+
+  // PUT request sending function with token
+  realizarHttpPutWithToken(requestType: string, bodyObject: Object) {
+    const token = localStorage.getItem("accessToken");
+    const headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-access-token": token
+    });
+    return this.http.put(requestType, bodyObject, {
       headers: headers
     });
   }

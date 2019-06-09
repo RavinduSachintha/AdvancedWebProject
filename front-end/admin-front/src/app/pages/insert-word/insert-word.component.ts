@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Word } from "../../models/word";
 import { WordService } from "src/app/services/word.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-insert-word",
@@ -10,28 +11,35 @@ import { WordService } from "src/app/services/word.service";
 export class InsertWordComponent implements OnInit {
   data: string;
   description: string;
-  activeState: string;
 
-  constructor(private wordService: WordService) {}
+  constructor(private wordService: WordService, private router: Router) {}
 
   ngOnInit() {
     this.data = "";
     this.description = "";
-    this.activeState = "";
   }
 
   submitForm() {
     let word: Word = {
       data: this.data,
       description: this.description,
-      activeState: this.activeState
+      activeState: "inactive",
+      state: "incomplete",
+      createdDate: Date.now().toString()
     };
 
     this.wordService
       .insertWord(word)
       .then(() => {
         alert("Successfully added the word");
+        if (confirm("Do you want to start a round now ?")) {
+          this.router.navigate(["/word-rounds"]);
+        }
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
+      .finally(() => {
+        this.data = "";
+        this.description = "";
+      });
   }
 }

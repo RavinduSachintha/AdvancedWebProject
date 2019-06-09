@@ -3,28 +3,10 @@ import { WordService } from "src/app/services/word.service";
 import { SuggestionService } from "src/app/services/suggestion.service";
 import { Subscription } from "rxjs";
 import * as $ from "jquery";
+import { Word } from "src/app/models/word";
+import { Suggestion } from "src/app/models/suggestion";
 
 declare var $: $;
-
-export interface Word {
-  data: string;
-  bestSuggestion: string;
-  description: string;
-  state: string;
-  activeState: string;
-  startDate: string;
-  endDate: string;
-  createdDate: string;
-}
-
-export interface Suggestion {
-  data: string;
-  wordId: string;
-  userId: string;
-  state: string;
-  votesCount: number;
-  createdDate: string;
-}
 
 @Component({
   selector: "app-view-word-suggestion",
@@ -58,7 +40,7 @@ export class ViewWordSuggestionComponent implements OnInit, OnDestroy {
     state: "",
     votesCount: 0,
     createdDate: ""
-  }
+  };
 
   getWordsSub: Subscription;
   getSuggestionsSub: Subscription;

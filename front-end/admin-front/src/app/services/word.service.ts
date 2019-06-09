@@ -58,9 +58,15 @@ export class WordService {
   }
 
   insertWord(word: Word) {
-    return this.httpBackendRequest.realizarHttpPostWithToken(
-      HttpEnum.WORD_CREATE,
-      word
-    ).toPromise();
+    return this.httpBackendRequest
+      .realizarHttpPostWithToken(HttpEnum.WORD_CREATE, word)
+      .toPromise();
+  }
+
+  updateWord(word: Word) {
+    console.log(word);
+    return this.httpBackendRequest
+      .realizarHttpPutWithToken(HttpEnum.WORD_UPDATE, word)
+      .toPromise();
   }
 }
