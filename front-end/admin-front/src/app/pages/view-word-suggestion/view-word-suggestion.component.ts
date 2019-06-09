@@ -56,6 +56,9 @@ export class ViewWordSuggestionComponent implements OnInit, OnDestroy {
       .getAllWords()
       .subscribe((result: any) => {
         for (const word of result.data) {
+          // word.createdDate = this.formatDate(word.createdDate);
+          // word.startDate = this.formatDate(word.startDate);
+          // word.endDate = this.formatDate(word.endDate);
           this.wordList.push(word);
         }
       });
@@ -152,5 +155,9 @@ export class ViewWordSuggestionComponent implements OnInit, OnDestroy {
 
   isSuperAdminUser() {
     return localStorage.getItem("userType") == "super-admin";
+  }
+
+  formatDate(date: string) {
+    return date.slice(0, 10);
   }
 }

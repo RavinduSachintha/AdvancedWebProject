@@ -59,6 +59,14 @@ class AuthController {
       .then(user => callback(null, user))
       .catch(err => callback(err));
   }
+
+  // get users using id from DB
+  getUserById(id, callback) {
+    userModel
+      .findOne({ _id: id })
+      .then(user => callback(null, user))
+      .catch(err => callback(err));
+  }
 }
 
 module.exports = AuthController;

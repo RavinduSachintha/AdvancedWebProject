@@ -19,7 +19,7 @@ router.post("/", function(req, res) {
       username: req.body.username,
       password: req.body.password,
       usertype: req.body.usertype,
-      userLevel: req.body.userLevel,
+      userLevel: 1,
       votedWordCount: req.body.votedWordCount,
       suggestedWordCount: req.body.suggestedWordCount,
       joinedDate: req.body.joinedDate,
