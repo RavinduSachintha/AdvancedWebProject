@@ -23,10 +23,10 @@ export class AddAdminComponent implements OnInit {
       username: this.username,
       email: this.email,
       password: this.password,
+      state: "active",
       usertype: "admin",
       joinedDate: Date.now().toString()
     };
-    console.log(admin)
     this.userService
       .insertAnAdmin(admin)
       .then(() => {

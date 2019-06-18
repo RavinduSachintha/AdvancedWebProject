@@ -6,4 +6,5 @@ export interface AdminUser {
   usertype?: string;
   joinedDate?: string;
   token?: string;
+  state?: string;
 }
