@@ -27,6 +27,7 @@ export class AuthenticationService {
               localStorage.setItem("userId", result.data.user.userId);
               localStorage.setItem("userType", result.data.user.usertype);
               localStorage.setItem("accessToken", result.data.token);
+              localStorage.setItem("user",result.data.user._id);
             }
             this.router.navigate(["/dashboard"]);
           } else {

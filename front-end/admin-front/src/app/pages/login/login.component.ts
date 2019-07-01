@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       $("#recoverform").hide();
       $("#loginform").fadeIn();
     });
+    console.log('hi')
   }
 
   ngOnDestroy() {

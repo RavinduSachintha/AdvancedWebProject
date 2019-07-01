@@ -7,23 +7,50 @@
   <div class="row">
     <div class="col-sm-4">
       <img src="assets/images/users/user_icon.png" width="400px" height="500px">
+      <!-- <input type="file" class="btn btn-primary"style="margin-left: 10%"/> -->
+      <div>
+        <label for="files" class="btn btn-outline-primary" style="margin-left: 30%">Upload Image</label>
+        <input id="files" style="visibility:hidden;" type="file">
+      </div>
+
+
     </div>
     <div class="col-sm-6" style="margin-top: 50px">
       <h2>User Profile</h2>
       <div style="margin-top: 50px">
           <label for="exampleInputEmail1">Name</label>
-          <input type="text" class="form-control" id="exampleInputEmail1"  value="Thusitha Bandara">
+          <input type="text" class="form-control" id="exampleInputEmail1"  [(ngModel)]= "name">
       </div>
       <div style="margin-top: 50px">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1"  value="thusitha@gmail.com">
+          <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="email">
         </div>
       <div class="row" style="margin-top:50px">
-          <button [routerLink]="['..', 'editdetails']" routerLinkActive="router-link-active"  class="btn btn-outline-success" style="margin: 20px 10px; padding: 4px 10px;"><i class="fas fa-edit"></i> Edit My Details</button>
 
-          <button [routerLink]="['..', 'changepassword']" routerLinkActive="router-link-active" class="btn btn-outline-warning" style="margin: 20px 10px; padding: 4px 10px;"><i class="fas fa-lock"></i> Change Password</button>
+          <button type="button" class="btn btn-success" style="margin: 20px 10px; padding: 4px 10px;">Edit My Details</button>
+          <button type="button" class="btn btn-danger" style="margin: 20px 10px; padding: 4px 10px;">Cancel</button>
+
+        </div>
+        <h2>Change Password</h2>
+        <div style="margin-top: 50px">
+          <label for="exampleInputPassword">Current Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword"  >
+        </div>
+        <div style="margin-top: 50px">
+          <label for="exampleInputNewPassword">New Password</label>
+          <input type="password" class="form-control" id="exampleInputNewPassword" >
+        </div>
+        <div style="margin-top: 50px">
+          <label for="exampleConfirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="exampleConfirmPassword" >
+        </div>
+
+        <div class="row" style="margin-top:50px">
+          <button type="button" class="btn btn-success" style="margin: 20px 10px; padding: 4px 10px;">Edit My Password</button>
+          <button type="button" class="btn btn-danger" style="margin: 20px 10px; padding: 4px 10px;">Cancel</button>
         </div>
     </div>
+
   </div>
 </div>
 <!-- ============================================================== -->

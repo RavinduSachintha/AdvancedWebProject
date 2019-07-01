@@ -39,6 +39,13 @@ export class UserService {
     );
   }
 
+
+  getUser(id:string){
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.USER_PROFILE + "/" + id
+    )
+  }
+
   insertAnAdmin(adminUser: AdminUser) {
     return this.httpBackendRequest.realizarHttpPost(
       HttpEnum.USER_REGISTER,

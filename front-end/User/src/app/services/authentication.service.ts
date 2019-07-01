@@ -17,7 +17,7 @@ export class AuthenticationService {
   ) {}
 
   // login function for users
-  loginUser(user: User) {
+  loginUser(user: User)  {
     this.httpBackendRequest
       .realizarHttpPostWithoutToken(HttpEnum.USER_LOGIN, user)
       .subscribe(
@@ -33,6 +33,7 @@ export class AuthenticationService {
               localStorage.setItem("name", result.data.user.name);
               localStorage.setItem("profession", result.data.user.profession);
               localStorage.setItem("accessToken", result.data.token);
+              localStorage.setItem("user",result.user)
               // localStorage.setItem("user", JSON.stringify(result.data.user));
             }
             // this.router.navigate(["/insertword"]);
