@@ -22,9 +22,10 @@ import { InsertWordComponent } from './pages/insert-word/insert-word.component';
 import { WordRoundsComponent } from './pages/word-rounds/word-rounds.component';
 import { AddAdminComponent } from './pages/add-admin/add-admin.component';
 import { RankingCriteriaComponent } from './pages/ranking-criteria/ranking-criteria.component';
+import { ChangeDetailsComponent } from './pages/change-details/change-details.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, NavBarComponent, SideBarComponent, StatisticsComponent, ViewRegUserComponent, ViewWordSuggestionComponent, ProfileComponent, BreadcrumbComponent, InsertWordComponent, WordRoundsComponent, AddAdminComponent, RankingCriteriaComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, NavBarComponent, SideBarComponent, StatisticsComponent, ViewRegUserComponent, ViewWordSuggestionComponent, ProfileComponent, BreadcrumbComponent, InsertWordComponent, WordRoundsComponent, AddAdminComponent, RankingCriteriaComponent, ChangeDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgxPaginationModule],
   providers: [HttpBackendRequestService, AuthenticationService],
   bootstrap: [AppComponent]

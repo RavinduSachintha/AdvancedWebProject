@@ -37,4 +37,10 @@ export class UserService {
       HttpEnum.USER_DELETE + "/" + id
     );
   }
+
+  getUser(id:string){
+    return this.httpBackendRequest.realizarHttpGetWithToken(
+      HttpEnum.USER_PROFILE + "/" + id
+    )
+  }
 }
