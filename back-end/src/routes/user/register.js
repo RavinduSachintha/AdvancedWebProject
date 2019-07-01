@@ -19,11 +19,12 @@ router.post("/", function(req, res) {
       username: req.body.username,
       password: req.body.password,
       usertype: req.body.usertype,
-      userLevel: req.body.userLevel,
+      userLevel: 1,
       votedWordCount: req.body.votedWordCount,
       suggestedWordCount: req.body.suggestedWordCount,
       joinedDate: req.body.joinedDate,
-      state: req.body.state
+      state: req.body.state,
+      name: req.body.name
     };
 
     // register the user in system

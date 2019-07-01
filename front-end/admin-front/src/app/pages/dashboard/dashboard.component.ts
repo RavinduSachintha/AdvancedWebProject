@@ -26,8 +26,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
   suggestions_subcri: Subscription;
   comments_subcri: Subscription;
   words_complete_subcri: Subscription;
+  getWordsSub: Subscription;
 
   isLoaded: boolean;
+
+  wordList = [];
 
   constructor(
     private userService: UserService,
@@ -47,9 +50,26 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.dataInitializer();
+    this.getWordsSub = this.wordService
+      .getAllWords()
+      .subscribe((result: any) => {
+        let i = 0;
+        for (const word of result.data) {
+          // word.createdDate = this.formatDate(word.createdDate);
+          // word.startDate = this.formatDate(word.startDate);
+          // word.endDate = this.formatDate(word.endDate);
+          if (word.state == "incomplete" && word.activeState == "active") {
+            this.wordList.push(word);
+            i++;
+            if (i >= 10) break;
+          }
+        }
+      });
   }
 
   ngOnDestroy() {
+    this.wordList = [];
+    this.getWordsSub.unsubscribe();
     this.reg_users_subcri.unsubscribe();
     this.admins_subcri.unsubscribe();
     this.words_subcri.unsubscribe();

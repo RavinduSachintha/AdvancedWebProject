@@ -26,7 +26,7 @@
     <!-- ============================================================== -->
     <div *ngIf="isSuperAdminUser()" class="row">
       <!-- Column -->
-      <div class="col-md-6 col-lg-3 col-xlg-3">
+      <div class="col-md-12 col-lg-4 col-xlg-4">
         <div class="card card-hover">
           <a routerLink="/insert-word">
             <div class="box bg-cyan text-center">
@@ -39,7 +39,7 @@
         </div>
       </div>
       <!-- Column -->
-      <div class="col-md-6 col-lg-3 col-xlg-3">
+      <div class="col-md-12 col-lg-4 col-xlg-4">
         <div class="card card-hover">
           <a routerLink="/word-rounds">
             <div class="box bg-success text-center">
@@ -52,7 +52,7 @@
         </div>
       </div>
       <!-- Column -->
-      <div class="col-md-6 col-lg-3 col-xlg-3">
+      <div class="col-md-12 col-lg-4 col-xlg-4">
         <div class="card card-hover">
           <a routerLink="/add-admin">
             <div class="box bg-warning text-center">
@@ -60,19 +60,6 @@
                 <i class="mdi mdi-arrow-all"></i>
               </h1>
               <h6 class="text-white">Add An Admin</h6>
-            </div>
-          </a>
-        </div>
-      </div>
-      <!-- Column -->
-      <div class="col-md-6 col-lg-3 col-xlg-3">
-        <div class="card card-hover">
-          <a routerLink="/ranking-criteria">
-            <div class="box bg-danger text-center">
-              <h1 class="font-light text-white">
-                <i class="mdi mdi-border-outside"></i>
-              </h1>
-              <h6 class="text-white">Ranking Criteria</h6>
             </div>
           </a>
         </div>
@@ -161,95 +148,30 @@
         <!-- card new -->
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title m-b-0">News Updates</h4>
+            <h4 class="card-title m-b-0">New Words on Rounds</h4>
           </div>
-          <ul class="list-style-none">
-            <li class="d-flex no-block card-body">
-              <i class="fa fa-check-circle w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a
-                >
-                <span class="text-muted"
-                  >dolor sit amet, consectetur adipiscing</span
-                >
+          <div class="comment-widgets scrollable">
+            <div
+              *ngFor="let word of wordList"
+              class="d-flex flex-row comment-row m-t-0"
+            >
+              <div class="comment-text w-100">
+                <h6 class="font-medium">
+                  {{ word.data }}
+                  <span
+                    class="badge badge-pill badge-warning ml-3 text-white font-weight-bold"
+                  >
+                    {{ word.state }}
+                  </span>
+                  <span
+                    class="badge badge-pill badge-secondary ml-3 text-white font-weight-bold"
+                  >
+                    {{ word.activeState }}
+                  </span>
+                </h6>
               </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">20</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-gift w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Congratulation Maruti, Happy Birthday</a
-                >
-                <span class="text-muted"
-                  >many many happy returns of the day</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">11</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-plus w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Maruti is a Responsive Admin theme</a
-                >
-                <span class="text-muted"
-                  >But already everything was solved. It will ...</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">19</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-leaf w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Envato approved Maruti Admin template</a
-                >
-                <span class="text-muted"
-                  >i am very happy to approved by TF</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">20</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-question-circle w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0">
-                  I am alwayse here if you have any question</a
-                >
-                <span class="text-muted"
-                  >we glad that you choose our template</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">15</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
       <!-- column -->
@@ -257,96 +179,7 @@
       <div class="col-lg-6">
         <!-- card new -->
         <div class="card">
-          <div class="card-body">
-            <h4 class="card-title m-b-0">News Updates</h4>
-          </div>
-          <ul class="list-style-none">
-            <li class="d-flex no-block card-body">
-              <i class="fa fa-check-circle w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a
-                >
-                <span class="text-muted"
-                  >dolor sit amet, consectetur adipiscing</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">20</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-gift w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Congratulation Maruti, Happy Birthday</a
-                >
-                <span class="text-muted"
-                  >many many happy returns of the day</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">11</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-plus w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Maruti is a Responsive Admin theme</a
-                >
-                <span class="text-muted"
-                  >But already everything was solved. It will ...</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">19</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-leaf w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0"
-                  >Envato approved Maruti Admin template</a
-                >
-                <span class="text-muted"
-                  >i am very happy to approved by TF</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">20</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-            <li class="d-flex no-block card-body border-top">
-              <i class="fa fa-question-circle w-30px m-t-5"></i>
-              <div>
-                <a href="#" class="m-b-0 font-medium p-0">
-                  I am alwayse here if you have any question</a
-                >
-                <span class="text-muted"
-                  >we glad that you choose our template</span
-                >
-              </div>
-              <div class="ml-auto">
-                <div class="tetx-right">
-                  <h5 class="text-muted m-b-0">15</h5>
-                  <span class="text-muted font-16">Jan</span>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <img src="../../../assets/images/dashboard_logo.jpeg" height="300"/>
         </div>
       </div>
     </div>

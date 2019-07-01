@@ -46,7 +46,7 @@ export class ViewRegUserComponent implements OnInit, OnDestroy {
       .subscribe((result: any) => {
         for (const user of result.data) {
           // console.log(user)
-          if(user.usertype != "super-admin"){
+          if (user.usertype != "super-admin") {
             this.userList.push(user);
           }
         }

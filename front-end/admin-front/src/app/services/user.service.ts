@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpBackendRequestService } from "./http-backend-request.service";
 import { HttpEnum } from "../utils/http-enum.enum";
+import { AdminUser } from "../models/admin-user";
 
 @Injectable({
   providedIn: "root"
@@ -38,9 +39,17 @@ export class UserService {
     );
   }
 
+
   getUser(id:string){
     return this.httpBackendRequest.realizarHttpGetWithToken(
       HttpEnum.USER_PROFILE + "/" + id
     )
+  }
+
+  insertAnAdmin(adminUser: AdminUser) {
+    return this.httpBackendRequest.realizarHttpPost(
+      HttpEnum.USER_REGISTER,
+      adminUser
+    ).toPromise();
   }
 }

@@ -4,10 +4,198 @@
 <!-- Page wrapper  -->
 <!-- ============================================================== -->
 <div class="page-wrapper">
-  <p>
-    Profile works !
-  </p>
+  <!-- Bread crumb -->
+  <app-breadcrumb pageTitle="Word Rounds"></app-breadcrumb>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-lg-8 col-md-8 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Words</h4>
+          </div>
+          <div class="comment-widgets scrollable">
+            <div
+              *ngFor="
+                let word of wordList
+                  | paginate
+                    : {
+                        id: 'wordPagination',
+                        itemsPerPage: 10,
+                        currentPage: p
+                      };
+                let i = index
+              "
+              class="d-flex flex-row comment-row m-t-0"
+            >
+              <div class="comment-text w-100">
+                <h6 class="font-medium">
+                  {{ word.data }}
+                  <span
+                    class="badge badge-pill badge-warning ml-3 text-white font-weight-bold"
+                  >
+                    {{ word.state }}
+                  </span>
+                  <span
+                    class="badge badge-pill badge-secondary ml-3 text-white font-weight-bold"
+                  >
+                    {{ word.activeState }}
+                  </span>
+                </h6>
+                <div class="comment-footer">
+                  <span class="text-muted float-right">{{
+                    word.createdDate
+                  }}</span>
+                  <button
+                    type="button"
+                    class="btn btn-success btn-sm btn-dec"
+                    (click)="startRoundWordModal(i)"
+                  >
+                    Start a Round
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-cyan btn-sm btn-dec"
+                    (click)="openViewWordModal(i)"
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <pagination-controls
+              id="wordPagination"
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+  </div>
 </div>
-<!-- ============================================================== -->
-<!-- End Page wrapper  -->
-<!-- ============================================================== -->
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  id="viewWordModel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h4 class="modal-title">{{ selectedWord.data }}</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <table class="mx-auto">
+            <tr>
+              <td class="text-left"><b>Description</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.description }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>State</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.state }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Active State</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.activeState }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Best Suggestion</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.bestSuggestion }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Start Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.startDate }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>End Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.endDate }}</td>
+            </tr>
+            <tr>
+              <td class="text-left"><b>Created Date</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">{{ selectedWord.createdDate }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  id="startRoundWordModel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h4 class="modal-title">
+          {{ selectedWord.data }} - Round Informations
+        </h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <table class="mx-auto">
+            <tr>
+              <td class="text-left"><b>End Date of the Round</b></td>
+              <td class="text-right"><b> &nbsp; :</b></td>
+              <td class="pl-2">
+                <input #endDate type="date" name="endDate" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          (click)="startRound(endDate.value)"
+        >
+          Start
+        </button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
