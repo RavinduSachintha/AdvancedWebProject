@@ -1,19 +1,48 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header class="header">
+      <mat-card-title>Log In</mat-card-title>
+    </mat-card-header>
+
+    <form class="login-form">
+      <mat-card-content>
+        <mat-form-field class="login-full-width">
+          <input matInput placeholder="Email Address" />
+        </mat-form-field>
+
+        <mat-form-field class="login-full-width">
+          <input matInput placeholder="Password" />
+        </mat-form-field>
+      </mat-card-content>
+      <div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="20px">
+        <button
+          mat-stroked-button
+          fxFlexAlign="start"
+          color="primary"
+          class="btn-box"
+          type="submit"
+        >
+          Log in
+        </button>
+        <button
+          mat-stroked-button
+          fxFlexAlign="end"
+          color="primary"
+          class="btn-box"
+          type="reset"
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+
+    <p class="seperater">OR</p>
+
+    <button mat-flat-button color="primary" class="btn-block">
+        Use Google Sign-In
+    </button>
+
+    <p class="text-center" style="margin-top:40px">Haven't an account yet? <a routerLink="/auth/sign-up"> Register Now</a></p>
+    <p class="text-center">Forgot the password? <a routerLink="."> Reset It</a></p>
+  </mat-card>
+</div>
