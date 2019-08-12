@@ -5,6 +5,18 @@ const routes: Routes = [
   {
     path: "auth",
     loadChildren: "./authentication/authentication.module#AuthenticationModule"
+  },
+  {
+    path: "user",
+    loadChildren: "./user/user.module#UserModule"
+  },
+  {
+    path: "word",
+    loadChildren: "./word/word.module#WordModule"
+  },
+  {
+    path: "**",
+    redirectTo: "auth/login"
   }
 ];
 
