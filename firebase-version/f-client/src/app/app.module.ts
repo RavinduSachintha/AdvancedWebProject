@@ -15,7 +15,6 @@ import { environment } from "../environments/environment";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AuthenticationModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
