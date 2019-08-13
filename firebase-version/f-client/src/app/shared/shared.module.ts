@@ -12,15 +12,17 @@ import {
   MatSidenavModule,
   MatListModule
 } from "@angular/material";
-import { LayoutModule } from '@angular/cdk/layout';
+import { LayoutModule } from "@angular/cdk/layout";
+import { RouterModule } from "@angular/router";
 
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from "./navbar/navbar.component";
 
 @NgModule({
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
+    RouterModule,
     MatButtonModule,
     MatGridListModule,
     MatCardModule,

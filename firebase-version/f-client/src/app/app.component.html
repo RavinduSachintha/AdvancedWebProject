@@ -1,1 +1,5 @@
-<router-outlet></router-outlet>
+<router-outlet *ngIf="isAuthRoute()"></router-outlet>
+
+<app-navbar *ngIf="!isAuthRoute()">
+  <router-outlet></router-outlet>
+</app-navbar>

@@ -5,6 +5,7 @@ import { AuthenticationModule } from "./authentication/authentication.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { SharedModule } from "./shared/shared.module";
 
 import { AppComponent } from "./app.component";
 import { environment } from "../environments/environment";
@@ -17,7 +18,8 @@ import { environment } from "../environments/environment";
     AuthenticationModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
