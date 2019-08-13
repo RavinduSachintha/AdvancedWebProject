@@ -16,9 +16,10 @@ import { LayoutModule } from "@angular/cdk/layout";
 import { RouterModule } from "@angular/router";
 
 import { NavbarComponent } from "./navbar/navbar.component";
+import { LoadingComponent } from "./loading/loading.component";
 
 @NgModule({
-  declarations: [NavbarComponent],
+  declarations: [NavbarComponent, LoadingComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -42,7 +43,8 @@ import { NavbarComponent } from "./navbar/navbar.component";
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    NavbarComponent
+    NavbarComponent,
+    LoadingComponent
   ]
 })
 export class SharedModule {}

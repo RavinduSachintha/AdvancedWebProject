@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, NgZone } from "@angular/core";
 import { AuthService } from "src/app/services/auth.service";
 import { Router } from "@angular/router";
 
@@ -8,13 +8,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./login-page.component.scss"]
 })
 export class LoginPageComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private ngZone: NgZone) {}
 
   ngOnInit() {}
 
   signInByGoogle() {
     this.authService.loginWithGoogle().then(() => {
-      this.router.navigate(["user/home"]);
+      this.ngZone.run(()=>this.router.navigate(["loading"]).then());
     });
   }
 }
